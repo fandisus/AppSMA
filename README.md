@@ -7,7 +7,7 @@ Fitur utama yaitu Manajemen Penjadwalan Mata Pelajaran dan Penjurusan Siswa.<br/
 System Requirment
 =================
 
-.NET Framework 3.5 SP1
+.NET Framework 3.5 SP1<br/>
 Visual Studio 2008 SP1<br/>
 Microsoft Sql Server 2005 Express Ed.<br/>
 
