@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SiakSmanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="SiakSmanModelStoreContainer">
+          <EntitySet Name="MasterGuru" EntityType="SiakSmanModel.Store.MasterGuru" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterKaryawan" EntityType="SiakSmanModel.Store.MasterKaryawan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterSiswa" EntityType="SiakSmanModel.Store.MasterSiswa" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="MasterGuru">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NIP" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="GuruID" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="Nama" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="JenisKelamin" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="TempatLahir" Type="varchar" MaxLength="64" />
+          <Property Name="TanggalLahir" Type="datetime" Nullable="false" />
+          <Property Name="Agama" Type="varchar" MaxLength="16" />
+          <Property Name="Email" Type="varchar" MaxLength="72" />
+          <Property Name="Alamat" Type="varchar" MaxLength="128" />
+          <Property Name="Kota" Type="varchar" MaxLength="64" />
+          <Property Name="KodePos" Type="varchar" MaxLength="5" />
+          <Property Name="NoTelephone" Type="varchar" MaxLength="16" />
+          <Property Name="NoHP" Type="varchar" MaxLength="16" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="MasterKaryawan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NIP" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="KaryawanID" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="Nama" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="JenisKelamin" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="TempatLahir" Type="varchar" MaxLength="64" />
+          <Property Name="TanggalLahir" Type="datetime" Nullable="false" />
+          <Property Name="Agama" Type="varchar" MaxLength="16" />
+          <Property Name="Email" Type="varchar" MaxLength="72" />
+          <Property Name="Alamat" Type="varchar" MaxLength="128" />
+          <Property Name="Kota" Type="varchar" MaxLength="64" />
+          <Property Name="KodePos" Type="varchar" MaxLength="5" />
+          <Property Name="NoTelephone" Type="varchar" MaxLength="16" />
+          <Property Name="NoHP" Type="varchar" MaxLength="16" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="MasterSiswa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NIS" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="Nama" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="JenisKelamin" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="TempatLahir" Type="varchar" MaxLength="64" />
+          <Property Name="TanggalLahir" Type="datetime" Nullable="false" />
+          <Property Name="Agama" Type="varchar" MaxLength="12" />
+          <Property Name="Email" Type="varchar" MaxLength="72" />
+          <Property Name="Alamat" Type="varchar" MaxLength="128" />
+          <Property Name="Kota" Type="varchar" MaxLength="64" />
+          <Property Name="KodePos" Type="varchar" MaxLength="5" />
+          <Property Name="NoTelephone" Type="varchar" MaxLength="16" />
+          <Property Name="NoHP" Type="varchar" MaxLength="16" />
+          <Property Name="TanggalMasuk" Type="datetime" Nullable="false" />
+          <Property Name="NamaSMPAsal" Type="varchar" MaxLength="128" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="NamaAyah" Type="varchar" MaxLength="64" />
+          <Property Name="NamaIbu" Type="varchar" MaxLength="64" />
+          <Property Name="AlamatOrangTua" Type="varchar" MaxLength="128" />
+          <Property Name="KotaOrangTua" Type="varchar" MaxLength="64" />
+          <Property Name="KodePosOrangTua" Type="varchar" MaxLength="5" />
+          <Property Name="NoTelephoneOrangTua" Type="varchar" MaxLength="16" />
+          <Property Name="NoHPOrangTua" Type="varchar" MaxLength="16" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SiakSmanModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="SiakSmanEntities">
+          <EntitySet Name="MasterGuru" EntityType="SiakSmanModel.MasterGuru" />
+          <EntitySet Name="MasterKaryawan" EntityType="SiakSmanModel.MasterKaryawan" />
+          <EntitySet Name="MasterSiswa" EntityType="SiakSmanModel.MasterSiswa" />
+        </EntityContainer>
+        <EntityType Name="MasterGuru">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NIP" Type="String" Nullable="false" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="GuruID" Type="String" Nullable="false" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="Nama" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="JenisKelamin" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="TempatLahir" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="TanggalLahir" Type="DateTime" Nullable="false" />
+          <Property Name="Agama" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="72" Unicode="false" FixedLength="false" />
+          <Property Name="Alamat" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Kota" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="KodePos" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelephone" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MasterKaryawan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NIP" Type="String" Nullable="false" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="KaryawanID" Type="String" Nullable="false" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="Nama" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="JenisKelamin" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="TempatLahir" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="TanggalLahir" Type="DateTime" Nullable="false" />
+          <Property Name="Agama" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="72" Unicode="false" FixedLength="false" />
+          <Property Name="Alamat" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Kota" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="KodePos" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelephone" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MasterSiswa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NIS" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Nama" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="JenisKelamin" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="TempatLahir" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="TanggalLahir" Type="DateTime" Nullable="false" />
+          <Property Name="Agama" Type="String" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="72" Unicode="false" FixedLength="false" />
+          <Property Name="Alamat" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Kota" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="KodePos" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelephone" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="TanggalMasuk" Type="DateTime" Nullable="false" />
+          <Property Name="NamaSMPAsal" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NamaAyah" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="NamaIbu" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="AlamatOrangTua" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="KotaOrangTua" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="KodePosOrangTua" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelephoneOrangTua" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="NoHPOrangTua" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="SiakSmanModelStoreContainer" CdmEntityContainer="SiakSmanEntities">
+          <EntitySetMapping Name="MasterGuru">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterGuru)">
+              <MappingFragment StoreEntitySet="MasterGuru">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="GuruID" ColumnName="GuruID" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="JenisKelamin" ColumnName="JenisKelamin" />
+                <ScalarProperty Name="TempatLahir" ColumnName="TempatLahir" />
+                <ScalarProperty Name="TanggalLahir" ColumnName="TanggalLahir" />
+                <ScalarProperty Name="Agama" ColumnName="Agama" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+                <ScalarProperty Name="Kota" ColumnName="Kota" />
+                <ScalarProperty Name="KodePos" ColumnName="KodePos" />
+                <ScalarProperty Name="NoTelephone" ColumnName="NoTelephone" />
+                <ScalarProperty Name="NoHP" ColumnName="NoHP" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasterKaryawan">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterKaryawan)">
+              <MappingFragment StoreEntitySet="MasterKaryawan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="KaryawanID" ColumnName="KaryawanID" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="JenisKelamin" ColumnName="JenisKelamin" />
+                <ScalarProperty Name="TempatLahir" ColumnName="TempatLahir" />
+                <ScalarProperty Name="TanggalLahir" ColumnName="TanggalLahir" />
+                <ScalarProperty Name="Agama" ColumnName="Agama" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+                <ScalarProperty Name="Kota" ColumnName="Kota" />
+                <ScalarProperty Name="KodePos" ColumnName="KodePos" />
+                <ScalarProperty Name="NoTelephone" ColumnName="NoTelephone" />
+                <ScalarProperty Name="NoHP" ColumnName="NoHP" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasterSiswa">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterSiswa)">
+              <MappingFragment StoreEntitySet="MasterSiswa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NIS" ColumnName="NIS" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="JenisKelamin" ColumnName="JenisKelamin" />
+                <ScalarProperty Name="TempatLahir" ColumnName="TempatLahir" />
+                <ScalarProperty Name="TanggalLahir" ColumnName="TanggalLahir" />
+                <ScalarProperty Name="Agama" ColumnName="Agama" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+                <ScalarProperty Name="Kota" ColumnName="Kota" />
+                <ScalarProperty Name="KodePos" ColumnName="KodePos" />
+                <ScalarProperty Name="NoTelephone" ColumnName="NoTelephone" />
+                <ScalarProperty Name="NoHP" ColumnName="NoHP" />
+                <ScalarProperty Name="TanggalMasuk" ColumnName="TanggalMasuk" />
+                <ScalarProperty Name="NamaSMPAsal" ColumnName="NamaSMPAsal" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="NamaAyah" ColumnName="NamaAyah" />
+                <ScalarProperty Name="NamaIbu" ColumnName="NamaIbu" />
+                <ScalarProperty Name="AlamatOrangTua" ColumnName="AlamatOrangTua" />
+                <ScalarProperty Name="KotaOrangTua" ColumnName="KotaOrangTua" />
+                <ScalarProperty Name="KodePosOrangTua" ColumnName="KodePosOrangTua" />
+                <ScalarProperty Name="NoTelephoneOrangTua" ColumnName="NoTelephoneOrangTua" />
+                <ScalarProperty Name="NoHPOrangTua" ColumnName="NoHPOrangTua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="DataModel">
+        <EntityTypeShape EntityType="SiakSmanModel.MasterGuru" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterKaryawan" Width="1.5" PointX="2.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterSiswa" Width="1.75" PointX="4.75" PointY="0.75" Height="5.4417122395833326" IsExpanded="true" /></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
