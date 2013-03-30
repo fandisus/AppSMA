@@ -77,6 +77,7 @@
     <Compile Include="BusinessObject\GuruBusinessObject.vb" />
     <Compile Include="BusinessObject\KaryawanBusinessObject.vb" />
     <Compile Include="BusinessObject\KelasBusinessObject.vb" />
+    <Compile Include="BusinessObject\MataPelajaraBusinessObject.vb" />
     <Compile Include="BusinessObject\SiswaBusinessObject.vb" />
     <Compile Include="DataModel\DataModel.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -99,6 +100,12 @@
       <DependentUpon>ListKelas.vb</DependentUpon>
     </Compile>
     <Compile Include="ListKelas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListMataPelajaran.Designer.vb">
+      <DependentUpon>ListMataPelajaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListMataPelajaran.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListSiswa.Designer.vb">
@@ -139,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListKelas.resx">
       <DependentUpon>ListKelas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListMataPelajaran.resx">
+      <DependentUpon>ListMataPelajaran.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListSiswa.resx">
       <DependentUpon>ListSiswa.vb</DependentUpon>

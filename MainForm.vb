@@ -28,19 +28,21 @@
         LayoutMdi(Windows.Forms.MdiLayout.ArrangeIcons)
     End Sub
 
-    Private Sub DataSiswaToolStripMenuItemClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataSiswaToolStripMenuItem.Click
+    Private Sub DataSiswaToolStripMenuItemClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles DataSiswaToolStripMenuItem.Click
         Dim vform As New ListSiswa
         vform.MdiParent = Me
         vform.Show()
     End Sub
 
-    Private Sub DataKelasToolStripMenuItemClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataKelasToolStripMenuItem.Click
+    Private Sub DataKelasToolStripMenuItemClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles DataKelasToolStripMenuItem.Click
         Dim vform As New ListKelas
         vform.MdiParent = Me
         vform.Show()
     End Sub
 
-    Private Sub DataMataPelajaranToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataMataPelajaranToolStripMenuItem.Click
-
+    Private Sub DataMataPelajaranToolStripMenuItemClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles DataMataPelajaranToolStripMenuItem.Click
+        Dim vform As New ListMataPelajaran
+        vform.MdiParent = Me
+        vform.Show()
     End Sub
 End Class

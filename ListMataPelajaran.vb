@@ -1,6 +1,6 @@
 ﻿Imports SistemAkademikSman.BusinessObject
 
-Public Class ListKelas
+Public Class ListMataPelajaran
 
     Private isAddNew As Boolean
     Private recordId As Integer
@@ -35,7 +35,7 @@ Public Class ListKelas
     End Sub
 
     Private Sub LoadList()
-        DataGridView1.DataSource = KelasBusinessObject.GetList()
+        DataGridView1.DataSource = MataPelajaraBusinessObject.GetList()
     End Sub
 
     Private Sub ClearAllField()
@@ -49,21 +49,28 @@ Public Class ListKelas
             Return
         End If
         recordId = Convert.ToInt32(DataGridView1.CurrentRow.Cells("ID").Value)
-        Dim kelas = KelasBusinessObject.GetKelas(recordId)
+        Dim kelas = MataPelajaraBusinessObject.GetMataPelajaran(recordId)
         If kelas Is Nothing Then
             Return
         End If
-        TextBoxKelas.Text = kelas.NamaKelas
-        TextBoxKeterangan.Text = kelas.Keterangan
+        TextBoxMataPelajaran.Text = kelas.MataPelajaran
+        TextBoxSilabus.Text = kelas.Silabus
         TextBoxTahunAjaran.Text = kelas.TahunAjaran
-        TextBoxTingkat.Text = kelas.Tingkat
         SetControl(False)
     End Sub
 
-    Private Sub ListKelasLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
+    Private Sub TextBoxTahunAjaran_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxTahunAjaran.KeyPress
+        If ".1234567890".IndexOf(e.KeyChar.ToString(), StringComparison.Ordinal) > 0 Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub ListMataPelajaranLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         TextBoxTahunAjaran.Focus()
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.DataSource = KelasBusinessObject.GetList()
+        DataGridView1.DataSource = MataPelajaraBusinessObject.GetList()
         AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
     End Sub
 
@@ -72,18 +79,14 @@ Public Class ListKelas
         LoadRecord()
     End Sub
 
-    Private Shared Sub TextBoxTahunAjaranKeyPress(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles TextBoxTahunAjaran.KeyPress, TextBoxTingkat.KeyPress
-        If ".1234567890".IndexOf(e.KeyChar.ToString(), StringComparison.Ordinal) > 0 Then
-            e.Handled = False
-        Else
-            e.Handled = True
-        End If
-    End Sub
-
     Private Sub ButtonTambahClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonTambah.Click
         InsertState()
         ClearAllField()
         SetControl(True)
+    End Sub
+
+    Private Sub ButtonRefreshClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonRefresh.Click
+        LoadList()
     End Sub
 
     Private Sub ButtonUbahClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonUbah.Click
@@ -93,36 +96,32 @@ Public Class ListKelas
 
     Private Sub ButtonSimpanClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonSimpan.Click
         If isAddNew Then
-            InsertKelas()
+            InsertMataPelajaran()
         Else
-            UpdateKelas()
+            UpdateMataPelajaran()
         End If
     End Sub
 
     Private Sub ButtonHapusClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonHapus.Click
-        If MessageBox.Show(Me, "Hapus data kelas " + TextBoxKelas.Text + " ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+        If MessageBox.Show(Me, "Hapus data kelas " + TextBoxMataPelajaran.Text + " ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
             Return
         End If
         Try
-            KelasBusinessObject.DeleteKelas(recordId)
+            MataPelajaraBusinessObject.DeleteMataPelajaran(recordId)
             LoadList()
         Catch ex As Exception
             MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-    Private Sub ButtonRefreshClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonRefresh.Click
-        LoadList()
-    End Sub
-
-    Private Sub InsertKelas()
-        If MessageBox.Show(Me, "Simpan data kelas " + TextBoxKelas.Text + " ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+    Private Sub InsertMataPelajaran()
+        If MessageBox.Show(Me, "Simpan data mata pelajaran " + TextBoxMataPelajaran.Text + " ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
             Return
         End If
         Try
-            Dim kelas As New MasterKelas
-            PopulateKelas(kelas)
-            KelasBusinessObject.InsertKelas(kelas)
+            Dim masterMataPelajaran As New MasterMataPelajaran
+            PopulateMataPelajaran(masterMataPelajaran)
+            MataPelajaraBusinessObject.InsertMataPelajaran(masterMataPelajaran)
             LoadList()
         Catch ex As Exception
             MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -130,25 +129,25 @@ Public Class ListKelas
 
     End Sub
 
-    Private Sub PopulateKelas(ByVal kelas As MasterKelas)
-        kelas.Keterangan = TextBoxKeterangan.Text
-        kelas.NamaKelas = TextBoxKelas.Text
-        kelas.TahunAjaran = TextBoxTahunAjaran.Text
-        kelas.Tingkat = TextBoxTingkat.Text
+    Private Sub PopulateMataPelajaran(ByVal mataPelajaran As MasterMataPelajaran)
+        mataPelajaran.Silabus = TextBoxSilabus.Text
+        mataPelajaran.MataPelajaran = TextBoxMataPelajaran.Text
+        MataPelajaran.TahunAjaran = TextBoxTahunAjaran.Text
     End Sub
 
-    Private Sub UpdateKelas()
-        If MessageBox.Show(Me, "Update data kelas " + TextBoxKelas.Text + " ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
+    Private Sub UpdateMataPelajaran()
+        If MessageBox.Show(Me, "Update data mata pelajaran " + TextBoxMataPelajaran.Text + " ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
             Return
         End If
         Try
-            Dim kelas As New MasterKelas
-            PopulateKelas(kelas)
-            kelas.ID = recordId
-            KelasBusinessObject.UpdateKelas(kelas)
+            Dim masterMataPelajaran As New MasterMataPelajaran
+            PopulateMataPelajaran(masterMataPelajaran)
+            masterMataPelajaran.ID = recordId
+            MataPelajaraBusinessObject.UpdateMataPelajaran(masterMataPelajaran)
             LoadList()
         Catch ex As Exception
             MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 End Class
