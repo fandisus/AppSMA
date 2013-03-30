@@ -33,4 +33,14 @@
         vform.MdiParent = Me
         vform.Show()
     End Sub
+
+    Private Sub DataKelasToolStripMenuItemClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataKelasToolStripMenuItem.Click
+        Dim vform As New ListKelas
+        vform.MdiParent = Me
+        vform.Show()
+    End Sub
+
+    Private Sub DataMataPelajaranToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataMataPelajaranToolStripMenuItem.Click
+
+    End Sub
 End Class

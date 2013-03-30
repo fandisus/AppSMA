@@ -8,7 +8,7 @@ Public Class ListGuru
     Private Sub ListGuruLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         TextBoxNIP.Focus()
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.DataSource = GuruFacade.GetList()
+        DataGridView1.DataSource = GuruBusinessObject.GetList()
         AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
     End Sub
 
@@ -45,7 +45,7 @@ Public Class ListGuru
             Return
         End If
         recordId = Convert.ToInt32(DataGridView1.CurrentRow.Cells("ID").Value)
-        Dim mguru = GuruFacade.GetGuru(recordId)
+        Dim mguru = GuruBusinessObject.GetGuru(recordId)
         If mguru Is Nothing Then
             Return
         End If
@@ -99,7 +99,7 @@ Public Class ListGuru
 
     Private Sub LoadList()
 
-        DataGridView1.DataSource = GuruFacade.GetList()
+        DataGridView1.DataSource = GuruBusinessObject.GetList()
     End Sub
 
     Private Sub ButtonSimpanClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonSimpan.Click
@@ -117,10 +117,10 @@ Public Class ListGuru
         Try
             Dim mguru As New MasterGuru
             PopulateGuru(mguru)
-            GuruFacade.InsertGuru(mguru)
+            GuruBusinessObject.InsertGuru(mguru)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
@@ -153,7 +153,7 @@ Public Class ListGuru
                 mguru.Photo = imgByteArray
             End Using
         End If
-        
+
         mguru.TanggalLahir = DateTimePickerLahir.Value.Date
         mguru.TempatLahir = TextBoxTempatLahir.Text
     End Sub
@@ -166,10 +166,10 @@ Public Class ListGuru
             Dim mguru As New MasterGuru
             PopulateGuru(mguru)
             mguru.ID = recordId
-            GuruFacade.UpdateGuru(mguru)
+            GuruBusinessObject.UpdateGuru(mguru)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -189,10 +189,10 @@ Public Class ListGuru
             Return
         End If
         Try
-            GuruFacade.DeleteGuru(recordId)
+            GuruBusinessObject.DeleteGuru(recordId)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 End Class

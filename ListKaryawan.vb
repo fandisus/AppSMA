@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports SistemAkademikSman.BusinessObject
 
 Public Class ListKaryawan
 
@@ -8,7 +9,7 @@ Public Class ListKaryawan
     Private Sub ListKaryawanLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         TextBoxNIP.Focus()
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.DataSource = KaryawanFacade.GetList()
+        DataGridView1.DataSource = KaryawanBusinessObject.GetList()
         AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
     End Sub
 
@@ -47,7 +48,7 @@ Public Class ListKaryawan
     End Sub
 
     Private Sub LoadList()
-        DataGridView1.DataSource = KaryawanFacade.GetList()
+        DataGridView1.DataSource = KaryawanBusinessObject.GetList()
     End Sub
 
     Private Sub ClearAllField()
@@ -62,7 +63,7 @@ Public Class ListKaryawan
             Return
         End If
         recordId = Convert.ToInt32(DataGridView1.CurrentRow.Cells("ID").Value)
-        Dim karyawan = KaryawanFacade.GetKaryawan(recordId)
+        Dim karyawan = KaryawanBusinessObject.GetKaryawan(recordId)
         If karyawan Is Nothing Then
             Return
         End If
@@ -84,7 +85,7 @@ Public Class ListKaryawan
                 PictureBoxPhoto.Image = Image.FromStream(memstearm)
             End Using
         End If
-        
+
         SetControl(False)
     End Sub
 
@@ -127,10 +128,10 @@ Public Class ListKaryawan
             Return
         End If
         Try
-            KaryawanFacade.DeleteKaryawan(recordId)
+            KaryawanBusinessObject.DeleteKaryawan(recordId)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -141,10 +142,10 @@ Public Class ListKaryawan
         Try
             Dim karyawan As New MasterKaryawan
             PopulateKaryawan(karyawan)
-            KaryawanFacade.InsertKaryawan(karyawan)
+            KaryawanBusinessObject.InsertKaryawan(karyawan)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
@@ -190,10 +191,10 @@ Public Class ListKaryawan
             Dim karyawan As New MasterKaryawan
             PopulateKaryawan(karyawan)
             karyawan.ID = recordId
-            KaryawanFacade.UpdateKaryawan(karyawan)
+            KaryawanBusinessObject.UpdateKaryawan(karyawan)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

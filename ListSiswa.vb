@@ -36,7 +36,7 @@ Public Class ListSiswa
     End Sub
 
     Private Sub LoadList()
-        DataGridView1.DataSource = SiswaFacade.GetList()
+        DataGridView1.DataSource = SiswaBusinessObject.GetList()
     End Sub
 
     Private Sub ClearAllField()
@@ -51,7 +51,7 @@ Public Class ListSiswa
             Return
         End If
         recordId = Convert.ToInt32(DataGridView1.CurrentRow.Cells("ID").Value)
-        Dim siswa = SiswaFacade.GetSiswa(recordId)
+        Dim siswa = SiswaBusinessObject.GetSiswa(recordId)
         If siswa Is Nothing Then
             Return
         End If
@@ -87,7 +87,7 @@ Public Class ListSiswa
     Private Sub ListSiswaLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         TextBoxNIP.Focus()
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.DataSource = SiswaFacade.GetList()
+        DataGridView1.DataSource = SiswaBusinessObject.GetList()
         AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
     End Sub
 
@@ -116,10 +116,10 @@ Public Class ListSiswa
             Return
         End If
         Try
-            GuruFacade.DeleteGuru(recordId)
+            SiswaBusinessObject.DeleteSiswa(recordId)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -138,10 +138,10 @@ Public Class ListSiswa
         Try
             Dim siswa As New MasterSiswa
             PopulateSiswa(siswa)
-            SiswaFacade.InsertSiswa(siswa)
+            SiswaBusinessObject.InsertSiswa(siswa)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
@@ -195,10 +195,10 @@ Public Class ListSiswa
             Dim siswa As New MasterSiswa
             PopulateSiswa(siswa)
             siswa.ID = recordId
-            SiswaFacade.UpdateSiswa(siswa)
+            SiswaBusinessObject.UpdateSiswa(siswa)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

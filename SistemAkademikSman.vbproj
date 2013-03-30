@@ -73,9 +73,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObject\GuruFacade.vb" />
-    <Compile Include="BusinessObject\KaryawanFacade.vb" />
-    <Compile Include="BusinessObject\SiswaFacade.vb" />
+    <Compile Include="AppHelpers.vb" />
+    <Compile Include="BusinessObject\GuruBusinessObject.vb" />
+    <Compile Include="BusinessObject\KaryawanBusinessObject.vb" />
+    <Compile Include="BusinessObject\KelasBusinessObject.vb" />
+    <Compile Include="BusinessObject\SiswaBusinessObject.vb" />
     <Compile Include="DataModel\DataModel.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +93,12 @@
       <DependentUpon>ListKaryawan.vb</DependentUpon>
     </Compile>
     <Compile Include="ListKaryawan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListKelas.Designer.vb">
+      <DependentUpon>ListKelas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListKelas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListSiswa.Designer.vb">
@@ -128,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListKaryawan.resx">
       <DependentUpon>ListKaryawan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListKelas.resx">
+      <DependentUpon>ListKelas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListSiswa.resx">
       <DependentUpon>ListSiswa.vb</DependentUpon>

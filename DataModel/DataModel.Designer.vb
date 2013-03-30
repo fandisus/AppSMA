@@ -11,10 +11,15 @@
 Option Strict Off
 Option Explicit On
 
-<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("f4a3fa5f-f4dd-40c7-aaa0-e7b4e78d82b2")> 
+<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("cda0721b-a7d7-47d4-9c5d-39dcae81547e"),  _
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_JadwalParent", "JadwalParent", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(JadwalParent), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterGuru", "MasterGuru", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterGuru), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterMataPelajaran), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalParent_MasterKelas", "MasterKelas", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterKelas), "JadwalParent", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalParent)),  _
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_Penjurusan_MasterSiswa", "MasterSiswa", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterSiswa), "Penjurusan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Penjurusan))> 
 
 'Original file name:
-'Generation date: 3/29/2013 4:56:47 PM
+'Generation date: 3/31/2013 1:53:01 AM
 '''<summary>
 '''There are no comments for SiakSmanEntities in the schema.
 '''</summary>
@@ -80,6 +85,66 @@ Partial Public Class SiakSmanEntities
     End Property
     Private _MasterSiswa As Global.System.Data.Objects.ObjectQuery(Of MasterSiswa)
     '''<summary>
+    '''There are no comments for JadwalDetail in the schema.
+    '''</summary>
+    Public ReadOnly Property JadwalDetail() As Global.System.Data.Objects.ObjectQuery(Of JadwalDetail)
+        Get
+            If (Me._JadwalDetail Is Nothing) Then
+                Me._JadwalDetail = MyBase.CreateQuery(Of JadwalDetail)("[JadwalDetail]")
+            End If
+            Return Me._JadwalDetail
+        End Get
+    End Property
+    Private _JadwalDetail As Global.System.Data.Objects.ObjectQuery(Of JadwalDetail)
+    '''<summary>
+    '''There are no comments for JadwalParent in the schema.
+    '''</summary>
+    Public ReadOnly Property JadwalParent() As Global.System.Data.Objects.ObjectQuery(Of JadwalParent)
+        Get
+            If (Me._JadwalParent Is Nothing) Then
+                Me._JadwalParent = MyBase.CreateQuery(Of JadwalParent)("[JadwalParent]")
+            End If
+            Return Me._JadwalParent
+        End Get
+    End Property
+    Private _JadwalParent As Global.System.Data.Objects.ObjectQuery(Of JadwalParent)
+    '''<summary>
+    '''There are no comments for MasterKelas in the schema.
+    '''</summary>
+    Public ReadOnly Property MasterKelas() As Global.System.Data.Objects.ObjectQuery(Of MasterKelas)
+        Get
+            If (Me._MasterKelas Is Nothing) Then
+                Me._MasterKelas = MyBase.CreateQuery(Of MasterKelas)("[MasterKelas]")
+            End If
+            Return Me._MasterKelas
+        End Get
+    End Property
+    Private _MasterKelas As Global.System.Data.Objects.ObjectQuery(Of MasterKelas)
+    '''<summary>
+    '''There are no comments for MasterMataPelajaran in the schema.
+    '''</summary>
+    Public ReadOnly Property MasterMataPelajaran() As Global.System.Data.Objects.ObjectQuery(Of MasterMataPelajaran)
+        Get
+            If (Me._MasterMataPelajaran Is Nothing) Then
+                Me._MasterMataPelajaran = MyBase.CreateQuery(Of MasterMataPelajaran)("[MasterMataPelajaran]")
+            End If
+            Return Me._MasterMataPelajaran
+        End Get
+    End Property
+    Private _MasterMataPelajaran As Global.System.Data.Objects.ObjectQuery(Of MasterMataPelajaran)
+    '''<summary>
+    '''There are no comments for Penjurusan in the schema.
+    '''</summary>
+    Public ReadOnly Property Penjurusan() As Global.System.Data.Objects.ObjectQuery(Of Penjurusan)
+        Get
+            If (Me._Penjurusan Is Nothing) Then
+                Me._Penjurusan = MyBase.CreateQuery(Of Penjurusan)("[Penjurusan]")
+            End If
+            Return Me._Penjurusan
+        End Get
+    End Property
+    Private _Penjurusan As Global.System.Data.Objects.ObjectQuery(Of Penjurusan)
+    '''<summary>
     '''There are no comments for MasterGuru in the schema.
     '''</summary>
     Public Sub AddToMasterGuru(ByVal masterGuru As MasterGuru)
@@ -96,6 +161,36 @@ Partial Public Class SiakSmanEntities
     '''</summary>
     Public Sub AddToMasterSiswa(ByVal masterSiswa As MasterSiswa)
         MyBase.AddObject("MasterSiswa", masterSiswa)
+    End Sub
+    '''<summary>
+    '''There are no comments for JadwalDetail in the schema.
+    '''</summary>
+    Public Sub AddToJadwalDetail(ByVal jadwalDetail As JadwalDetail)
+        MyBase.AddObject("JadwalDetail", jadwalDetail)
+    End Sub
+    '''<summary>
+    '''There are no comments for JadwalParent in the schema.
+    '''</summary>
+    Public Sub AddToJadwalParent(ByVal jadwalParent As JadwalParent)
+        MyBase.AddObject("JadwalParent", jadwalParent)
+    End Sub
+    '''<summary>
+    '''There are no comments for MasterKelas in the schema.
+    '''</summary>
+    Public Sub AddToMasterKelas(ByVal masterKelas As MasterKelas)
+        MyBase.AddObject("MasterKelas", masterKelas)
+    End Sub
+    '''<summary>
+    '''There are no comments for MasterMataPelajaran in the schema.
+    '''</summary>
+    Public Sub AddToMasterMataPelajaran(ByVal masterMataPelajaran As MasterMataPelajaran)
+        MyBase.AddObject("MasterMataPelajaran", masterMataPelajaran)
+    End Sub
+    '''<summary>
+    '''There are no comments for Penjurusan in the schema.
+    '''</summary>
+    Public Sub AddToPenjurusan(ByVal penjurusan As Penjurusan)
+        MyBase.AddObject("Penjurusan", penjurusan)
     End Sub
 End Class
 '''<summary>
@@ -458,6 +553,23 @@ Partial Public Class MasterGuru
         End Sub
     Partial Private Sub OnPhotoChanged()
         End Sub
+    '''<summary>
+    '''There are no comments for JadwalDetail in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_JadwalDetail_MasterGuru", "JadwalDetail"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property JadwalDetail() As Global.System.Data.Objects.DataClasses.EntityCollection(Of JadwalDetail)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of JadwalDetail)("SiakSmanModel.FK_JadwalDetail_MasterGuru", "JadwalDetail")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of JadwalDetail)("SiakSmanModel.FK_JadwalDetail_MasterGuru", "JadwalDetail", value)
+            End If
+        End Set
+    End Property
 End Class
 '''<summary>
 '''There are no comments for SiakSmanModel.MasterKaryawan in the schema.
@@ -1356,4 +1468,987 @@ Partial Public Class MasterSiswa
         End Sub
     Partial Private Sub OnNoHPOrangTuaChanged()
         End Sub
+    '''<summary>
+    '''There are no comments for Penjurusan in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_Penjurusan_MasterSiswa", "Penjurusan"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Penjurusan() As Global.System.Data.Objects.DataClasses.EntityCollection(Of Penjurusan)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of Penjurusan)("SiakSmanModel.FK_Penjurusan_MasterSiswa", "Penjurusan")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Penjurusan)("SiakSmanModel.FK_Penjurusan_MasterSiswa", "Penjurusan", value)
+            End If
+        End Set
+    End Property
+End Class
+'''<summary>
+'''There are no comments for SiakSmanModel.JadwalDetail in the schema.
+'''</summary>
+'''<KeyProperties>
+'''ID
+'''</KeyProperties>
+<Global.System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName:="SiakSmanModel", Name:="JadwalDetail"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute(IsReference:=true),  _
+ Global.System.Serializable()>  _
+Partial Public Class JadwalDetail
+    Inherits Global.System.Data.Objects.DataClasses.EntityObject
+    '''<summary>
+    '''Create a new JadwalDetail object.
+    '''</summary>
+    '''<param name="id">Initial value of ID.</param>
+    Public Shared Function CreateJadwalDetail(ByVal id As Integer) As JadwalDetail
+        Dim jadwalDetail As JadwalDetail = New JadwalDetail
+        jadwalDetail.ID = id
+        Return jadwalDetail
+    End Function
+    '''<summary>
+    '''There are no comments for Property ID in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property ID() As Integer
+        Get
+            Return Me._ID
+        End Get
+        Set
+            Me.OnIDChanging(value)
+            Me.ReportPropertyChanging("ID")
+            Me._ID = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("ID")
+            Me.OnIDChanged
+        End Set
+    End Property
+    Private _ID As Integer
+    Partial Private Sub OnIDChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnIDChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for JadwalParent in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_JadwalDetail_JadwalParent", "JadwalParent"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property JadwalParent() As JadwalParent
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of JadwalParent)("SiakSmanModel.FK_JadwalDetail_JadwalParent", "JadwalParent").Value
+        End Get
+        Set
+            CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of JadwalParent)("SiakSmanModel.FK_JadwalDetail_JadwalParent", "JadwalParent").Value = value
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for JadwalParent in the schema.
+    '''</summary>
+    <Global.System.ComponentModel.BrowsableAttribute(false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property JadwalParentReference() As Global.System.Data.Objects.DataClasses.EntityReference(Of JadwalParent)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of JadwalParent)("SiakSmanModel.FK_JadwalDetail_JadwalParent", "JadwalParent")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of JadwalParent)("SiakSmanModel.FK_JadwalDetail_JadwalParent", "JadwalParent", value)
+            End If
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterGuru in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_JadwalDetail_MasterGuru", "MasterGuru"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterGuru() As MasterGuru
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterGuru)("SiakSmanModel.FK_JadwalDetail_MasterGuru", "MasterGuru").Value
+        End Get
+        Set
+            CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterGuru)("SiakSmanModel.FK_JadwalDetail_MasterGuru", "MasterGuru").Value = value
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterGuru in the schema.
+    '''</summary>
+    <Global.System.ComponentModel.BrowsableAttribute(false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterGuruReference() As Global.System.Data.Objects.DataClasses.EntityReference(Of MasterGuru)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterGuru)("SiakSmanModel.FK_JadwalDetail_MasterGuru", "MasterGuru")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of MasterGuru)("SiakSmanModel.FK_JadwalDetail_MasterGuru", "MasterGuru", value)
+            End If
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterMataPelajaran in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterMataPelajaran() As MasterMataPelajaran
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterMataPelajaran)("SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran").Value
+        End Get
+        Set
+            CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterMataPelajaran)("SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran").Value = value
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterMataPelajaran in the schema.
+    '''</summary>
+    <Global.System.ComponentModel.BrowsableAttribute(false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterMataPelajaranReference() As Global.System.Data.Objects.DataClasses.EntityReference(Of MasterMataPelajaran)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterMataPelajaran)("SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of MasterMataPelajaran)("SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran", value)
+            End If
+        End Set
+    End Property
+End Class
+'''<summary>
+'''There are no comments for SiakSmanModel.JadwalParent in the schema.
+'''</summary>
+'''<KeyProperties>
+'''ID
+'''</KeyProperties>
+<Global.System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName:="SiakSmanModel", Name:="JadwalParent"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute(IsReference:=true),  _
+ Global.System.Serializable()>  _
+Partial Public Class JadwalParent
+    Inherits Global.System.Data.Objects.DataClasses.EntityObject
+    '''<summary>
+    '''Create a new JadwalParent object.
+    '''</summary>
+    '''<param name="id">Initial value of ID.</param>
+    '''<param name="tahunAjaran">Initial value of TahunAjaran.</param>
+    '''<param name="jurusan">Initial value of Jurusan.</param>
+    '''<param name="hari">Initial value of Hari.</param>
+    Public Shared Function CreateJadwalParent(ByVal id As Integer, ByVal tahunAjaran As Integer, ByVal jurusan As String, ByVal hari As String) As JadwalParent
+        Dim jadwalParent As JadwalParent = New JadwalParent
+        jadwalParent.ID = id
+        jadwalParent.TahunAjaran = tahunAjaran
+        jadwalParent.Jurusan = jurusan
+        jadwalParent.Hari = hari
+        Return jadwalParent
+    End Function
+    '''<summary>
+    '''There are no comments for Property ID in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property ID() As Integer
+        Get
+            Return Me._ID
+        End Get
+        Set
+            Me.OnIDChanging(value)
+            Me.ReportPropertyChanging("ID")
+            Me._ID = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("ID")
+            Me.OnIDChanged
+        End Set
+    End Property
+    Private _ID As Integer
+    Partial Private Sub OnIDChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnIDChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property TahunAjaran in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property TahunAjaran() As Integer
+        Get
+            Return Me._TahunAjaran
+        End Get
+        Set
+            Me.OnTahunAjaranChanging(value)
+            Me.ReportPropertyChanging("TahunAjaran")
+            Me._TahunAjaran = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("TahunAjaran")
+            Me.OnTahunAjaranChanged
+        End Set
+    End Property
+    Private _TahunAjaran As Integer
+    Partial Private Sub OnTahunAjaranChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnTahunAjaranChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Jurusan in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Jurusan() As String
+        Get
+            Return Me._Jurusan
+        End Get
+        Set
+            Me.OnJurusanChanging(value)
+            Me.ReportPropertyChanging("Jurusan")
+            Me._Jurusan = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false)
+            Me.ReportPropertyChanged("Jurusan")
+            Me.OnJurusanChanged
+        End Set
+    End Property
+    Private _Jurusan As String
+    Partial Private Sub OnJurusanChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnJurusanChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Hari in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Hari() As String
+        Get
+            Return Me._Hari
+        End Get
+        Set
+            Me.OnHariChanging(value)
+            Me.ReportPropertyChanging("Hari")
+            Me._Hari = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false)
+            Me.ReportPropertyChanged("Hari")
+            Me.OnHariChanged
+        End Set
+    End Property
+    Private _Hari As String
+    Partial Private Sub OnHariChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnHariChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for JadwalDetail in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_JadwalDetail_JadwalParent", "JadwalDetail"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property JadwalDetail() As Global.System.Data.Objects.DataClasses.EntityCollection(Of JadwalDetail)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of JadwalDetail)("SiakSmanModel.FK_JadwalDetail_JadwalParent", "JadwalDetail")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of JadwalDetail)("SiakSmanModel.FK_JadwalDetail_JadwalParent", "JadwalDetail", value)
+            End If
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterKelas in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_JadwalParent_MasterKelas", "MasterKelas"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterKelas() As MasterKelas
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterKelas)("SiakSmanModel.FK_JadwalParent_MasterKelas", "MasterKelas").Value
+        End Get
+        Set
+            CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterKelas)("SiakSmanModel.FK_JadwalParent_MasterKelas", "MasterKelas").Value = value
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterKelas in the schema.
+    '''</summary>
+    <Global.System.ComponentModel.BrowsableAttribute(false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterKelasReference() As Global.System.Data.Objects.DataClasses.EntityReference(Of MasterKelas)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterKelas)("SiakSmanModel.FK_JadwalParent_MasterKelas", "MasterKelas")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of MasterKelas)("SiakSmanModel.FK_JadwalParent_MasterKelas", "MasterKelas", value)
+            End If
+        End Set
+    End Property
+End Class
+'''<summary>
+'''There are no comments for SiakSmanModel.MasterKelas in the schema.
+'''</summary>
+'''<KeyProperties>
+'''ID
+'''</KeyProperties>
+<Global.System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName:="SiakSmanModel", Name:="MasterKelas"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute(IsReference:=true),  _
+ Global.System.Serializable()>  _
+Partial Public Class MasterKelas
+    Inherits Global.System.Data.Objects.DataClasses.EntityObject
+    '''<summary>
+    '''Create a new MasterKelas object.
+    '''</summary>
+    '''<param name="id">Initial value of ID.</param>
+    '''<param name="tahunAjaran">Initial value of TahunAjaran.</param>
+    '''<param name="tingkat">Initial value of Tingkat.</param>
+    '''<param name="namaKelas">Initial value of NamaKelas.</param>
+    Public Shared Function CreateMasterKelas(ByVal id As Integer, ByVal tahunAjaran As Integer, ByVal tingkat As Integer, ByVal namaKelas As String) As MasterKelas
+        Dim masterKelas As MasterKelas = New MasterKelas
+        masterKelas.ID = id
+        masterKelas.TahunAjaran = tahunAjaran
+        masterKelas.Tingkat = tingkat
+        masterKelas.NamaKelas = namaKelas
+        Return masterKelas
+    End Function
+    '''<summary>
+    '''There are no comments for Property ID in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property ID() As Integer
+        Get
+            Return Me._ID
+        End Get
+        Set
+            Me.OnIDChanging(value)
+            Me.ReportPropertyChanging("ID")
+            Me._ID = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("ID")
+            Me.OnIDChanged
+        End Set
+    End Property
+    Private _ID As Integer
+    Partial Private Sub OnIDChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnIDChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property TahunAjaran in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property TahunAjaran() As Integer
+        Get
+            Return Me._TahunAjaran
+        End Get
+        Set
+            Me.OnTahunAjaranChanging(value)
+            Me.ReportPropertyChanging("TahunAjaran")
+            Me._TahunAjaran = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("TahunAjaran")
+            Me.OnTahunAjaranChanged
+        End Set
+    End Property
+    Private _TahunAjaran As Integer
+    Partial Private Sub OnTahunAjaranChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnTahunAjaranChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Tingkat in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Tingkat() As Integer
+        Get
+            Return Me._Tingkat
+        End Get
+        Set
+            Me.OnTingkatChanging(value)
+            Me.ReportPropertyChanging("Tingkat")
+            Me._Tingkat = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("Tingkat")
+            Me.OnTingkatChanged
+        End Set
+    End Property
+    Private _Tingkat As Integer
+    Partial Private Sub OnTingkatChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnTingkatChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property NamaKelas in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property NamaKelas() As String
+        Get
+            Return Me._NamaKelas
+        End Get
+        Set
+            Me.OnNamaKelasChanging(value)
+            Me.ReportPropertyChanging("NamaKelas")
+            Me._NamaKelas = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false)
+            Me.ReportPropertyChanged("NamaKelas")
+            Me.OnNamaKelasChanged
+        End Set
+    End Property
+    Private _NamaKelas As String
+    Partial Private Sub OnNamaKelasChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnNamaKelasChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Keterangan in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Keterangan() As String
+        Get
+            Return Me._Keterangan
+        End Get
+        Set
+            Me.OnKeteranganChanging(value)
+            Me.ReportPropertyChanging("Keterangan")
+            Me._Keterangan = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true)
+            Me.ReportPropertyChanged("Keterangan")
+            Me.OnKeteranganChanged
+        End Set
+    End Property
+    Private _Keterangan As String
+    Partial Private Sub OnKeteranganChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnKeteranganChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for JadwalParent in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_JadwalParent_MasterKelas", "JadwalParent"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property JadwalParent() As Global.System.Data.Objects.DataClasses.EntityCollection(Of JadwalParent)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of JadwalParent)("SiakSmanModel.FK_JadwalParent_MasterKelas", "JadwalParent")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of JadwalParent)("SiakSmanModel.FK_JadwalParent_MasterKelas", "JadwalParent", value)
+            End If
+        End Set
+    End Property
+End Class
+'''<summary>
+'''There are no comments for SiakSmanModel.MasterMataPelajaran in the schema.
+'''</summary>
+'''<KeyProperties>
+'''ID
+'''</KeyProperties>
+<Global.System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName:="SiakSmanModel", Name:="MasterMataPelajaran"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute(IsReference:=true),  _
+ Global.System.Serializable()>  _
+Partial Public Class MasterMataPelajaran
+    Inherits Global.System.Data.Objects.DataClasses.EntityObject
+    '''<summary>
+    '''Create a new MasterMataPelajaran object.
+    '''</summary>
+    '''<param name="id">Initial value of ID.</param>
+    '''<param name="tahunAjaran">Initial value of TahunAjaran.</param>
+    '''<param name="mataPelajaran">Initial value of MataPelajaran.</param>
+    '''<param name="silabus">Initial value of Silabus.</param>
+    Public Shared Function CreateMasterMataPelajaran(ByVal id As Integer, ByVal tahunAjaran As Integer, ByVal mataPelajaran As String, ByVal silabus As String) As MasterMataPelajaran
+        Dim masterMataPelajaran As MasterMataPelajaran = New MasterMataPelajaran
+        masterMataPelajaran.ID = id
+        masterMataPelajaran.TahunAjaran = tahunAjaran
+        masterMataPelajaran.MataPelajaran = mataPelajaran
+        masterMataPelajaran.Silabus = silabus
+        Return masterMataPelajaran
+    End Function
+    '''<summary>
+    '''There are no comments for Property ID in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property ID() As Integer
+        Get
+            Return Me._ID
+        End Get
+        Set
+            Me.OnIDChanging(value)
+            Me.ReportPropertyChanging("ID")
+            Me._ID = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("ID")
+            Me.OnIDChanged
+        End Set
+    End Property
+    Private _ID As Integer
+    Partial Private Sub OnIDChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnIDChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property TahunAjaran in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property TahunAjaran() As Integer
+        Get
+            Return Me._TahunAjaran
+        End Get
+        Set
+            Me.OnTahunAjaranChanging(value)
+            Me.ReportPropertyChanging("TahunAjaran")
+            Me._TahunAjaran = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("TahunAjaran")
+            Me.OnTahunAjaranChanged
+        End Set
+    End Property
+    Private _TahunAjaran As Integer
+    Partial Private Sub OnTahunAjaranChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnTahunAjaranChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property MataPelajaran in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MataPelajaran() As String
+        Get
+            Return Me._MataPelajaran
+        End Get
+        Set
+            Me.OnMataPelajaranChanging(value)
+            Me.ReportPropertyChanging("MataPelajaran")
+            Me._MataPelajaran = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false)
+            Me.ReportPropertyChanged("MataPelajaran")
+            Me.OnMataPelajaranChanged
+        End Set
+    End Property
+    Private _MataPelajaran As String
+    Partial Private Sub OnMataPelajaranChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnMataPelajaranChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Silabus in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Silabus() As String
+        Get
+            Return Me._Silabus
+        End Get
+        Set
+            Me.OnSilabusChanging(value)
+            Me.ReportPropertyChanging("Silabus")
+            Me._Silabus = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false)
+            Me.ReportPropertyChanged("Silabus")
+            Me.OnSilabusChanged
+        End Set
+    End Property
+    Private _Silabus As String
+    Partial Private Sub OnSilabusChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnSilabusChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for JadwalDetail in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_JadwalDetail_MasterMataPelajaran", "JadwalDetail"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property JadwalDetail() As Global.System.Data.Objects.DataClasses.EntityCollection(Of JadwalDetail)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of JadwalDetail)("SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran", "JadwalDetail")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of JadwalDetail)("SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran", "JadwalDetail", value)
+            End If
+        End Set
+    End Property
+End Class
+'''<summary>
+'''There are no comments for SiakSmanModel.Penjurusan in the schema.
+'''</summary>
+'''<KeyProperties>
+'''ID
+'''</KeyProperties>
+<Global.System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName:="SiakSmanModel", Name:="Penjurusan"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute(IsReference:=true),  _
+ Global.System.Serializable()>  _
+Partial Public Class Penjurusan
+    Inherits Global.System.Data.Objects.DataClasses.EntityObject
+    '''<summary>
+    '''Create a new Penjurusan object.
+    '''</summary>
+    '''<param name="id">Initial value of ID.</param>
+    '''<param name="tahunAjaran">Initial value of TahunAjaran.</param>
+    '''<param name="bahasaIndonesia">Initial value of BahasaIndonesia.</param>
+    '''<param name="bahasaInggris">Initial value of BahasaInggris.</param>
+    '''<param name="matematika">Initial value of Matematika.</param>
+    '''<param name="fisika">Initial value of Fisika.</param>
+    '''<param name="kimia">Initial value of Kimia.</param>
+    '''<param name="biologi">Initial value of Biologi.</param>
+    '''<param name="ekonomi">Initial value of Ekonomi.</param>
+    '''<param name="geografi">Initial value of Geografi.</param>
+    '''<param name="sosiologi">Initial value of Sosiologi.</param>
+    '''<param name="nilaiRataRata">Initial value of NilaiRataRata.</param>
+    '''<param name="tanggalPenilaian">Initial value of TanggalPenilaian.</param>
+    '''<param name="jurusan">Initial value of Jurusan.</param>
+    Public Shared Function CreatePenjurusan(ByVal id As Integer, ByVal tahunAjaran As Integer, ByVal bahasaIndonesia As Decimal, ByVal bahasaInggris As Decimal, ByVal matematika As Decimal, ByVal fisika As Decimal, ByVal kimia As Decimal, ByVal biologi As Decimal, ByVal ekonomi As Decimal, ByVal geografi As Decimal, ByVal sosiologi As Decimal, ByVal nilaiRataRata As Decimal, ByVal tanggalPenilaian As Date, ByVal jurusan As String) As Penjurusan
+        Dim penjurusan As Penjurusan = New Penjurusan
+        penjurusan.ID = id
+        penjurusan.TahunAjaran = tahunAjaran
+        penjurusan.BahasaIndonesia = bahasaIndonesia
+        penjurusan.BahasaInggris = bahasaInggris
+        penjurusan.Matematika = matematika
+        penjurusan.Fisika = fisika
+        penjurusan.Kimia = kimia
+        penjurusan.Biologi = biologi
+        penjurusan.Ekonomi = ekonomi
+        penjurusan.Geografi = geografi
+        penjurusan.Sosiologi = sosiologi
+        penjurusan.NilaiRataRata = nilaiRataRata
+        penjurusan.TanggalPenilaian = tanggalPenilaian
+        penjurusan.Jurusan = jurusan
+        Return penjurusan
+    End Function
+    '''<summary>
+    '''There are no comments for Property ID in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property ID() As Integer
+        Get
+            Return Me._ID
+        End Get
+        Set
+            Me.OnIDChanging(value)
+            Me.ReportPropertyChanging("ID")
+            Me._ID = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("ID")
+            Me.OnIDChanged
+        End Set
+    End Property
+    Private _ID As Integer
+    Partial Private Sub OnIDChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnIDChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property TahunAjaran in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property TahunAjaran() As Integer
+        Get
+            Return Me._TahunAjaran
+        End Get
+        Set
+            Me.OnTahunAjaranChanging(value)
+            Me.ReportPropertyChanging("TahunAjaran")
+            Me._TahunAjaran = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("TahunAjaran")
+            Me.OnTahunAjaranChanged
+        End Set
+    End Property
+    Private _TahunAjaran As Integer
+    Partial Private Sub OnTahunAjaranChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnTahunAjaranChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property BahasaIndonesia in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property BahasaIndonesia() As Decimal
+        Get
+            Return Me._BahasaIndonesia
+        End Get
+        Set
+            Me.OnBahasaIndonesiaChanging(value)
+            Me.ReportPropertyChanging("BahasaIndonesia")
+            Me._BahasaIndonesia = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("BahasaIndonesia")
+            Me.OnBahasaIndonesiaChanged
+        End Set
+    End Property
+    Private _BahasaIndonesia As Decimal
+    Partial Private Sub OnBahasaIndonesiaChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnBahasaIndonesiaChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property BahasaInggris in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property BahasaInggris() As Decimal
+        Get
+            Return Me._BahasaInggris
+        End Get
+        Set
+            Me.OnBahasaInggrisChanging(value)
+            Me.ReportPropertyChanging("BahasaInggris")
+            Me._BahasaInggris = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("BahasaInggris")
+            Me.OnBahasaInggrisChanged
+        End Set
+    End Property
+    Private _BahasaInggris As Decimal
+    Partial Private Sub OnBahasaInggrisChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnBahasaInggrisChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Matematika in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Matematika() As Decimal
+        Get
+            Return Me._Matematika
+        End Get
+        Set
+            Me.OnMatematikaChanging(value)
+            Me.ReportPropertyChanging("Matematika")
+            Me._Matematika = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("Matematika")
+            Me.OnMatematikaChanged
+        End Set
+    End Property
+    Private _Matematika As Decimal
+    Partial Private Sub OnMatematikaChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnMatematikaChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Fisika in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Fisika() As Decimal
+        Get
+            Return Me._Fisika
+        End Get
+        Set
+            Me.OnFisikaChanging(value)
+            Me.ReportPropertyChanging("Fisika")
+            Me._Fisika = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("Fisika")
+            Me.OnFisikaChanged
+        End Set
+    End Property
+    Private _Fisika As Decimal
+    Partial Private Sub OnFisikaChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnFisikaChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Kimia in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Kimia() As Decimal
+        Get
+            Return Me._Kimia
+        End Get
+        Set
+            Me.OnKimiaChanging(value)
+            Me.ReportPropertyChanging("Kimia")
+            Me._Kimia = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("Kimia")
+            Me.OnKimiaChanged
+        End Set
+    End Property
+    Private _Kimia As Decimal
+    Partial Private Sub OnKimiaChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnKimiaChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Biologi in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Biologi() As Decimal
+        Get
+            Return Me._Biologi
+        End Get
+        Set
+            Me.OnBiologiChanging(value)
+            Me.ReportPropertyChanging("Biologi")
+            Me._Biologi = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("Biologi")
+            Me.OnBiologiChanged
+        End Set
+    End Property
+    Private _Biologi As Decimal
+    Partial Private Sub OnBiologiChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnBiologiChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Ekonomi in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Ekonomi() As Decimal
+        Get
+            Return Me._Ekonomi
+        End Get
+        Set
+            Me.OnEkonomiChanging(value)
+            Me.ReportPropertyChanging("Ekonomi")
+            Me._Ekonomi = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("Ekonomi")
+            Me.OnEkonomiChanged
+        End Set
+    End Property
+    Private _Ekonomi As Decimal
+    Partial Private Sub OnEkonomiChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnEkonomiChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Geografi in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Geografi() As Decimal
+        Get
+            Return Me._Geografi
+        End Get
+        Set
+            Me.OnGeografiChanging(value)
+            Me.ReportPropertyChanging("Geografi")
+            Me._Geografi = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("Geografi")
+            Me.OnGeografiChanged
+        End Set
+    End Property
+    Private _Geografi As Decimal
+    Partial Private Sub OnGeografiChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnGeografiChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Sosiologi in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Sosiologi() As Decimal
+        Get
+            Return Me._Sosiologi
+        End Get
+        Set
+            Me.OnSosiologiChanging(value)
+            Me.ReportPropertyChanging("Sosiologi")
+            Me._Sosiologi = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("Sosiologi")
+            Me.OnSosiologiChanged
+        End Set
+    End Property
+    Private _Sosiologi As Decimal
+    Partial Private Sub OnSosiologiChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnSosiologiChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property NilaiRataRata in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property NilaiRataRata() As Decimal
+        Get
+            Return Me._NilaiRataRata
+        End Get
+        Set
+            Me.OnNilaiRataRataChanging(value)
+            Me.ReportPropertyChanging("NilaiRataRata")
+            Me._NilaiRataRata = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("NilaiRataRata")
+            Me.OnNilaiRataRataChanged
+        End Set
+    End Property
+    Private _NilaiRataRata As Decimal
+    Partial Private Sub OnNilaiRataRataChanging(ByVal value As Decimal)
+        End Sub
+    Partial Private Sub OnNilaiRataRataChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property TanggalPenilaian in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property TanggalPenilaian() As Date
+        Get
+            Return Me._TanggalPenilaian
+        End Get
+        Set
+            Me.OnTanggalPenilaianChanging(value)
+            Me.ReportPropertyChanging("TanggalPenilaian")
+            Me._TanggalPenilaian = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("TanggalPenilaian")
+            Me.OnTanggalPenilaianChanged
+        End Set
+    End Property
+    Private _TanggalPenilaian As Date
+    Partial Private Sub OnTanggalPenilaianChanging(ByVal value As Date)
+        End Sub
+    Partial Private Sub OnTanggalPenilaianChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Jurusan in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Jurusan() As String
+        Get
+            Return Me._Jurusan
+        End Get
+        Set
+            Me.OnJurusanChanging(value)
+            Me.ReportPropertyChanging("Jurusan")
+            Me._Jurusan = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false)
+            Me.ReportPropertyChanged("Jurusan")
+            Me.OnJurusanChanged
+        End Set
+    End Property
+    Private _Jurusan As String
+    Partial Private Sub OnJurusanChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnJurusanChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for MasterSiswa in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_Penjurusan_MasterSiswa", "MasterSiswa"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterSiswa() As MasterSiswa
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterSiswa)("SiakSmanModel.FK_Penjurusan_MasterSiswa", "MasterSiswa").Value
+        End Get
+        Set
+            CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterSiswa)("SiakSmanModel.FK_Penjurusan_MasterSiswa", "MasterSiswa").Value = value
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterSiswa in the schema.
+    '''</summary>
+    <Global.System.ComponentModel.BrowsableAttribute(false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterSiswaReference() As Global.System.Data.Objects.DataClasses.EntityReference(Of MasterSiswa)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterSiswa)("SiakSmanModel.FK_Penjurusan_MasterSiswa", "MasterSiswa")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of MasterSiswa)("SiakSmanModel.FK_Penjurusan_MasterSiswa", "MasterSiswa", value)
+            End If
+        End Set
+    End Property
 End Class

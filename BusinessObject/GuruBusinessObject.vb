@@ -2,7 +2,7 @@
 
 Namespace BusinessObject
 
-    Friend Class GuruFacade
+    Friend Class GuruBusinessObject
         Public Shared Function GetList() As List(Of MasterGuru)
             Using entity As New SiakSmanEntities()
                 Dim query = From data In entity.MasterGuru Order By data.ID Descending
@@ -86,7 +86,7 @@ Namespace BusinessObject
             Using entity As New SiakSmanEntities()
                 Dim query = (From data In entity.MasterGuru Where data.ID = recordId).FirstOrDefault()
                 If (query Is Nothing) Then
-                    Throw New Exception("Update failed, Data Guru tidak ditemukan")
+                    Throw New Exception("Delete failed, Data Guru tidak ditemukan")
                 End If
                 entity.DeleteObject(query)
                 entity.SaveChanges()
