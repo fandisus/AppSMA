@@ -23,12 +23,6 @@ Partial Class ListJadwalMataPelajaran
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.TextBoxSilabus = New System.Windows.Forms.TextBox
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.TextBoxMataPelajaran = New System.Windows.Forms.TextBox
-        Me.TextBoxTahunAjaran = New System.Windows.Forms.TextBox
-        Me.Label1 = New System.Windows.Forms.Label
         Me.DataGridView1 = New System.Windows.Forms.DataGridView
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.TahunAjaran = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -36,6 +30,10 @@ Partial Class ListJadwalMataPelajaran
         Me.NamaKelas = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Jurusan = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Hari = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ButtonInput = New System.Windows.Forms.Button
+        Me.ButtonEdit = New System.Windows.Forms.Button
+        Me.ButtonDelete = New System.Windows.Forms.Button
+        Me.ButtonRefresh = New System.Windows.Forms.Button
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -46,75 +44,23 @@ Partial Class ListJadwalMataPelajaran
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.SplitContainer1.IsSplitterFixed = True
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label4)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxSilabus)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label3)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxMataPelajaran)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxTahunAjaran)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonDelete)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonEdit)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonInput)
         '
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
         Me.SplitContainer1.Size = New System.Drawing.Size(903, 468)
-        Me.SplitContainer1.SplitterDistance = 175
+        Me.SplitContainer1.SplitterDistance = 47
         Me.SplitContainer1.TabIndex = 2
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(62, 73)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 13)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Silabus"
-        '
-        'TextBoxSilabus
-        '
-        Me.TextBoxSilabus.Location = New System.Drawing.Point(108, 70)
-        Me.TextBoxSilabus.Multiline = True
-        Me.TextBoxSilabus.Name = "TextBoxSilabus"
-        Me.TextBoxSilabus.Size = New System.Drawing.Size(380, 61)
-        Me.TextBoxSilabus.TabIndex = 6
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(40, 46)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(64, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Nama Kelas"
-        '
-        'TextBoxMataPelajaran
-        '
-        Me.TextBoxMataPelajaran.Location = New System.Drawing.Point(108, 43)
-        Me.TextBoxMataPelajaran.Name = "TextBoxMataPelajaran"
-        Me.TextBoxMataPelajaran.Size = New System.Drawing.Size(240, 20)
-        Me.TextBoxMataPelajaran.TabIndex = 4
-        '
-        'TextBoxTahunAjaran
-        '
-        Me.TextBoxTahunAjaran.Location = New System.Drawing.Point(108, 16)
-        Me.TextBoxTahunAjaran.Name = "TextBoxTahunAjaran"
-        Me.TextBoxTahunAjaran.Size = New System.Drawing.Size(100, 20)
-        Me.TextBoxTahunAjaran.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(30, 19)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(71, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Tahun Ajaran"
         '
         'DataGridView1
         '
@@ -128,7 +74,7 @@ Partial Class ListJadwalMataPelajaran
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(903, 289)
+        Me.DataGridView1.Size = New System.Drawing.Size(903, 417)
         Me.DataGridView1.TabIndex = 0
         '
         'ID
@@ -175,17 +121,53 @@ Partial Class ListJadwalMataPelajaran
         Me.Hari.Name = "Hari"
         Me.Hari.ReadOnly = True
         '
+        'ButtonInput
+        '
+        Me.ButtonInput.Location = New System.Drawing.Point(12, 12)
+        Me.ButtonInput.Name = "ButtonInput"
+        Me.ButtonInput.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonInput.TabIndex = 0
+        Me.ButtonInput.Text = "Input"
+        Me.ButtonInput.UseVisualStyleBackColor = True
+        '
+        'ButtonEdit
+        '
+        Me.ButtonEdit.Location = New System.Drawing.Point(93, 12)
+        Me.ButtonEdit.Name = "ButtonEdit"
+        Me.ButtonEdit.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonEdit.TabIndex = 1
+        Me.ButtonEdit.Text = "Edit"
+        Me.ButtonEdit.UseVisualStyleBackColor = True
+        '
+        'ButtonDelete
+        '
+        Me.ButtonDelete.Location = New System.Drawing.Point(174, 12)
+        Me.ButtonDelete.Name = "ButtonDelete"
+        Me.ButtonDelete.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDelete.TabIndex = 2
+        Me.ButtonDelete.Text = "Delete"
+        Me.ButtonDelete.UseVisualStyleBackColor = True
+        '
+        'ButtonRefresh
+        '
+        Me.ButtonRefresh.Location = New System.Drawing.Point(255, 12)
+        Me.ButtonRefresh.Name = "ButtonRefresh"
+        Me.ButtonRefresh.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonRefresh.TabIndex = 3
+        Me.ButtonRefresh.Text = "Refresh"
+        Me.ButtonRefresh.UseVisualStyleBackColor = True
+        '
         'ListJadwalMataPelajaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(903, 468)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "ListJadwalMataPelajaran"
         Me.ShowInTaskbar = False
         Me.Text = "List Jadwal Mata Pelajaran"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
-        Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -193,12 +175,6 @@ Partial Class ListJadwalMataPelajaran
 
     End Sub
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBoxSilabus As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBoxMataPelajaran As System.Windows.Forms.TextBox
-    Friend WithEvents TextBoxTahunAjaran As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TahunAjaran As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -206,4 +182,8 @@ Partial Class ListJadwalMataPelajaran
     Friend WithEvents NamaKelas As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Jurusan As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Hari As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ButtonEdit As System.Windows.Forms.Button
+    Friend WithEvents ButtonInput As System.Windows.Forms.Button
+    Friend WithEvents ButtonRefresh As System.Windows.Forms.Button
+    Friend WithEvents ButtonDelete As System.Windows.Forms.Button
 End Class
