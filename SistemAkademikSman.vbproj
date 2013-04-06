@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="AppHelpers.vb" />
     <Compile Include="BusinessObject\GuruBusinessObject.vb" />
+    <Compile Include="BusinessObject\JadwalMataPelajaranBusinessObject.vb" />
     <Compile Include="BusinessObject\KaryawanBusinessObject.vb" />
     <Compile Include="BusinessObject\KelasBusinessObject.vb" />
     <Compile Include="BusinessObject\MataPelajaraBusinessObject.vb" />
@@ -84,10 +85,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EditorJadwalMataPelajaran.Designer.vb">
+      <DependentUpon>EditorJadwalMataPelajaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditorJadwalMataPelajaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ListGuru.Designer.vb">
       <DependentUpon>ListGuru.vb</DependentUpon>
     </Compile>
     <Compile Include="ListGuru.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListJadwalMataPelajaran.Designer.vb">
+      <DependentUpon>ListJadwalMataPelajaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListJadwalMataPelajaran.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListKaryawan.Designer.vb">
@@ -138,8 +151,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EditorJadwalMataPelajaran.resx">
+      <DependentUpon>EditorJadwalMataPelajaran.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListGuru.resx">
       <DependentUpon>ListGuru.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListJadwalMataPelajaran.resx">
+      <DependentUpon>ListJadwalMataPelajaran.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListKaryawan.resx">
       <DependentUpon>ListKaryawan.vb</DependentUpon>

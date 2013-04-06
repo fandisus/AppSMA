@@ -29,6 +29,8 @@ Partial Class MainForm
         Me.DataSiswaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DataGuruToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DataKaryawanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DataKelasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DataMataPelajaranToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.TransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.JadwalMataPelajaranToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PenjurusanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -38,8 +40,6 @@ Partial Class MainForm
         Me.TileHorizontalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.TileVerticalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ArrangeIconsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.DataKelasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.DataMataPelajaranToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -90,6 +90,18 @@ Partial Class MainForm
         Me.DataKaryawanToolStripMenuItem.Name = "DataKaryawanToolStripMenuItem"
         Me.DataKaryawanToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.DataKaryawanToolStripMenuItem.Text = "Data &Karyawan"
+        '
+        'DataKelasToolStripMenuItem
+        '
+        Me.DataKelasToolStripMenuItem.Name = "DataKelasToolStripMenuItem"
+        Me.DataKelasToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataKelasToolStripMenuItem.Text = "Data Ke&las"
+        '
+        'DataMataPelajaranToolStripMenuItem
+        '
+        Me.DataMataPelajaranToolStripMenuItem.Name = "DataMataPelajaranToolStripMenuItem"
+        Me.DataMataPelajaranToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataMataPelajaranToolStripMenuItem.Text = "Data &Mata Pelajaran"
         '
         'TransaksiToolStripMenuItem
         '
@@ -146,18 +158,6 @@ Partial Class MainForm
         Me.ArrangeIconsToolStripMenuItem.Name = "ArrangeIconsToolStripMenuItem"
         Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.ArrangeIconsToolStripMenuItem.Text = "&Arrange Icons"
-        '
-        'DataKelasToolStripMenuItem
-        '
-        Me.DataKelasToolStripMenuItem.Name = "DataKelasToolStripMenuItem"
-        Me.DataKelasToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.DataKelasToolStripMenuItem.Text = "Data Ke&las"
-        '
-        'DataMataPelajaranToolStripMenuItem
-        '
-        Me.DataMataPelajaranToolStripMenuItem.Name = "DataMataPelajaranToolStripMenuItem"
-        Me.DataMataPelajaranToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.DataMataPelajaranToolStripMenuItem.Text = "Data &Mata Pelajaran"
         '
         'MainForm
         '

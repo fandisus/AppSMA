@@ -126,7 +126,6 @@ Public Class ListMataPelajaran
         Catch ex As Exception
             MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
     End Sub
 
     Private Sub PopulateMataPelajaran(ByVal mataPelajaran As MasterMataPelajaran)

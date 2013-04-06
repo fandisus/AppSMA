@@ -11,7 +11,7 @@
 Option Strict Off
 Option Explicit On
 
-<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("cda0721b-a7d7-47d4-9c5d-39dcae81547e"),  _
+<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("ce09b345-1a6a-49c2-903f-c723902fd69a"),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_JadwalParent", "JadwalParent", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(JadwalParent), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterGuru", "MasterGuru", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterGuru), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterMataPelajaran), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
@@ -19,7 +19,7 @@ Option Explicit On
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_Penjurusan_MasterSiswa", "MasterSiswa", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterSiswa), "Penjurusan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Penjurusan))> 
 
 'Original file name:
-'Generation date: 3/31/2013 1:53:01 AM
+'Generation date: 4/7/2013 12:32:41 AM
 '''<summary>
 '''There are no comments for SiakSmanEntities in the schema.
 '''</summary>
@@ -1501,9 +1501,11 @@ Partial Public Class JadwalDetail
     '''Create a new JadwalDetail object.
     '''</summary>
     '''<param name="id">Initial value of ID.</param>
-    Public Shared Function CreateJadwalDetail(ByVal id As Integer) As JadwalDetail
+    '''<param name="jamIndex">Initial value of JamIndex.</param>
+    Public Shared Function CreateJadwalDetail(ByVal id As Integer, ByVal jamIndex As Integer) As JadwalDetail
         Dim jadwalDetail As JadwalDetail = New JadwalDetail
         jadwalDetail.ID = id
+        jadwalDetail.JamIndex = jamIndex
         Return jadwalDetail
     End Function
     '''<summary>
@@ -1527,6 +1529,28 @@ Partial Public Class JadwalDetail
     Partial Private Sub OnIDChanging(ByVal value As Integer)
         End Sub
     Partial Private Sub OnIDChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property JamIndex in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property JamIndex() As Integer
+        Get
+            Return Me._JamIndex
+        End Get
+        Set
+            Me.OnJamIndexChanging(value)
+            Me.ReportPropertyChanging("JamIndex")
+            Me._JamIndex = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("JamIndex")
+            Me.OnJamIndexChanged
+        End Set
+    End Property
+    Private _JamIndex As Integer
+    Partial Private Sub OnJamIndexChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnJamIndexChanged()
         End Sub
     '''<summary>
     '''There are no comments for JadwalParent in the schema.

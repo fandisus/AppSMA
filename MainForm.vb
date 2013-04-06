@@ -45,4 +45,10 @@
         vform.MdiParent = Me
         vform.Show()
     End Sub
+
+    Private Sub JadwalMataPelajaranToolStripMenuItemClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles JadwalMataPelajaranToolStripMenuItem.Click
+        Dim vform As New ListJadwalMataPelajaran
+        vform.MdiParent = Me
+        vform.Show()
+    End Sub
 End Class
