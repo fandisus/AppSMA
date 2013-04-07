@@ -12,7 +12,7 @@ Namespace BusinessObject
 
         Public Shared Function GetGuru(ByVal id As Integer) As MasterGuru
             Using entity As New SiakSmanEntities()
-                Dim query = From data In entity.MasterGuru Where data.ID = id
+                Dim query = From data In entity.MasterGuru Where data.ID = id Order By data.Nama
                 Return query.ToList().FirstOrDefault()
             End Using
         End Function

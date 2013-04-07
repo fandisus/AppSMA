@@ -85,6 +85,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\JadwalMataPelajaranDetail.vb" />
+    <Compile Include="DataModel\JadwalMataPelajaranParent.vb" />
     <Compile Include="EditorJadwalMataPelajaran.Designer.vb">
       <DependentUpon>EditorJadwalMataPelajaran.vb</DependentUpon>
     </Compile>

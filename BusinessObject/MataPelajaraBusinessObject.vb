@@ -7,6 +7,16 @@
             End Using
         End Function
 
+        Public Shared Function GetList(ByVal tahunAjaran As Integer) As List(Of MasterMataPelajaran)
+            If tahunAjaran <= 2010 Then
+                Throw New Exception("Tahun Ajaran Harus Lebih Besar dari Tahun 2010")
+            End If
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterMataPelajaran Where data.TahunAjaran = tahunAjaran Order By data.TahunAjaran Descending, data.MataPelajaran Ascending
+                Return query.ToList()
+            End Using
+        End Function
+
         Public Shared Function GetMataPelajaran(ByVal id As Integer) As MasterMataPelajaran
             Using entity As New SiakSmanEntities()
                 Dim query = From data In entity.MasterMataPelajaran Where data.ID = id

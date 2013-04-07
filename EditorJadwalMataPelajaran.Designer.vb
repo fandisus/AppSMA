@@ -24,63 +24,60 @@ Partial Class EditorJadwalMataPelajaran
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
-        Me.ComboBox24 = New System.Windows.Forms.ComboBox
-        Me.ComboBox25 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru10 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxMatPel10 = New System.Windows.Forms.ComboBox
         Me.Label27 = New System.Windows.Forms.Label
         Me.Label28 = New System.Windows.Forms.Label
-        Me.ComboBox22 = New System.Windows.Forms.ComboBox
-        Me.ComboBox23 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru9 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxMatPel9 = New System.Windows.Forms.ComboBox
         Me.Label25 = New System.Windows.Forms.Label
         Me.Label26 = New System.Windows.Forms.Label
-        Me.ComboBox20 = New System.Windows.Forms.ComboBox
-        Me.ComboBox21 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru8 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxMatPel8 = New System.Windows.Forms.ComboBox
         Me.Label23 = New System.Windows.Forms.Label
         Me.Label24 = New System.Windows.Forms.Label
-        Me.ComboBox18 = New System.Windows.Forms.ComboBox
-        Me.ComboBox19 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru7 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxMatPel7 = New System.Windows.Forms.ComboBox
         Me.Label21 = New System.Windows.Forms.Label
         Me.Label22 = New System.Windows.Forms.Label
         Me.Label19 = New System.Windows.Forms.Label
         Me.Label20 = New System.Windows.Forms.Label
-        Me.ComboBox12 = New System.Windows.Forms.ComboBox
-        Me.ComboBox13 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru6 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxMatPel6 = New System.Windows.Forms.ComboBox
         Me.Label17 = New System.Windows.Forms.Label
         Me.Label18 = New System.Windows.Forms.Label
-        Me.ComboBox14 = New System.Windows.Forms.ComboBox
-        Me.ComboBox15 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru5 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxMatPel5 = New System.Windows.Forms.ComboBox
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label16 = New System.Windows.Forms.Label
         Me.Label13 = New System.Windows.Forms.Label
         Me.Label14 = New System.Windows.Forms.Label
-        Me.ComboBox10 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru4 = New System.Windows.Forms.ComboBox
         Me.ComboBoxMatPel4 = New System.Windows.Forms.ComboBox
         Me.Label11 = New System.Windows.Forms.Label
         Me.Label12 = New System.Windows.Forms.Label
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru3 = New System.Windows.Forms.ComboBox
         Me.ComboBoxMatPel3 = New System.Windows.Forms.ComboBox
         Me.Label9 = New System.Windows.Forms.Label
         Me.Label10 = New System.Windows.Forms.Label
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru2 = New System.Windows.Forms.ComboBox
         Me.ComboBoxMatPel2 = New System.Windows.Forms.ComboBox
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxGuru1 = New System.Windows.Forms.ComboBox
         Me.ComboBoxMatPel1 = New System.Windows.Forms.ComboBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxJurusan = New System.Windows.Forms.ComboBox
         Me.Label4 = New System.Windows.Forms.Label
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxHari = New System.Windows.Forms.ComboBox
         Me.Label3 = New System.Windows.Forms.Label
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox
+        Me.ComboBoxKelas = New System.Windows.Forms.ComboBox
         Me.Label2 = New System.Windows.Forms.Label
-        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.TextBoxTahunAjaran = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Button5 = New System.Windows.Forms.Button
-        Me.Button4 = New System.Windows.Forms.Button
-        Me.Button3 = New System.Windows.Forms.Button
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.ButtonKeluar = New System.Windows.Forms.Button
+        Me.ButtonSimpan = New System.Windows.Forms.Button
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -98,66 +95,63 @@ Partial Class EditorJadwalMataPelajaran
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.Controls.Add(Me.RichTextBox1)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox24)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox25)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru10)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel10)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label27)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label28)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox22)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox23)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru9)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel9)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label25)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label26)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox20)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox21)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru8)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel8)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label23)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label24)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox18)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox19)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru7)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel7)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label21)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label22)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label19)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label20)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox12)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox13)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru6)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel6)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label17)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label18)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox14)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox15)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru5)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel5)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label15)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label16)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label13)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label14)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox10)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru4)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel4)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label11)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label12)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox8)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label9)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label10)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox6)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label7)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label8)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox5)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label6)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label5)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox3)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxJurusan)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label4)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox2)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxHari)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label3)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxKelas)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label2)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBox1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxTahunAjaran)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Button5)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Button4)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Button3)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Button2)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Button1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ButtonKeluar)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ButtonSimpan)
         Me.SplitContainer1.Size = New System.Drawing.Size(1008, 704)
         Me.SplitContainer1.SplitterDistance = 644
         Me.SplitContainer1.TabIndex = 0
@@ -167,25 +161,26 @@ Partial Class EditorJadwalMataPelajaran
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.RichTextBox1.Location = New System.Drawing.Point(565, 138)
         Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(431, 318)
         Me.RichTextBox1.TabIndex = 56
         Me.RichTextBox1.Text = ""
         '
-        'ComboBox24
+        'ComboBoxGuru10
         '
-        Me.ComboBox24.FormattingEnabled = True
-        Me.ComboBox24.Location = New System.Drawing.Point(378, 435)
-        Me.ComboBox24.Name = "ComboBox24"
-        Me.ComboBox24.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox24.TabIndex = 55
+        Me.ComboBoxGuru10.FormattingEnabled = True
+        Me.ComboBoxGuru10.Location = New System.Drawing.Point(378, 435)
+        Me.ComboBoxGuru10.Name = "ComboBoxGuru10"
+        Me.ComboBoxGuru10.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru10.TabIndex = 55
         '
-        'ComboBox25
+        'ComboBoxMatPel10
         '
-        Me.ComboBox25.FormattingEnabled = True
-        Me.ComboBox25.Location = New System.Drawing.Point(204, 435)
-        Me.ComboBox25.Name = "ComboBox25"
-        Me.ComboBox25.Size = New System.Drawing.Size(168, 21)
-        Me.ComboBox25.TabIndex = 54
+        Me.ComboBoxMatPel10.FormattingEnabled = True
+        Me.ComboBoxMatPel10.Location = New System.Drawing.Point(204, 435)
+        Me.ComboBoxMatPel10.Name = "ComboBoxMatPel10"
+        Me.ComboBoxMatPel10.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxMatPel10.TabIndex = 54
         '
         'Label27
         '
@@ -205,21 +200,21 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label28.TabIndex = 52
         Me.Label28.Text = "Jam Ke-10"
         '
-        'ComboBox22
+        'ComboBoxGuru9
         '
-        Me.ComboBox22.FormattingEnabled = True
-        Me.ComboBox22.Location = New System.Drawing.Point(378, 408)
-        Me.ComboBox22.Name = "ComboBox22"
-        Me.ComboBox22.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox22.TabIndex = 51
+        Me.ComboBoxGuru9.FormattingEnabled = True
+        Me.ComboBoxGuru9.Location = New System.Drawing.Point(378, 408)
+        Me.ComboBoxGuru9.Name = "ComboBoxGuru9"
+        Me.ComboBoxGuru9.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru9.TabIndex = 51
         '
-        'ComboBox23
+        'ComboBoxMatPel9
         '
-        Me.ComboBox23.FormattingEnabled = True
-        Me.ComboBox23.Location = New System.Drawing.Point(204, 408)
-        Me.ComboBox23.Name = "ComboBox23"
-        Me.ComboBox23.Size = New System.Drawing.Size(168, 21)
-        Me.ComboBox23.TabIndex = 50
+        Me.ComboBoxMatPel9.FormattingEnabled = True
+        Me.ComboBoxMatPel9.Location = New System.Drawing.Point(204, 408)
+        Me.ComboBoxMatPel9.Name = "ComboBoxMatPel9"
+        Me.ComboBoxMatPel9.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxMatPel9.TabIndex = 50
         '
         'Label25
         '
@@ -239,21 +234,21 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label26.TabIndex = 48
         Me.Label26.Text = "Jam Ke-9"
         '
-        'ComboBox20
+        'ComboBoxGuru8
         '
-        Me.ComboBox20.FormattingEnabled = True
-        Me.ComboBox20.Location = New System.Drawing.Point(378, 381)
-        Me.ComboBox20.Name = "ComboBox20"
-        Me.ComboBox20.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox20.TabIndex = 47
+        Me.ComboBoxGuru8.FormattingEnabled = True
+        Me.ComboBoxGuru8.Location = New System.Drawing.Point(378, 381)
+        Me.ComboBoxGuru8.Name = "ComboBoxGuru8"
+        Me.ComboBoxGuru8.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru8.TabIndex = 47
         '
-        'ComboBox21
+        'ComboBoxMatPel8
         '
-        Me.ComboBox21.FormattingEnabled = True
-        Me.ComboBox21.Location = New System.Drawing.Point(204, 381)
-        Me.ComboBox21.Name = "ComboBox21"
-        Me.ComboBox21.Size = New System.Drawing.Size(168, 21)
-        Me.ComboBox21.TabIndex = 46
+        Me.ComboBoxMatPel8.FormattingEnabled = True
+        Me.ComboBoxMatPel8.Location = New System.Drawing.Point(204, 381)
+        Me.ComboBoxMatPel8.Name = "ComboBoxMatPel8"
+        Me.ComboBoxMatPel8.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxMatPel8.TabIndex = 46
         '
         'Label23
         '
@@ -273,21 +268,21 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label24.TabIndex = 44
         Me.Label24.Text = "Jam Ke-8"
         '
-        'ComboBox18
+        'ComboBoxGuru7
         '
-        Me.ComboBox18.FormattingEnabled = True
-        Me.ComboBox18.Location = New System.Drawing.Point(378, 354)
-        Me.ComboBox18.Name = "ComboBox18"
-        Me.ComboBox18.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox18.TabIndex = 43
+        Me.ComboBoxGuru7.FormattingEnabled = True
+        Me.ComboBoxGuru7.Location = New System.Drawing.Point(378, 354)
+        Me.ComboBoxGuru7.Name = "ComboBoxGuru7"
+        Me.ComboBoxGuru7.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru7.TabIndex = 43
         '
-        'ComboBox19
+        'ComboBoxMatPel7
         '
-        Me.ComboBox19.FormattingEnabled = True
-        Me.ComboBox19.Location = New System.Drawing.Point(204, 354)
-        Me.ComboBox19.Name = "ComboBox19"
-        Me.ComboBox19.Size = New System.Drawing.Size(168, 21)
-        Me.ComboBox19.TabIndex = 42
+        Me.ComboBoxMatPel7.FormattingEnabled = True
+        Me.ComboBoxMatPel7.Location = New System.Drawing.Point(204, 354)
+        Me.ComboBoxMatPel7.Name = "ComboBoxMatPel7"
+        Me.ComboBoxMatPel7.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxMatPel7.TabIndex = 42
         '
         'Label21
         '
@@ -325,21 +320,21 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label20.TabIndex = 36
         Me.Label20.Text = "Istirahat Ke-2"
         '
-        'ComboBox12
+        'ComboBoxGuru6
         '
-        Me.ComboBox12.FormattingEnabled = True
-        Me.ComboBox12.Location = New System.Drawing.Point(378, 300)
-        Me.ComboBox12.Name = "ComboBox12"
-        Me.ComboBox12.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox12.TabIndex = 35
+        Me.ComboBoxGuru6.FormattingEnabled = True
+        Me.ComboBoxGuru6.Location = New System.Drawing.Point(378, 300)
+        Me.ComboBoxGuru6.Name = "ComboBoxGuru6"
+        Me.ComboBoxGuru6.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru6.TabIndex = 35
         '
-        'ComboBox13
+        'ComboBoxMatPel6
         '
-        Me.ComboBox13.FormattingEnabled = True
-        Me.ComboBox13.Location = New System.Drawing.Point(204, 300)
-        Me.ComboBox13.Name = "ComboBox13"
-        Me.ComboBox13.Size = New System.Drawing.Size(168, 21)
-        Me.ComboBox13.TabIndex = 34
+        Me.ComboBoxMatPel6.FormattingEnabled = True
+        Me.ComboBoxMatPel6.Location = New System.Drawing.Point(204, 300)
+        Me.ComboBoxMatPel6.Name = "ComboBoxMatPel6"
+        Me.ComboBoxMatPel6.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxMatPel6.TabIndex = 34
         '
         'Label17
         '
@@ -359,21 +354,21 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label18.TabIndex = 32
         Me.Label18.Text = "Jam Ke-6"
         '
-        'ComboBox14
+        'ComboBoxGuru5
         '
-        Me.ComboBox14.FormattingEnabled = True
-        Me.ComboBox14.Location = New System.Drawing.Point(378, 273)
-        Me.ComboBox14.Name = "ComboBox14"
-        Me.ComboBox14.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox14.TabIndex = 31
+        Me.ComboBoxGuru5.FormattingEnabled = True
+        Me.ComboBoxGuru5.Location = New System.Drawing.Point(378, 273)
+        Me.ComboBoxGuru5.Name = "ComboBoxGuru5"
+        Me.ComboBoxGuru5.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru5.TabIndex = 31
         '
-        'ComboBox15
+        'ComboBoxMatPel5
         '
-        Me.ComboBox15.FormattingEnabled = True
-        Me.ComboBox15.Location = New System.Drawing.Point(204, 273)
-        Me.ComboBox15.Name = "ComboBox15"
-        Me.ComboBox15.Size = New System.Drawing.Size(168, 21)
-        Me.ComboBox15.TabIndex = 30
+        Me.ComboBoxMatPel5.FormattingEnabled = True
+        Me.ComboBoxMatPel5.Location = New System.Drawing.Point(204, 273)
+        Me.ComboBoxMatPel5.Name = "ComboBoxMatPel5"
+        Me.ComboBoxMatPel5.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxMatPel5.TabIndex = 30
         '
         'Label15
         '
@@ -411,13 +406,13 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label14.TabIndex = 24
         Me.Label14.Text = "Istirahat Ke-1"
         '
-        'ComboBox10
+        'ComboBoxGuru4
         '
-        Me.ComboBox10.FormattingEnabled = True
-        Me.ComboBox10.Location = New System.Drawing.Point(378, 219)
-        Me.ComboBox10.Name = "ComboBox10"
-        Me.ComboBox10.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox10.TabIndex = 23
+        Me.ComboBoxGuru4.FormattingEnabled = True
+        Me.ComboBoxGuru4.Location = New System.Drawing.Point(378, 219)
+        Me.ComboBoxGuru4.Name = "ComboBoxGuru4"
+        Me.ComboBoxGuru4.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru4.TabIndex = 23
         '
         'ComboBoxMatPel4
         '
@@ -445,13 +440,13 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label12.TabIndex = 20
         Me.Label12.Text = "Jam Ke-4"
         '
-        'ComboBox8
+        'ComboBoxGuru3
         '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(378, 192)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox8.TabIndex = 19
+        Me.ComboBoxGuru3.FormattingEnabled = True
+        Me.ComboBoxGuru3.Location = New System.Drawing.Point(378, 192)
+        Me.ComboBoxGuru3.Name = "ComboBoxGuru3"
+        Me.ComboBoxGuru3.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru3.TabIndex = 19
         '
         'ComboBoxMatPel3
         '
@@ -479,13 +474,13 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label10.TabIndex = 16
         Me.Label10.Text = "Jam Ke-3"
         '
-        'ComboBox6
+        'ComboBoxGuru2
         '
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(378, 165)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox6.TabIndex = 15
+        Me.ComboBoxGuru2.FormattingEnabled = True
+        Me.ComboBoxGuru2.Location = New System.Drawing.Point(378, 165)
+        Me.ComboBoxGuru2.Name = "ComboBoxGuru2"
+        Me.ComboBoxGuru2.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru2.TabIndex = 15
         '
         'ComboBoxMatPel2
         '
@@ -513,13 +508,13 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label8.TabIndex = 12
         Me.Label8.Text = "Jam Ke-2"
         '
-        'ComboBox5
+        'ComboBoxGuru1
         '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(378, 138)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox5.TabIndex = 11
+        Me.ComboBoxGuru1.FormattingEnabled = True
+        Me.ComboBoxGuru1.Location = New System.Drawing.Point(378, 138)
+        Me.ComboBoxGuru1.Name = "ComboBoxGuru1"
+        Me.ComboBoxGuru1.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBoxGuru1.TabIndex = 11
         '
         'ComboBoxMatPel1
         '
@@ -547,14 +542,14 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Jam Ke-1"
         '
-        'ComboBox3
+        'ComboBoxJurusan
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"IPA", "IPS"})
-        Me.ComboBox3.Location = New System.Drawing.Point(109, 93)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 7
+        Me.ComboBoxJurusan.FormattingEnabled = True
+        Me.ComboBoxJurusan.Items.AddRange(New Object() {"IPA", "IPS"})
+        Me.ComboBoxJurusan.Location = New System.Drawing.Point(109, 93)
+        Me.ComboBoxJurusan.Name = "ComboBoxJurusan"
+        Me.ComboBoxJurusan.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxJurusan.TabIndex = 7
         '
         'Label4
         '
@@ -565,14 +560,14 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Jurusan"
         '
-        'ComboBox2
+        'ComboBoxHari
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"})
-        Me.ComboBox2.Location = New System.Drawing.Point(109, 66)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 5
+        Me.ComboBoxHari.FormattingEnabled = True
+        Me.ComboBoxHari.Items.AddRange(New Object() {"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"})
+        Me.ComboBoxHari.Location = New System.Drawing.Point(109, 66)
+        Me.ComboBoxHari.Name = "ComboBoxHari"
+        Me.ComboBoxHari.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxHari.TabIndex = 5
         '
         'Label3
         '
@@ -583,13 +578,13 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Hari"
         '
-        'ComboBox1
+        'ComboBoxKelas
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(109, 39)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 3
+        Me.ComboBoxKelas.FormattingEnabled = True
+        Me.ComboBoxKelas.Location = New System.Drawing.Point(109, 39)
+        Me.ComboBoxKelas.Name = "ComboBoxKelas"
+        Me.ComboBoxKelas.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxKelas.TabIndex = 3
         '
         'Label2
         '
@@ -600,12 +595,12 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Kelas"
         '
-        'TextBox1
+        'TextBoxTahunAjaran
         '
-        Me.TextBox1.Location = New System.Drawing.Point(109, 12)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 21)
-        Me.TextBox1.TabIndex = 1
+        Me.TextBoxTahunAjaran.Location = New System.Drawing.Point(109, 12)
+        Me.TextBoxTahunAjaran.Name = "TextBoxTahunAjaran"
+        Me.TextBoxTahunAjaran.Size = New System.Drawing.Size(100, 21)
+        Me.TextBoxTahunAjaran.TabIndex = 1
         '
         'Label1
         '
@@ -616,50 +611,23 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Tahun Ajaran"
         '
-        'Button5
+        'ButtonKeluar
         '
-        Me.Button5.Location = New System.Drawing.Point(336, 16)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 4
-        Me.Button5.Text = "&Keluar"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.ButtonKeluar.Location = New System.Drawing.Point(93, 16)
+        Me.ButtonKeluar.Name = "ButtonKeluar"
+        Me.ButtonKeluar.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonKeluar.TabIndex = 4
+        Me.ButtonKeluar.Text = "&Keluar"
+        Me.ButtonKeluar.UseVisualStyleBackColor = True
         '
-        'Button4
+        'ButtonSimpan
         '
-        Me.Button4.Location = New System.Drawing.Point(255, 16)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "&Refresh"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(174, 16)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "&Hapus"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(93, 16)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "&Ubah"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(12, 16)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "&Simpan"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ButtonSimpan.Location = New System.Drawing.Point(12, 16)
+        Me.ButtonSimpan.Name = "ButtonSimpan"
+        Me.ButtonSimpan.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonSimpan.TabIndex = 0
+        Me.ButtonSimpan.Text = "&Simpan"
+        Me.ButtonSimpan.UseVisualStyleBackColor = True
         '
         'EditorJadwalMataPelajaran
         '
@@ -679,61 +647,58 @@ Partial Class EditorJadwalMataPelajaran
 
     End Sub
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ButtonKeluar As System.Windows.Forms.Button
+    Friend WithEvents ButtonSimpan As System.Windows.Forms.Button
+    Friend WithEvents ComboBoxKelas As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxTahunAjaran As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxJurusan As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxHari As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox10 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru4 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBoxMatPel4 As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox8 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru3 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBoxMatPel3 As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru2 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBoxMatPel2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru1 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBoxMatPel1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox14 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox15 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru5 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxMatPel5 As System.Windows.Forms.ComboBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox12 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox13 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru6 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxMatPel6 As System.Windows.Forms.ComboBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents Label20 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox24 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox25 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru10 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxMatPel10 As System.Windows.Forms.ComboBox
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents Label28 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox22 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox23 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru9 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxMatPel9 As System.Windows.Forms.ComboBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Label26 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox20 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox21 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru8 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxMatPel8 As System.Windows.Forms.ComboBox
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox18 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox19 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxGuru7 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxMatPel7 As System.Windows.Forms.ComboBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
