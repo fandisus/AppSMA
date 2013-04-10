@@ -42,6 +42,9 @@
     <Reference Include="System.Data.Entity">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization">
@@ -80,13 +83,16 @@
     <Compile Include="BusinessObject\KelasBusinessObject.vb" />
     <Compile Include="BusinessObject\MataPelajaraBusinessObject.vb" />
     <Compile Include="BusinessObject\SiswaBusinessObject.vb" />
+    <Compile Include="DataModel\DataClasses1.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\DataModel.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\JadwalMataPelajaranDetail.vb" />
-    <Compile Include="DataModel\JadwalMataPelajaranParent.vb" />
     <Compile Include="EditorJadwalMataPelajaran.Designer.vb">
       <DependentUpon>EditorJadwalMataPelajaran.vb</DependentUpon>
     </Compile>
@@ -153,6 +159,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataModel\DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="EditorJadwalMataPelajaran.resx">
       <DependentUpon>EditorJadwalMataPelajaran.vb</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +199,11 @@
       <LastGenOutput>DataModel.Designer.vb</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
+    <None Include="DataModel\DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -204,6 +218,9 @@
     <Content Include="resume-photo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

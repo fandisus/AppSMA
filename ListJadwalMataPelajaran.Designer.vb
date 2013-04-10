@@ -23,6 +23,10 @@ Partial Class ListJadwalMataPelajaran
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.ButtonRefresh = New System.Windows.Forms.Button
+        Me.ButtonDelete = New System.Windows.Forms.Button
+        Me.ButtonEdit = New System.Windows.Forms.Button
+        Me.ButtonInput = New System.Windows.Forms.Button
         Me.DataGridView1 = New System.Windows.Forms.DataGridView
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.TahunAjaran = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -30,10 +34,6 @@ Partial Class ListJadwalMataPelajaran
         Me.NamaKelas = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Jurusan = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Hari = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ButtonInput = New System.Windows.Forms.Button
-        Me.ButtonEdit = New System.Windows.Forms.Button
-        Me.ButtonDelete = New System.Windows.Forms.Button
-        Me.ButtonRefresh = New System.Windows.Forms.Button
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -61,6 +61,42 @@ Partial Class ListJadwalMataPelajaran
         Me.SplitContainer1.Size = New System.Drawing.Size(903, 468)
         Me.SplitContainer1.SplitterDistance = 47
         Me.SplitContainer1.TabIndex = 2
+        '
+        'ButtonRefresh
+        '
+        Me.ButtonRefresh.Location = New System.Drawing.Point(255, 12)
+        Me.ButtonRefresh.Name = "ButtonRefresh"
+        Me.ButtonRefresh.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonRefresh.TabIndex = 3
+        Me.ButtonRefresh.Text = "Refresh"
+        Me.ButtonRefresh.UseVisualStyleBackColor = True
+        '
+        'ButtonDelete
+        '
+        Me.ButtonDelete.Location = New System.Drawing.Point(174, 12)
+        Me.ButtonDelete.Name = "ButtonDelete"
+        Me.ButtonDelete.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDelete.TabIndex = 2
+        Me.ButtonDelete.Text = "Delete"
+        Me.ButtonDelete.UseVisualStyleBackColor = True
+        '
+        'ButtonEdit
+        '
+        Me.ButtonEdit.Location = New System.Drawing.Point(93, 12)
+        Me.ButtonEdit.Name = "ButtonEdit"
+        Me.ButtonEdit.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonEdit.TabIndex = 1
+        Me.ButtonEdit.Text = "Edit"
+        Me.ButtonEdit.UseVisualStyleBackColor = True
+        '
+        'ButtonInput
+        '
+        Me.ButtonInput.Location = New System.Drawing.Point(12, 12)
+        Me.ButtonInput.Name = "ButtonInput"
+        Me.ButtonInput.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonInput.TabIndex = 0
+        Me.ButtonInput.Text = "Input"
+        Me.ButtonInput.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -120,42 +156,6 @@ Partial Class ListJadwalMataPelajaran
         Me.Hari.HeaderText = "Hari"
         Me.Hari.Name = "Hari"
         Me.Hari.ReadOnly = True
-        '
-        'ButtonInput
-        '
-        Me.ButtonInput.Location = New System.Drawing.Point(12, 12)
-        Me.ButtonInput.Name = "ButtonInput"
-        Me.ButtonInput.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonInput.TabIndex = 0
-        Me.ButtonInput.Text = "Input"
-        Me.ButtonInput.UseVisualStyleBackColor = True
-        '
-        'ButtonEdit
-        '
-        Me.ButtonEdit.Location = New System.Drawing.Point(93, 12)
-        Me.ButtonEdit.Name = "ButtonEdit"
-        Me.ButtonEdit.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonEdit.TabIndex = 1
-        Me.ButtonEdit.Text = "Edit"
-        Me.ButtonEdit.UseVisualStyleBackColor = True
-        '
-        'ButtonDelete
-        '
-        Me.ButtonDelete.Location = New System.Drawing.Point(174, 12)
-        Me.ButtonDelete.Name = "ButtonDelete"
-        Me.ButtonDelete.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonDelete.TabIndex = 2
-        Me.ButtonDelete.Text = "Delete"
-        Me.ButtonDelete.UseVisualStyleBackColor = True
-        '
-        'ButtonRefresh
-        '
-        Me.ButtonRefresh.Location = New System.Drawing.Point(255, 12)
-        Me.ButtonRefresh.Name = "ButtonRefresh"
-        Me.ButtonRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonRefresh.TabIndex = 3
-        Me.ButtonRefresh.Text = "Refresh"
-        Me.ButtonRefresh.UseVisualStyleBackColor = True
         '
         'ListJadwalMataPelajaran
         '
