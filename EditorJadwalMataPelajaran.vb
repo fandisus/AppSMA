@@ -73,6 +73,7 @@ Public Class EditorJadwalMataPelajaran
             Dim jdetails As List(Of JadwalDetail) = CreateJadwalDetail()
             JadwalMataPelajaranBusinessObject.Save(jparent, jdetails)
             ListForm.LoadData()
+            Close()
         Catch ex As Exception
             MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -130,6 +131,7 @@ Public Class EditorJadwalMataPelajaran
             Dim jdetails As List(Of JadwalDetail) = UpdateJadwalDetail()
             JadwalMataPelajaranBusinessObject.Update(jparent, jdetails)
             ListForm.LoadData()
+            Close()
         Catch ex As Exception
             MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -205,5 +207,9 @@ Public Class EditorJadwalMataPelajaran
             ComboBoxGuru10.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel10.SelectedValue = item.MasterMataPelajaran.ID
         Next
+    End Sub
+
+    Private Sub ButtonKeluarClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonKeluar.Click
+        Close()
     End Sub
 End Class

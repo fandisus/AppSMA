@@ -25,8 +25,18 @@ Public Class ListJadwalMataPelajaran
         formPenerimaanBarang.Edit(currentid)
     End Sub
 
-    Private Sub ButtonDelete_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonDelete.Click
+    Private Sub ButtonDeleteClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonDelete.Click
 
+        Try
+            Dim result = MessageBox.Show(Me, "Delete Jadwal Mata Pelajaran ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.No Then
+                Return
+            End If
+            JadwalMataPelajaranBusinessObject.Delete(currentid)
+            LoadData()
+        Catch ex As Exception
+            MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub ButtonRefreshClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonRefresh.Click

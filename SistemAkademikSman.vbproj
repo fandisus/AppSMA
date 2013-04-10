@@ -83,11 +83,6 @@
     <Compile Include="BusinessObject\KelasBusinessObject.vb" />
     <Compile Include="BusinessObject\MataPelajaraBusinessObject.vb" />
     <Compile Include="BusinessObject\SiswaBusinessObject.vb" />
-    <Compile Include="DataModel\DataClasses1.designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </Compile>
     <Compile Include="DataModel\DataModel.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +92,12 @@
       <DependentUpon>EditorJadwalMataPelajaran.vb</DependentUpon>
     </Compile>
     <Compile Include="EditorJadwalMataPelajaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListGuru.Designer.vb">
@@ -159,11 +160,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataModel\DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="EditorJadwalMataPelajaran.resx">
       <DependentUpon>EditorJadwalMataPelajaran.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListGuru.resx">
       <DependentUpon>ListGuru.vb</DependentUpon>
@@ -199,11 +200,6 @@
       <LastGenOutput>DataModel.Designer.vb</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
-    <None Include="DataModel\DataClasses1.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

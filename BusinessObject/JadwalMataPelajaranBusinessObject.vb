@@ -82,39 +82,33 @@
         Public Shared Sub Update(ByVal parent As JadwalParent, ByVal details As List(Of JadwalDetail))
             Using entity As New SiakSmanEntities()
                 Validation(parent, details)
-                'Dim a = GetJadwalMataPelajaran(parent.ID)
-                'Dim b = (From data In entity.MasterKelas Where data.ID = parent.MasterKelas.ID).FirstOrDefault()
-                'a.Hari = parent.Hari
-                'a.Jurusan = parent.Jurusan
-                ' ''a.MasterKelasReference.Attach((From data In entity.MasterKelas Where data.ID = parent.MasterKelas.ID).FirstOrDefault())
-                'entity.Detach(a.MasterKelas)
-                'entity.Attach(b)
-                'a.MasterKelas = b
-                'a.TahunAjaran = parent.TahunAjaran
-                'parent.MasterKelas = (From data In entity.MasterKelas Where data.ID = parent.MasterKelas.ID).FirstOrDefault()
-                'entity.Attach(parent)
 
-                'For i As Integer = 1 To 11
-                '    For Each detail As JadwalDetail In From detail1 In a.JadwalDetail Where detail1.JamIndex = i
-                '        For Each tdetail As JadwalDetail In From tdetail1 In parent.JadwalDetail Where tdetail1.JamIndex = detail.JamIndex
-                '            detail.MasterGuru = (From data In entity.MasterGuru Where data.ID = tdetail.MasterGuru.ID).FirstOrDefault()
-                '            detail.MasterMataPelajaran = (From data In entity.MasterMataPelajaran Where data.ID = tdetail.MasterMataPelajaran.ID).FirstOrDefault()
-                '        Next
-                '    Next
-                'Next
-                
-                'Dim jdetail = (From detail In details Select New JadwalDetail() With { _
-                '        .JamIndex = detail.JamIndex, _
-                '        .MasterGuru = (From data In entity.MasterGuru Where data.ID = detail.MasterGuru.ID).FirstOrDefault(), _
-                '        .MasterMataPelajaran = (From data In entity.MasterMataPelajaran Where data.ID = detail.MasterMataPelajaran.ID).FirstOrDefault() _
-                '        }).ToList()
-                entity.Attach(parent)
-                For Each detail As JadwalDetail In details
-
+                Dim query = (From data In entity.JadwalParent.Include("JadwalDetail") Where data.ID = parent.ID).ToList().FirstOrDefault()
+                If query Is Nothing Then
+                    Throw New Exception("Jadwal Mata Pelajaran dengan ID " + parent.ID + " tidak ditemukan")
+                End If
+                query.MasterKelasReference.Load()
+                For Each item As JadwalDetail In query.JadwalDetail
+                    item.MasterGuruReference.Load()
+                    item.MasterMataPelajaranReference.Load()
                 Next
+
+                query.Hari = parent.Hari
+                query.Jurusan = parent.Jurusan
+                query.MasterKelas = (From data In entity.MasterKelas Where data.ID = parent.MasterKelas.ID).FirstOrDefault()
+                query.TahunAjaran = parent.TahunAjaran
+
+                For i As Integer = 1 To 11
+                    For Each detail As JadwalDetail In From detail1 In query.JadwalDetail Where detail1.JamIndex = i
+                        For Each tdetail As JadwalDetail In From tdetail1 In details Where tdetail1.JamIndex = detail.JamIndex
+                            detail.MasterGuru = (From data In entity.MasterGuru Where data.ID = tdetail.MasterGuru.ID).FirstOrDefault()
+                            detail.MasterMataPelajaran = (From data In entity.MasterMataPelajaran Where data.ID = tdetail.MasterMataPelajaran.ID).FirstOrDefault()
+                        Next
+                    Next
+                Next
+
                 entity.Connection.Open()
                 Using transaction = entity.Connection.BeginTransaction
-                    'entity.AddToJadwalParent(jparent)
 
                     entity.SaveChanges()
                     transaction.Commit()
@@ -123,5 +117,30 @@
             End Using
         End Sub
 
+        Public Shared Sub Delete(ByVal currentid As Integer)
+            Using entity As New SiakSmanEntities()
+
+                Dim query = (From data In entity.JadwalParent.Include("JadwalDetail") Where data.ID = currentid).First()
+                If query Is Nothing Then
+                    Throw New Exception("Jadwal Mata Pelajaran dengan ID " + currentid + " tidak ditemukan")
+                End If
+                'query.MasterKelasReference.Load()
+                'For Each item As JadwalDetail In query.JadwalDetail
+                '    item.MasterGuruReference.Load()
+                '    item.MasterMataPelajaranReference.Load()
+                'Next
+                entity.Connection.Open()
+                Dim i = query.JadwalDetail.Count
+                Using transaction = entity.Connection.BeginTransaction
+                    For j As Integer = 1 To i
+                        entity.DeleteObject(query.JadwalDetail(0))
+                    Next
+                    entity.DeleteObject(query)
+                    entity.SaveChanges()
+                    transaction.Commit()
+                    entity.Connection.Close()
+                End Using
+            End Using
+        End Sub
     End Class
 End Namespace
