@@ -51,4 +51,10 @@
         vform.MdiParent = Me
         vform.Show()
     End Sub
+
+    Private Sub PenjurusanToolStripMenuItemClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PenjurusanToolStripMenuItem.Click
+        Dim vform As New ListPenjurusan
+        vform.MdiParent = Me
+        vform.Show()
+    End Sub
 End Class

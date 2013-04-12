@@ -17,6 +17,21 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +52,8 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity">
@@ -51,6 +68,8 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core">
@@ -82,6 +101,7 @@
     <Compile Include="BusinessObject\KaryawanBusinessObject.vb" />
     <Compile Include="BusinessObject\KelasBusinessObject.vb" />
     <Compile Include="BusinessObject\MataPelajaraBusinessObject.vb" />
+    <Compile Include="BusinessObject\PenjurusanBusinessObject.vb" />
     <Compile Include="BusinessObject\SiswaBusinessObject.vb" />
     <Compile Include="DataModel\DataModel.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -130,6 +150,12 @@
     <Compile Include="ListMataPelajaran.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ListPenjurusan.Designer.vb">
+      <DependentUpon>ListPenjurusan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListPenjurusan.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ListSiswa.Designer.vb">
       <DependentUpon>ListSiswa.vb</DependentUpon>
     </Compile>
@@ -158,6 +184,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Reports\KelasDialog.Designer.vb">
+      <DependentUpon>KelasDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\KelasDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportJadwalModel.vb" />
+    <Compile Include="Reports\ReportJadwalViewer.Designer.vb">
+      <DependentUpon>ReportJadwalViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportJadwalViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EditorJadwalMataPelajaran.resx">
@@ -181,6 +220,9 @@
     <EmbeddedResource Include="ListMataPelajaran.resx">
       <DependentUpon>ListMataPelajaran.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListPenjurusan.resx">
+      <DependentUpon>ListPenjurusan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListSiswa.resx">
       <DependentUpon>ListSiswa.vb</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +235,13 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KelasDialog.resx">
+      <DependentUpon>KelasDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportJadwal.rdlc" />
+    <EmbeddedResource Include="Reports\ReportJadwalViewer.resx">
+      <DependentUpon>ReportJadwalViewer.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DataModel\DataModel.edmx">
@@ -204,6 +253,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\SistemAkademikSman.BusinessObject.JadwalMataPelajaranBusinessObject.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -217,6 +267,38 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

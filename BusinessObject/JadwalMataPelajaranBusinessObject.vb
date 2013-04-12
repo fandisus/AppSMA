@@ -9,8 +9,8 @@
         End Function
 
         Public Shared Sub Save(ByVal parent As JadwalParent, ByVal details As List(Of JadwalDetail))
+            Validation(parent, details)
             Using entity As New SiakSmanEntities()
-                Validation(parent, details)
                 Dim jparent = New JadwalParent
                 jparent.Hari = parent.Hari
                 jparent.Jurusan = parent.Jurusan
@@ -56,12 +56,30 @@
                     Throw New Exception("Index Waktu Jadwal Pelajaran lebih kecil dari 1")
                 End If
                 If detail.MasterGuru Is Nothing Then
-                    Throw New Exception("Data Guru harus diisi")
+                    Throw New Exception("Jam Ke " + detail.JamIndex + "Data Guru harus diisi")
                 End If
                 If detail.MasterMataPelajaran Is Nothing Then
-                    Throw New Exception("Mata Pelajaran harus diisi")
+                    Throw New Exception("Jam Ke " + detail.JamIndex + " Mata Pelajaran harus diisi")
                 End If
             Next
+            Using entity As New SiakSmanEntities()
+                For Each detail As JadwalDetail In details
+                    Dim a = (From data In entity.JadwalDetail.Include("MasterGuru").Include("MasterMataPelajaran") Where data.JamIndex = detail.JamIndex And data.MasterGuru.ID = detail.MasterGuru.ID And data.ID <> detail.ID Select data).ToList()
+
+                    For Each d As JadwalDetail In From d1 In a Where Not d1.JadwalParentReference.IsLoaded
+                        d.JadwalParentReference.Load()
+                        If Not d.JadwalParent.MasterKelasReference.IsLoaded Then
+                            d.JadwalParent.MasterKelasReference.Load()
+                        End If
+                    Next
+
+                    Dim b = (From data In a Where data.JadwalParent.TahunAjaran = parent.TahunAjaran And data.JadwalParent.Hari = parent.Hari And data.JadwalParent.ID <> parent.ID Select data).ToList()
+
+                    If b.Count > 0 Then
+                        Throw New Exception("Konflik Jam Ke " + detail.JamIndex.ToString() + " Guru: " + b.FirstOrDefault().MasterGuru.Nama + " dengan Kelas: " + b.FirstOrDefault().JadwalParent.MasterKelas.NamaKelas)
+                    End If
+                Next
+            End Using
         End Sub
 
         Public Shared Function GetJadwalMataPelajaran(ByVal id As Integer) As JadwalParent
@@ -79,9 +97,49 @@
             End Using
         End Function
 
-        Public Shared Sub Update(ByVal parent As JadwalParent, ByVal details As List(Of JadwalDetail))
+
+        Public Function GetJadwalMataPelajaran(ByVal kelasid As Integer, ByVal tahunaajaran As Integer, ByVal hari As String, ByVal jurusan As String)
             Using entity As New SiakSmanEntities()
-                Validation(parent, details)
+                Dim query = (From data In entity.JadwalParent.Include("JadwalDetail").Include("MasterKelas") Where data.MasterKelas.ID = kelasid And data.TahunAjaran = tahunaajaran And data.Hari = hari And data.Jurusan = jurusan).ToList().FirstOrDefault()
+                If query Is Nothing Then
+                    Throw New Exception("Jadwal Mata Pelajaran Hari " + hari + ", data tidak ditemukan")
+                End If
+                For Each item As JadwalDetail In query.JadwalDetail
+                    item.MasterGuruReference.Load()
+                    item.MasterMataPelajaranReference.Load()
+                Next
+                Dim result = New List(Of ReportJadwalModel)
+
+                For Each detail As JadwalDetail In query.JadwalDetail
+                    Dim a = New ReportJadwalModel
+                    With a
+                        .IndexJadwal = detail.JamIndex
+                        .MataPelajaran = detail.MasterMataPelajaran.MataPelajaran
+                        .NamaKelas = query.MasterKelas.NamaKelas
+                        .TahunAjaran = query.TahunAjaran
+                        .WaliKelas = String.Empty
+                        .Hari = hari
+                        .Jurusan = jurusan
+                    End With
+                    result.Add(a)
+                Next
+
+                ListJadwal = (From data In result Order By data.IndexJadwal Select data).ToList()
+                ListJadwal.Insert(6, New ReportJadwalModel() With {.IndexJadwal = 6, .MataPelajaran = "Istirahat", .Hari = hari, .Jurusan = jurusan})
+                ListJadwal.Insert(4, New ReportJadwalModel() With {.IndexJadwal = 4, .MataPelajaran = "Istirahat", .Hari = hari, .Jurusan = jurusan})
+                Dim i As Integer = 1
+                For Each model As ReportJadwalModel In _ListJadwal
+                    model.IndexJadwal = i
+                    i += 1
+                Next
+                Return ListJadwal
+            End Using
+        End Function
+
+        Public Shared Sub Update(ByVal parent As JadwalParent, ByVal details As List(Of JadwalDetail))
+            Validation(parent, details)
+            Using entity As New SiakSmanEntities()
+
 
                 Dim query = (From data In entity.JadwalParent.Include("JadwalDetail") Where data.ID = parent.ID).ToList().FirstOrDefault()
                 If query Is Nothing Then
@@ -142,5 +200,16 @@
                 End Using
             End Using
         End Sub
+
+        Private _ListJadwal as List(Of ReportJadwalModel)
+
+        Public Property ListJadwal() As List(Of ReportJadwalModel)
+            Get
+                Return _ListJadwal
+            End Get
+            Set(ByVal value As List(Of ReportJadwalModel))
+                _ListJadwal = value
+            End Set
+        End Property
     End Class
 End Namespace

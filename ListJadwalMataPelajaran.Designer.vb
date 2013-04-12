@@ -34,6 +34,7 @@ Partial Class ListJadwalMataPelajaran
         Me.NamaKelas = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Jurusan = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Hari = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ButtonPrintJadwal = New System.Windows.Forms.Button
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -50,6 +51,7 @@ Partial Class ListJadwalMataPelajaran
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonPrintJadwal)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonDelete)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonEdit)
@@ -157,6 +159,15 @@ Partial Class ListJadwalMataPelajaran
         Me.Hari.Name = "Hari"
         Me.Hari.ReadOnly = True
         '
+        'ButtonPrintJadwal
+        '
+        Me.ButtonPrintJadwal.Location = New System.Drawing.Point(336, 12)
+        Me.ButtonPrintJadwal.Name = "ButtonPrintJadwal"
+        Me.ButtonPrintJadwal.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonPrintJadwal.TabIndex = 4
+        Me.ButtonPrintJadwal.Text = "Print Jadwal"
+        Me.ButtonPrintJadwal.UseVisualStyleBackColor = True
+        '
         'ListJadwalMataPelajaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -186,4 +197,5 @@ Partial Class ListJadwalMataPelajaran
     Friend WithEvents ButtonInput As System.Windows.Forms.Button
     Friend WithEvents ButtonRefresh As System.Windows.Forms.Button
     Friend WithEvents ButtonDelete As System.Windows.Forms.Button
+    Friend WithEvents ButtonPrintJadwal As System.Windows.Forms.Button
 End Class

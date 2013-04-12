@@ -52,4 +52,9 @@ Public Class ListJadwalMataPelajaran
         End If
         currentid = DataGridView1.SelectedRows(0).Cells("ID").Value
     End Sub
+
+    Private Sub ButtonPrintJadwalClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonPrintJadwal.Click
+        Dim a As New KelasDialog
+        a.Show(Me)
+    End Sub
 End Class

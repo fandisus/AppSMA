@@ -9,6 +9,13 @@ Namespace BusinessObject
             End Using
         End Function
 
+        Public Shared Function GetListByTahunAjaran(ByVal tahunAjaran As Integer) As List(Of MasterKelas)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterKelas Where data.TahunAjaran = tahunAjaran Order By data.TahunAjaran Descending, data.Tingkat Ascending, data.NamaKelas Ascending
+                Return query.ToList()
+            End Using
+        End Function
+
         Public Shared Function GetKelas(ByVal id As Integer) As MasterKelas
             Using entity As New SiakSmanEntities()
                 Dim query = From data In entity.MasterKelas Where data.ID = id

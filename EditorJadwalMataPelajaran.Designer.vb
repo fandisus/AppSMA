@@ -78,6 +78,9 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label1 = New System.Windows.Forms.Label
         Me.ButtonKeluar = New System.Windows.Forms.Button
         Me.ButtonSimpan = New System.Windows.Forms.Button
+        Me.Label29 = New System.Windows.Forms.Label
+        Me.Label30 = New System.Windows.Forms.Label
+        Me.Label31 = New System.Windows.Forms.Label
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -94,6 +97,9 @@ Partial Class EditorJadwalMataPelajaran
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label31)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label30)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label29)
         Me.SplitContainer1.Panel1.Controls.Add(Me.RichTextBox1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxGuru10)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxMatPel10)
@@ -159,7 +165,7 @@ Partial Class EditorJadwalMataPelajaran
         'RichTextBox1
         '
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.RichTextBox1.Location = New System.Drawing.Point(565, 138)
+        Me.RichTextBox1.Location = New System.Drawing.Point(565, 158)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(431, 318)
@@ -169,7 +175,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru10
         '
         Me.ComboBoxGuru10.FormattingEnabled = True
-        Me.ComboBoxGuru10.Location = New System.Drawing.Point(378, 435)
+        Me.ComboBoxGuru10.Location = New System.Drawing.Point(378, 455)
         Me.ComboBoxGuru10.Name = "ComboBoxGuru10"
         Me.ComboBoxGuru10.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru10.TabIndex = 55
@@ -177,7 +183,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel10
         '
         Me.ComboBoxMatPel10.FormattingEnabled = True
-        Me.ComboBoxMatPel10.Location = New System.Drawing.Point(204, 435)
+        Me.ComboBoxMatPel10.Location = New System.Drawing.Point(204, 455)
         Me.ComboBoxMatPel10.Name = "ComboBoxMatPel10"
         Me.ComboBoxMatPel10.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel10.TabIndex = 54
@@ -185,7 +191,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(123, 438)
+        Me.Label27.Location = New System.Drawing.Point(123, 458)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(75, 13)
         Me.Label27.TabIndex = 53
@@ -194,7 +200,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(46, 438)
+        Me.Label28.Location = New System.Drawing.Point(46, 458)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(57, 13)
         Me.Label28.TabIndex = 52
@@ -203,7 +209,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru9
         '
         Me.ComboBoxGuru9.FormattingEnabled = True
-        Me.ComboBoxGuru9.Location = New System.Drawing.Point(378, 408)
+        Me.ComboBoxGuru9.Location = New System.Drawing.Point(378, 428)
         Me.ComboBoxGuru9.Name = "ComboBoxGuru9"
         Me.ComboBoxGuru9.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru9.TabIndex = 51
@@ -211,7 +217,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel9
         '
         Me.ComboBoxMatPel9.FormattingEnabled = True
-        Me.ComboBoxMatPel9.Location = New System.Drawing.Point(204, 408)
+        Me.ComboBoxMatPel9.Location = New System.Drawing.Point(204, 428)
         Me.ComboBoxMatPel9.Name = "ComboBoxMatPel9"
         Me.ComboBoxMatPel9.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel9.TabIndex = 50
@@ -219,7 +225,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(123, 411)
+        Me.Label25.Location = New System.Drawing.Point(123, 431)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(75, 13)
         Me.Label25.TabIndex = 49
@@ -228,7 +234,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(52, 411)
+        Me.Label26.Location = New System.Drawing.Point(52, 431)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(51, 13)
         Me.Label26.TabIndex = 48
@@ -237,7 +243,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru8
         '
         Me.ComboBoxGuru8.FormattingEnabled = True
-        Me.ComboBoxGuru8.Location = New System.Drawing.Point(378, 381)
+        Me.ComboBoxGuru8.Location = New System.Drawing.Point(378, 401)
         Me.ComboBoxGuru8.Name = "ComboBoxGuru8"
         Me.ComboBoxGuru8.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru8.TabIndex = 47
@@ -245,7 +251,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel8
         '
         Me.ComboBoxMatPel8.FormattingEnabled = True
-        Me.ComboBoxMatPel8.Location = New System.Drawing.Point(204, 381)
+        Me.ComboBoxMatPel8.Location = New System.Drawing.Point(204, 401)
         Me.ComboBoxMatPel8.Name = "ComboBoxMatPel8"
         Me.ComboBoxMatPel8.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel8.TabIndex = 46
@@ -253,7 +259,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(123, 384)
+        Me.Label23.Location = New System.Drawing.Point(123, 404)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(75, 13)
         Me.Label23.TabIndex = 45
@@ -262,7 +268,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(52, 384)
+        Me.Label24.Location = New System.Drawing.Point(52, 404)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(51, 13)
         Me.Label24.TabIndex = 44
@@ -271,7 +277,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru7
         '
         Me.ComboBoxGuru7.FormattingEnabled = True
-        Me.ComboBoxGuru7.Location = New System.Drawing.Point(378, 354)
+        Me.ComboBoxGuru7.Location = New System.Drawing.Point(378, 374)
         Me.ComboBoxGuru7.Name = "ComboBoxGuru7"
         Me.ComboBoxGuru7.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru7.TabIndex = 43
@@ -279,7 +285,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel7
         '
         Me.ComboBoxMatPel7.FormattingEnabled = True
-        Me.ComboBoxMatPel7.Location = New System.Drawing.Point(204, 354)
+        Me.ComboBoxMatPel7.Location = New System.Drawing.Point(204, 374)
         Me.ComboBoxMatPel7.Name = "ComboBoxMatPel7"
         Me.ComboBoxMatPel7.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel7.TabIndex = 42
@@ -287,7 +293,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(123, 357)
+        Me.Label21.Location = New System.Drawing.Point(123, 377)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(75, 13)
         Me.Label21.TabIndex = 41
@@ -296,7 +302,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(52, 357)
+        Me.Label22.Location = New System.Drawing.Point(52, 377)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(51, 13)
         Me.Label22.TabIndex = 40
@@ -305,7 +311,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(123, 330)
+        Me.Label19.Location = New System.Drawing.Point(123, 350)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(75, 13)
         Me.Label19.TabIndex = 37
@@ -314,7 +320,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(30, 330)
+        Me.Label20.Location = New System.Drawing.Point(30, 350)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(73, 13)
         Me.Label20.TabIndex = 36
@@ -323,7 +329,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru6
         '
         Me.ComboBoxGuru6.FormattingEnabled = True
-        Me.ComboBoxGuru6.Location = New System.Drawing.Point(378, 300)
+        Me.ComboBoxGuru6.Location = New System.Drawing.Point(378, 320)
         Me.ComboBoxGuru6.Name = "ComboBoxGuru6"
         Me.ComboBoxGuru6.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru6.TabIndex = 35
@@ -331,7 +337,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel6
         '
         Me.ComboBoxMatPel6.FormattingEnabled = True
-        Me.ComboBoxMatPel6.Location = New System.Drawing.Point(204, 300)
+        Me.ComboBoxMatPel6.Location = New System.Drawing.Point(204, 320)
         Me.ComboBoxMatPel6.Name = "ComboBoxMatPel6"
         Me.ComboBoxMatPel6.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel6.TabIndex = 34
@@ -339,7 +345,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(123, 303)
+        Me.Label17.Location = New System.Drawing.Point(123, 323)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(75, 13)
         Me.Label17.TabIndex = 33
@@ -348,7 +354,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(52, 303)
+        Me.Label18.Location = New System.Drawing.Point(52, 323)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(51, 13)
         Me.Label18.TabIndex = 32
@@ -357,7 +363,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru5
         '
         Me.ComboBoxGuru5.FormattingEnabled = True
-        Me.ComboBoxGuru5.Location = New System.Drawing.Point(378, 273)
+        Me.ComboBoxGuru5.Location = New System.Drawing.Point(378, 293)
         Me.ComboBoxGuru5.Name = "ComboBoxGuru5"
         Me.ComboBoxGuru5.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru5.TabIndex = 31
@@ -365,7 +371,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel5
         '
         Me.ComboBoxMatPel5.FormattingEnabled = True
-        Me.ComboBoxMatPel5.Location = New System.Drawing.Point(204, 273)
+        Me.ComboBoxMatPel5.Location = New System.Drawing.Point(204, 293)
         Me.ComboBoxMatPel5.Name = "ComboBoxMatPel5"
         Me.ComboBoxMatPel5.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel5.TabIndex = 30
@@ -373,7 +379,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(123, 276)
+        Me.Label15.Location = New System.Drawing.Point(123, 296)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(75, 13)
         Me.Label15.TabIndex = 29
@@ -382,7 +388,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(52, 276)
+        Me.Label16.Location = New System.Drawing.Point(52, 296)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(51, 13)
         Me.Label16.TabIndex = 28
@@ -391,7 +397,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(123, 249)
+        Me.Label13.Location = New System.Drawing.Point(123, 269)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(75, 13)
         Me.Label13.TabIndex = 25
@@ -400,7 +406,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(30, 249)
+        Me.Label14.Location = New System.Drawing.Point(30, 269)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(73, 13)
         Me.Label14.TabIndex = 24
@@ -409,7 +415,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru4
         '
         Me.ComboBoxGuru4.FormattingEnabled = True
-        Me.ComboBoxGuru4.Location = New System.Drawing.Point(378, 219)
+        Me.ComboBoxGuru4.Location = New System.Drawing.Point(378, 239)
         Me.ComboBoxGuru4.Name = "ComboBoxGuru4"
         Me.ComboBoxGuru4.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru4.TabIndex = 23
@@ -417,7 +423,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel4
         '
         Me.ComboBoxMatPel4.FormattingEnabled = True
-        Me.ComboBoxMatPel4.Location = New System.Drawing.Point(204, 219)
+        Me.ComboBoxMatPel4.Location = New System.Drawing.Point(204, 239)
         Me.ComboBoxMatPel4.Name = "ComboBoxMatPel4"
         Me.ComboBoxMatPel4.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel4.TabIndex = 22
@@ -425,7 +431,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(123, 222)
+        Me.Label11.Location = New System.Drawing.Point(123, 242)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(75, 13)
         Me.Label11.TabIndex = 21
@@ -434,7 +440,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(52, 222)
+        Me.Label12.Location = New System.Drawing.Point(52, 242)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(51, 13)
         Me.Label12.TabIndex = 20
@@ -443,7 +449,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru3
         '
         Me.ComboBoxGuru3.FormattingEnabled = True
-        Me.ComboBoxGuru3.Location = New System.Drawing.Point(378, 192)
+        Me.ComboBoxGuru3.Location = New System.Drawing.Point(378, 212)
         Me.ComboBoxGuru3.Name = "ComboBoxGuru3"
         Me.ComboBoxGuru3.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru3.TabIndex = 19
@@ -451,7 +457,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel3
         '
         Me.ComboBoxMatPel3.FormattingEnabled = True
-        Me.ComboBoxMatPel3.Location = New System.Drawing.Point(204, 192)
+        Me.ComboBoxMatPel3.Location = New System.Drawing.Point(204, 212)
         Me.ComboBoxMatPel3.Name = "ComboBoxMatPel3"
         Me.ComboBoxMatPel3.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel3.TabIndex = 18
@@ -459,7 +465,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(123, 195)
+        Me.Label9.Location = New System.Drawing.Point(123, 215)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(75, 13)
         Me.Label9.TabIndex = 17
@@ -468,7 +474,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(52, 195)
+        Me.Label10.Location = New System.Drawing.Point(52, 215)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(51, 13)
         Me.Label10.TabIndex = 16
@@ -477,7 +483,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru2
         '
         Me.ComboBoxGuru2.FormattingEnabled = True
-        Me.ComboBoxGuru2.Location = New System.Drawing.Point(378, 165)
+        Me.ComboBoxGuru2.Location = New System.Drawing.Point(378, 185)
         Me.ComboBoxGuru2.Name = "ComboBoxGuru2"
         Me.ComboBoxGuru2.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru2.TabIndex = 15
@@ -485,7 +491,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel2
         '
         Me.ComboBoxMatPel2.FormattingEnabled = True
-        Me.ComboBoxMatPel2.Location = New System.Drawing.Point(204, 165)
+        Me.ComboBoxMatPel2.Location = New System.Drawing.Point(204, 185)
         Me.ComboBoxMatPel2.Name = "ComboBoxMatPel2"
         Me.ComboBoxMatPel2.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel2.TabIndex = 14
@@ -493,7 +499,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(123, 168)
+        Me.Label7.Location = New System.Drawing.Point(123, 188)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(75, 13)
         Me.Label7.TabIndex = 13
@@ -502,7 +508,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(52, 168)
+        Me.Label8.Location = New System.Drawing.Point(52, 188)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(51, 13)
         Me.Label8.TabIndex = 12
@@ -511,7 +517,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxGuru1
         '
         Me.ComboBoxGuru1.FormattingEnabled = True
-        Me.ComboBoxGuru1.Location = New System.Drawing.Point(378, 138)
+        Me.ComboBoxGuru1.Location = New System.Drawing.Point(378, 158)
         Me.ComboBoxGuru1.Name = "ComboBoxGuru1"
         Me.ComboBoxGuru1.Size = New System.Drawing.Size(181, 21)
         Me.ComboBoxGuru1.TabIndex = 11
@@ -519,7 +525,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxMatPel1
         '
         Me.ComboBoxMatPel1.FormattingEnabled = True
-        Me.ComboBoxMatPel1.Location = New System.Drawing.Point(204, 138)
+        Me.ComboBoxMatPel1.Location = New System.Drawing.Point(204, 158)
         Me.ComboBoxMatPel1.Name = "ComboBoxMatPel1"
         Me.ComboBoxMatPel1.Size = New System.Drawing.Size(168, 21)
         Me.ComboBoxMatPel1.TabIndex = 10
@@ -527,7 +533,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(123, 141)
+        Me.Label6.Location = New System.Drawing.Point(123, 161)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(75, 13)
         Me.Label6.TabIndex = 9
@@ -536,7 +542,7 @@ Partial Class EditorJadwalMataPelajaran
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(52, 141)
+        Me.Label5.Location = New System.Drawing.Point(52, 161)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(51, 13)
         Me.Label5.TabIndex = 8
@@ -629,6 +635,33 @@ Partial Class EditorJadwalMataPelajaran
         Me.ButtonSimpan.Text = "&Simpan"
         Me.ButtonSimpan.UseVisualStyleBackColor = True
         '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(293, 142)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(79, 13)
+        Me.Label29.TabIndex = 57
+        Me.Label29.Text = "Mata Pelajaran"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(529, 142)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(30, 13)
+        Me.Label30.TabIndex = 58
+        Me.Label30.Text = "Guru"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(956, 142)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(40, 13)
+        Me.Label31.TabIndex = 59
+        Me.Label31.Text = "Silabus"
+        '
         'EditorJadwalMataPelajaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -702,4 +735,7 @@ Partial Class EditorJadwalMataPelajaran
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents Label29 As System.Windows.Forms.Label
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents Label30 As System.Windows.Forms.Label
 End Class
