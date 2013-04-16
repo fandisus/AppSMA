@@ -6,7 +6,7 @@ Public Class KelasDialog
         TextBox1.Text = DateTime.Now.Year.ToString()
         ComboBox1.DisplayMember = "NamaKelas"
         ComboBox1.ValueMember = "ID"
-        ComboBox1.DataSource = KelasBusinessObject.GetListByTahunAjaran(DateTime.Now.Year)
+        ComboBox1.DataSource = KelasBusinessObject.GetKelasByTahunAjaran(DateTime.Now.Year)
     End Sub
 
     Private Sub TextBox1_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
@@ -19,7 +19,7 @@ Public Class KelasDialog
             Integer.TryParse(TextBox1.Text, i)
             ComboBox1.DisplayMember = "NamaKelas"
             ComboBox1.ValueMember = "ID"
-            ComboBox1.DataSource = KelasBusinessObject.GetListByTahunAjaran(i)
+            ComboBox1.DataSource = KelasBusinessObject.GetKelasByTahunAjaran(i)
             ComboBox1.SelectedText = ""
             ComboBox1.SelectedValue = Nothing
         End If

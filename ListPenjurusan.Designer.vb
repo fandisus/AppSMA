@@ -23,6 +23,9 @@ Partial Class ListPenjurusan
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.ButtonGeneratePembagianKelas = New System.Windows.Forms.Button
+        Me.TextBoxTahunAjaran = New System.Windows.Forms.TextBox
+        Me.Label14 = New System.Windows.Forms.Label
         Me.TextBoxJurusan = New System.Windows.Forms.TextBox
         Me.Label13 = New System.Windows.Forms.Label
         Me.TextBoxRatarata = New System.Windows.Forms.TextBox
@@ -73,6 +76,7 @@ Partial Class ListPenjurusan
         Me.TanggalPenilaian = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Jurusan = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.KelasID = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ButtonLaporan = New System.Windows.Forms.Button
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -89,6 +93,10 @@ Partial Class ListPenjurusan
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonLaporan)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonGeneratePembagianKelas)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxTahunAjaran)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label14)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxJurusan)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label13)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxRatarata)
@@ -124,22 +132,48 @@ Partial Class ListPenjurusan
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(770, 616)
+        Me.SplitContainer1.Size = New System.Drawing.Size(979, 616)
         Me.SplitContainer1.SplitterDistance = 258
         Me.SplitContainer1.TabIndex = 2
         '
+        'ButtonGeneratePembagianKelas
+        '
+        Me.ButtonGeneratePembagianKelas.Location = New System.Drawing.Point(438, 219)
+        Me.ButtonGeneratePembagianKelas.Name = "ButtonGeneratePembagianKelas"
+        Me.ButtonGeneratePembagianKelas.Size = New System.Drawing.Size(152, 23)
+        Me.ButtonGeneratePembagianKelas.TabIndex = 56
+        Me.ButtonGeneratePembagianKelas.Text = "Generate Pembagian Kelas"
+        Me.ButtonGeneratePembagianKelas.UseVisualStyleBackColor = True
+        '
+        'TextBoxTahunAjaran
+        '
+        Me.TextBoxTahunAjaran.Location = New System.Drawing.Point(108, 12)
+        Me.TextBoxTahunAjaran.Name = "TextBoxTahunAjaran"
+        Me.TextBoxTahunAjaran.Size = New System.Drawing.Size(100, 21)
+        Me.TextBoxTahunAjaran.TabIndex = 0
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(29, 15)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(72, 13)
+        Me.Label14.TabIndex = 55
+        Me.Label14.Text = "Tahun Ajaran"
+        '
         'TextBoxJurusan
         '
-        Me.TextBoxJurusan.Location = New System.Drawing.Point(314, 165)
+        Me.TextBoxJurusan.Location = New System.Drawing.Point(314, 188)
         Me.TextBoxJurusan.Name = "TextBoxJurusan"
         Me.TextBoxJurusan.ReadOnly = True
         Me.TextBoxJurusan.Size = New System.Drawing.Size(100, 21)
         Me.TextBoxJurusan.TabIndex = 54
+        Me.TextBoxJurusan.TabStop = False
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(264, 168)
+        Me.Label13.Location = New System.Drawing.Point(264, 191)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(45, 13)
         Me.Label13.TabIndex = 53
@@ -147,16 +181,17 @@ Partial Class ListPenjurusan
         '
         'TextBoxRatarata
         '
-        Me.TextBoxRatarata.Location = New System.Drawing.Point(108, 165)
+        Me.TextBoxRatarata.Location = New System.Drawing.Point(108, 188)
         Me.TextBoxRatarata.Name = "TextBoxRatarata"
         Me.TextBoxRatarata.ReadOnly = True
         Me.TextBoxRatarata.Size = New System.Drawing.Size(100, 21)
         Me.TextBoxRatarata.TabIndex = 52
+        Me.TextBoxRatarata.TabStop = False
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(51, 168)
+        Me.Label12.Location = New System.Drawing.Point(51, 191)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(54, 13)
         Me.Label12.TabIndex = 51
@@ -164,15 +199,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxSosiologi
         '
-        Me.TextBoxSosiologi.Location = New System.Drawing.Point(529, 121)
+        Me.TextBoxSosiologi.Location = New System.Drawing.Point(529, 144)
         Me.TextBoxSosiologi.Name = "TextBoxSosiologi"
         Me.TextBoxSosiologi.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxSosiologi.TabIndex = 50
+        Me.TextBoxSosiologi.TabIndex = 10
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(473, 124)
+        Me.Label9.Location = New System.Drawing.Point(473, 147)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(48, 13)
         Me.Label9.TabIndex = 49
@@ -180,15 +215,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxGeografi
         '
-        Me.TextBoxGeografi.Location = New System.Drawing.Point(529, 95)
+        Me.TextBoxGeografi.Location = New System.Drawing.Point(529, 118)
         Me.TextBoxGeografi.Name = "TextBoxGeografi"
         Me.TextBoxGeografi.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxGeografi.TabIndex = 48
+        Me.TextBoxGeografi.TabIndex = 9
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(471, 98)
+        Me.Label10.Location = New System.Drawing.Point(471, 121)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(48, 13)
         Me.Label10.TabIndex = 47
@@ -196,15 +231,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxEkonomi
         '
-        Me.TextBoxEkonomi.Location = New System.Drawing.Point(529, 69)
+        Me.TextBoxEkonomi.Location = New System.Drawing.Point(529, 92)
         Me.TextBoxEkonomi.Name = "TextBoxEkonomi"
         Me.TextBoxEkonomi.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxEkonomi.TabIndex = 46
+        Me.TextBoxEkonomi.TabIndex = 8
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(473, 72)
+        Me.Label11.Location = New System.Drawing.Point(473, 95)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(46, 13)
         Me.Label11.TabIndex = 45
@@ -212,15 +247,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxBiologi
         '
-        Me.TextBoxBiologi.Location = New System.Drawing.Point(314, 121)
+        Me.TextBoxBiologi.Location = New System.Drawing.Point(314, 144)
         Me.TextBoxBiologi.Name = "TextBoxBiologi"
         Me.TextBoxBiologi.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxBiologi.TabIndex = 44
+        Me.TextBoxBiologi.TabIndex = 7
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(270, 124)
+        Me.Label8.Location = New System.Drawing.Point(270, 147)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(37, 13)
         Me.Label8.TabIndex = 43
@@ -228,15 +263,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxKimia
         '
-        Me.TextBoxKimia.Location = New System.Drawing.Point(314, 95)
+        Me.TextBoxKimia.Location = New System.Drawing.Point(314, 118)
         Me.TextBoxKimia.Name = "TextBoxKimia"
         Me.TextBoxKimia.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxKimia.TabIndex = 42
+        Me.TextBoxKimia.TabIndex = 6
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(276, 98)
+        Me.Label7.Location = New System.Drawing.Point(276, 121)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(31, 13)
         Me.Label7.TabIndex = 41
@@ -244,15 +279,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxFisika
         '
-        Me.TextBoxFisika.Location = New System.Drawing.Point(314, 69)
+        Me.TextBoxFisika.Location = New System.Drawing.Point(314, 92)
         Me.TextBoxFisika.Name = "TextBoxFisika"
         Me.TextBoxFisika.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxFisika.TabIndex = 40
+        Me.TextBoxFisika.TabIndex = 5
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(274, 72)
+        Me.Label6.Location = New System.Drawing.Point(274, 95)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(33, 13)
         Me.Label6.TabIndex = 39
@@ -260,15 +295,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxMatematika
         '
-        Me.TextBoxMatematika.Location = New System.Drawing.Point(108, 121)
+        Me.TextBoxMatematika.Location = New System.Drawing.Point(108, 144)
         Me.TextBoxMatematika.Name = "TextBoxMatematika"
         Me.TextBoxMatematika.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxMatematika.TabIndex = 38
+        Me.TextBoxMatematika.TabIndex = 4
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(40, 124)
+        Me.Label5.Location = New System.Drawing.Point(40, 147)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(62, 13)
         Me.Label5.TabIndex = 37
@@ -276,15 +311,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxBahasaInggris
         '
-        Me.TextBoxBahasaInggris.Location = New System.Drawing.Point(108, 95)
+        Me.TextBoxBahasaInggris.Location = New System.Drawing.Point(108, 118)
         Me.TextBoxBahasaInggris.Name = "TextBoxBahasaInggris"
         Me.TextBoxBahasaInggris.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxBahasaInggris.TabIndex = 36
+        Me.TextBoxBahasaInggris.TabIndex = 3
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(25, 98)
+        Me.Label4.Location = New System.Drawing.Point(25, 121)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(78, 13)
         Me.Label4.TabIndex = 35
@@ -292,15 +327,15 @@ Partial Class ListPenjurusan
         '
         'TextBoxBahasaIndonesia
         '
-        Me.TextBoxBahasaIndonesia.Location = New System.Drawing.Point(108, 69)
+        Me.TextBoxBahasaIndonesia.Location = New System.Drawing.Point(108, 92)
         Me.TextBoxBahasaIndonesia.Name = "TextBoxBahasaIndonesia"
         Me.TextBoxBahasaIndonesia.Size = New System.Drawing.Size(100, 21)
-        Me.TextBoxBahasaIndonesia.TabIndex = 34
+        Me.TextBoxBahasaIndonesia.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 72)
+        Me.Label2.Location = New System.Drawing.Point(10, 95)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 13)
         Me.Label2.TabIndex = 33
@@ -311,7 +346,7 @@ Partial Class ListPenjurusan
         Me.ButtonRefresh.Location = New System.Drawing.Point(357, 219)
         Me.ButtonRefresh.Name = "ButtonRefresh"
         Me.ButtonRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonRefresh.TabIndex = 32
+        Me.ButtonRefresh.TabIndex = 15
         Me.ButtonRefresh.Text = "&Refresh"
         Me.ButtonRefresh.UseVisualStyleBackColor = True
         '
@@ -320,7 +355,7 @@ Partial Class ListPenjurusan
         Me.ButtonHapus.Location = New System.Drawing.Point(273, 219)
         Me.ButtonHapus.Name = "ButtonHapus"
         Me.ButtonHapus.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonHapus.TabIndex = 31
+        Me.ButtonHapus.TabIndex = 14
         Me.ButtonHapus.Text = "&Hapus"
         Me.ButtonHapus.UseVisualStyleBackColor = True
         '
@@ -329,7 +364,7 @@ Partial Class ListPenjurusan
         Me.ButtonSimpan.Location = New System.Drawing.Point(189, 219)
         Me.ButtonSimpan.Name = "ButtonSimpan"
         Me.ButtonSimpan.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonSimpan.TabIndex = 30
+        Me.ButtonSimpan.TabIndex = 13
         Me.ButtonSimpan.Text = "&Simpan"
         Me.ButtonSimpan.UseVisualStyleBackColor = True
         '
@@ -338,7 +373,7 @@ Partial Class ListPenjurusan
         Me.ButtonUbah.Location = New System.Drawing.Point(108, 219)
         Me.ButtonUbah.Name = "ButtonUbah"
         Me.ButtonUbah.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonUbah.TabIndex = 29
+        Me.ButtonUbah.TabIndex = 12
         Me.ButtonUbah.Text = "&Ubah"
         Me.ButtonUbah.UseVisualStyleBackColor = True
         '
@@ -347,14 +382,14 @@ Partial Class ListPenjurusan
         Me.ButtonTambah.Location = New System.Drawing.Point(27, 219)
         Me.ButtonTambah.Name = "ButtonTambah"
         Me.ButtonTambah.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonTambah.TabIndex = 28
+        Me.ButtonTambah.TabIndex = 11
         Me.ButtonTambah.Text = "&Tambah"
         Me.ButtonTambah.UseVisualStyleBackColor = True
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(40, 46)
+        Me.Label3.Location = New System.Drawing.Point(40, 69)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(64, 13)
         Me.Label3.TabIndex = 5
@@ -362,15 +397,16 @@ Partial Class ListPenjurusan
         '
         'TextBoxNamaSiswa
         '
-        Me.TextBoxNamaSiswa.Location = New System.Drawing.Point(108, 43)
+        Me.TextBoxNamaSiswa.Location = New System.Drawing.Point(108, 66)
         Me.TextBoxNamaSiswa.Name = "TextBoxNamaSiswa"
         Me.TextBoxNamaSiswa.ReadOnly = True
-        Me.TextBoxNamaSiswa.Size = New System.Drawing.Size(240, 21)
+        Me.TextBoxNamaSiswa.Size = New System.Drawing.Size(306, 21)
         Me.TextBoxNamaSiswa.TabIndex = 4
+        Me.TextBoxNamaSiswa.TabStop = False
         '
         'TextBoxNis
         '
-        Me.TextBoxNis.Location = New System.Drawing.Point(108, 16)
+        Me.TextBoxNis.Location = New System.Drawing.Point(108, 39)
         Me.TextBoxNis.Name = "TextBoxNis"
         Me.TextBoxNis.Size = New System.Drawing.Size(100, 21)
         Me.TextBoxNis.TabIndex = 1
@@ -378,7 +414,7 @@ Partial Class ListPenjurusan
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(77, 19)
+        Me.Label1.Location = New System.Drawing.Point(77, 42)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(24, 13)
         Me.Label1.TabIndex = 0
@@ -396,7 +432,7 @@ Partial Class ListPenjurusan
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(770, 354)
+        Me.DataGridView1.Size = New System.Drawing.Size(979, 354)
         Me.DataGridView1.TabIndex = 0
         '
         'ID
@@ -527,15 +563,24 @@ Partial Class ListPenjurusan
         Me.KelasID.ReadOnly = True
         Me.KelasID.Visible = False
         '
+        'ButtonLaporan
+        '
+        Me.ButtonLaporan.Location = New System.Drawing.Point(596, 219)
+        Me.ButtonLaporan.Name = "ButtonLaporan"
+        Me.ButtonLaporan.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonLaporan.TabIndex = 57
+        Me.ButtonLaporan.Text = "Laporan"
+        Me.ButtonLaporan.UseVisualStyleBackColor = True
+        '
         'ListPenjurusan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(770, 616)
+        Me.ClientSize = New System.Drawing.Size(979, 616)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "ListPenjurusan"
-        Me.Text = "ListPenjurusan"
+        Me.Text = "Form Penjurusan"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)
@@ -595,4 +640,8 @@ Partial Class ListPenjurusan
     Friend WithEvents TanggalPenilaian As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Jurusan As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents KelasID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TextBoxTahunAjaran As System.Windows.Forms.TextBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents ButtonGeneratePembagianKelas As System.Windows.Forms.Button
+    Friend WithEvents ButtonLaporan As System.Windows.Forms.Button
 End Class

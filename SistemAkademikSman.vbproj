@@ -103,6 +103,7 @@
     <Compile Include="BusinessObject\MataPelajaraBusinessObject.vb" />
     <Compile Include="BusinessObject\PenjurusanBusinessObject.vb" />
     <Compile Include="BusinessObject\SiswaBusinessObject.vb" />
+    <Compile Include="BusinessObject\UserBusinessObject.vb" />
     <Compile Include="DataModel\DataModel.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -118,6 +119,18 @@
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGeneratePembagianKelas.Designer.vb">
+      <DependentUpon>FormGeneratePembagianKelas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormGeneratePembagianKelas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.vb">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListGuru.Designer.vb">
@@ -162,6 +175,12 @@
     <Compile Include="ListSiswa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ListUser.Designer.vb">
+      <DependentUpon>ListUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +203,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Reports\FormReportKelas.Designer.vb">
+      <DependentUpon>FormReportKelas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FormReportKelas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FormReportKelasParameter.Designer.vb">
+      <DependentUpon>FormReportKelasParameter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FormReportKelasParameter.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports\KelasDialog.Designer.vb">
       <DependentUpon>KelasDialog.vb</DependentUpon>
     </Compile>
@@ -197,6 +228,7 @@
     <Compile Include="Reports\ReportJadwalViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\ReportKelasModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EditorJadwalMataPelajaran.resx">
@@ -204,6 +236,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGeneratePembagianKelas.resx">
+      <DependentUpon>FormGeneratePembagianKelas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListGuru.resx">
       <DependentUpon>ListGuru.vb</DependentUpon>
@@ -226,6 +264,9 @@
     <EmbeddedResource Include="ListSiswa.resx">
       <DependentUpon>ListSiswa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListUser.resx">
+      <DependentUpon>ListUser.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +276,12 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormReportKelas.resx">
+      <DependentUpon>FormReportKelas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormReportKelasParameter.resx">
+      <DependentUpon>FormReportKelasParameter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\KelasDialog.resx">
       <DependentUpon>KelasDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +289,7 @@
     <EmbeddedResource Include="Reports\ReportJadwalViewer.resx">
       <DependentUpon>ReportJadwalViewer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportKelas.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DataModel\DataModel.edmx">
@@ -253,6 +301,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Penjurusan.datasource" />
     <None Include="My Project\DataSources\SistemAkademikSman.BusinessObject.JadwalMataPelajaranBusinessObject.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

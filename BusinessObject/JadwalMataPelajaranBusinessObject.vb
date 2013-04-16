@@ -211,5 +211,16 @@
                 _ListJadwal = value
             End Set
         End Property
+
+        Public Property ListSiswaKelas() As List(Of ReportKelasModel)
+            Get
+                Return _ListSiswaKelas
+            End Get
+            Set(ByVal value As List(Of ReportKelasModel))
+                _ListSiswaKelas = value
+            End Set
+        End Property
+
+        Private _ListSiswaKelas As List(Of ReportKelasModel)
     End Class
 End Namespace

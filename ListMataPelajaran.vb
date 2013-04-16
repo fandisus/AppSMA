@@ -4,6 +4,16 @@ Public Class ListMataPelajaran
 
     Private isAddNew As Boolean
     Private recordId As Integer
+    Private _isadmin As Boolean
+
+    Public Property IsAdministrator() As Boolean
+        Get
+            Return _isadmin
+        End Get
+        Set(ByVal value As Boolean)
+            _isadmin = value
+        End Set
+    End Property
 
     Private Sub InsertState()
         ButtonTambah.Enabled = False
@@ -68,15 +78,24 @@ Public Class ListMataPelajaran
     End Sub
 
     Private Sub ListMataPelajaranLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
+
         TextBoxTahunAjaran.Focus()
         DataGridView1.AutoGenerateColumns = False
         DataGridView1.DataSource = MataPelajaraBusinessObject.GetList()
         AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
+        
+        
     End Sub
 
     Private Sub DataGridViewSelectionChanged(ByVal sender As Object, ByVal e As EventArgs)
         ViewState()
         LoadRecord()
+        If Not IsAdministrator Then
+            ButtonHapus.Enabled = IsAdministrator
+            ButtonTambah.Enabled = IsAdministrator
+            ButtonSimpan.Enabled = IsAdministrator
+            ButtonUbah.Enabled = IsAdministrator
+        End If
     End Sub
 
     Private Sub ButtonTambahClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonTambah.Click

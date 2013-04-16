@@ -31,10 +31,10 @@ Partial Class MainForm
         Me.DataKaryawanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DataKelasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DataMataPelajaranToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DataUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.TransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.JadwalMataPelajaranToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PenjurusanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CascadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.TileHorizontalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -45,7 +45,7 @@ Partial Class MainForm
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.DataMasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.ReportToolStripMenuItem, Me.WindowToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.DataMasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.WindowToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(7, 2, 0, 2)
@@ -68,7 +68,7 @@ Partial Class MainForm
         '
         'DataMasterToolStripMenuItem
         '
-        Me.DataMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataSiswaToolStripMenuItem, Me.DataGuruToolStripMenuItem, Me.DataKaryawanToolStripMenuItem, Me.DataKelasToolStripMenuItem, Me.DataMataPelajaranToolStripMenuItem})
+        Me.DataMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataSiswaToolStripMenuItem, Me.DataGuruToolStripMenuItem, Me.DataKaryawanToolStripMenuItem, Me.DataKelasToolStripMenuItem, Me.DataMataPelajaranToolStripMenuItem, Me.DataUserToolStripMenuItem})
         Me.DataMasterToolStripMenuItem.Name = "DataMasterToolStripMenuItem"
         Me.DataMasterToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
         Me.DataMasterToolStripMenuItem.Text = "&Data Master"
@@ -103,6 +103,12 @@ Partial Class MainForm
         Me.DataMataPelajaranToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.DataMataPelajaranToolStripMenuItem.Text = "Data &Mata Pelajaran"
         '
+        'DataUserToolStripMenuItem
+        '
+        Me.DataUserToolStripMenuItem.Name = "DataUserToolStripMenuItem"
+        Me.DataUserToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataUserToolStripMenuItem.Text = "Data &User"
+        '
         'TransaksiToolStripMenuItem
         '
         Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.JadwalMataPelajaranToolStripMenuItem, Me.PenjurusanToolStripMenuItem})
@@ -122,12 +128,6 @@ Partial Class MainForm
         Me.PenjurusanToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.PenjurusanToolStripMenuItem.Text = "&Penjurusan"
         '
-        'ReportToolStripMenuItem
-        '
-        Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
-        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
-        Me.ReportToolStripMenuItem.Text = "&Report"
-        '
         'WindowToolStripMenuItem
         '
         Me.WindowToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CascadeToolStripMenuItem, Me.TileHorizontalToolStripMenuItem, Me.TileVerticalToolStripMenuItem, Me.ArrangeIconsToolStripMenuItem})
@@ -138,25 +138,25 @@ Partial Class MainForm
         'CascadeToolStripMenuItem
         '
         Me.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem"
-        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CascadeToolStripMenuItem.Text = "&Cascade"
         '
         'TileHorizontalToolStripMenuItem
         '
         Me.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem"
-        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.TileHorizontalToolStripMenuItem.Text = "Tile &Horizontal"
         '
         'TileVerticalToolStripMenuItem
         '
         Me.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem"
-        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.TileVerticalToolStripMenuItem.Text = "Tile &Vertical"
         '
         'ArrangeIconsToolStripMenuItem
         '
         Me.ArrangeIconsToolStripMenuItem.Name = "ArrangeIconsToolStripMenuItem"
-        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ArrangeIconsToolStripMenuItem.Text = "&Arrange Icons"
         '
         'MainForm
@@ -188,7 +188,6 @@ Partial Class MainForm
     Friend WithEvents TransaksiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents JadwalMataPelajaranToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PenjurusanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents WindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CascadeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TileHorizontalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -196,5 +195,6 @@ Partial Class MainForm
     Friend WithEvents ArrangeIconsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DataKelasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DataMataPelajaranToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DataUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

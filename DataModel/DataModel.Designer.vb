@@ -11,16 +11,16 @@
 Option Strict Off
 Option Explicit On
 
-<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("896d31d7-5c7e-4f73-bb14-2ccbe8c3d5d9"),  _
+<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("a53fa309-bcc5-4983-8831-7f3d212a84d1"),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_JadwalParent", "JadwalParent", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(JadwalParent), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterGuru", "MasterGuru", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterGuru), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterMataPelajaran), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalParent_MasterKelas", "MasterKelas", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterKelas), "JadwalParent", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalParent)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_Penjurusan_MasterSiswa", "MasterSiswa", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterSiswa), "Penjurusan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Penjurusan)),  _
- Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_Penjurusan_MasterKelas", "MasterKelas", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterKelas), "Penjurusan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Penjurusan))> 
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_Penjurusan_MasterKelas", "MasterKelas", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(MasterKelas), "Penjurusan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Penjurusan))> 
 
 'Original file name:
-'Generation date: 4/11/2013 8:39:38 PM
+'Generation date: 4/16/2013 10:18:29 PM
 '''<summary>
 '''There are no comments for SiakSmanEntities in the schema.
 '''</summary>
@@ -146,6 +146,18 @@ Partial Public Class SiakSmanEntities
     End Property
     Private _Penjurusan As Global.System.Data.Objects.ObjectQuery(Of Penjurusan)
     '''<summary>
+    '''There are no comments for MasterUser in the schema.
+    '''</summary>
+    Public ReadOnly Property MasterUser() As Global.System.Data.Objects.ObjectQuery(Of MasterUser)
+        Get
+            If (Me._MasterUser Is Nothing) Then
+                Me._MasterUser = MyBase.CreateQuery(Of MasterUser)("[MasterUser]")
+            End If
+            Return Me._MasterUser
+        End Get
+    End Property
+    Private _MasterUser As Global.System.Data.Objects.ObjectQuery(Of MasterUser)
+    '''<summary>
     '''There are no comments for MasterGuru in the schema.
     '''</summary>
     Public Sub AddToMasterGuru(ByVal masterGuru As MasterGuru)
@@ -192,6 +204,12 @@ Partial Public Class SiakSmanEntities
     '''</summary>
     Public Sub AddToPenjurusan(ByVal penjurusan As Penjurusan)
         MyBase.AddObject("Penjurusan", penjurusan)
+    End Sub
+    '''<summary>
+    '''There are no comments for MasterUser in the schema.
+    '''</summary>
+    Public Sub AddToMasterUser(ByVal masterUser As MasterUser)
+        MyBase.AddObject("MasterUser", masterUser)
     End Sub
 End Class
 '''<summary>
@@ -2523,4 +2541,119 @@ Partial Public Class Penjurusan
             End If
         End Set
     End Property
+End Class
+'''<summary>
+'''There are no comments for SiakSmanModel.MasterUser in the schema.
+'''</summary>
+'''<KeyProperties>
+'''ID
+'''</KeyProperties>
+<Global.System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName:="SiakSmanModel", Name:="MasterUser"),  _
+ Global.System.Runtime.Serialization.DataContractAttribute(IsReference:=true),  _
+ Global.System.Serializable()>  _
+Partial Public Class MasterUser
+    Inherits Global.System.Data.Objects.DataClasses.EntityObject
+    '''<summary>
+    '''Create a new MasterUser object.
+    '''</summary>
+    '''<param name="id">Initial value of ID.</param>
+    '''<param name="username">Initial value of Username.</param>
+    '''<param name="password">Initial value of Password.</param>
+    '''<param name="isAdministrator">Initial value of IsAdministrator.</param>
+    Public Shared Function CreateMasterUser(ByVal id As Integer, ByVal username As String, ByVal password As String, ByVal isAdministrator As Boolean) As MasterUser
+        Dim masterUser As MasterUser = New MasterUser
+        masterUser.ID = id
+        masterUser.Username = username
+        masterUser.Password = password
+        masterUser.IsAdministrator = isAdministrator
+        Return masterUser
+    End Function
+    '''<summary>
+    '''There are no comments for Property ID in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property ID() As Integer
+        Get
+            Return Me._ID
+        End Get
+        Set
+            Me.OnIDChanging(value)
+            Me.ReportPropertyChanging("ID")
+            Me._ID = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("ID")
+            Me.OnIDChanged
+        End Set
+    End Property
+    Private _ID As Integer
+    Partial Private Sub OnIDChanging(ByVal value As Integer)
+        End Sub
+    Partial Private Sub OnIDChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Username in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Username() As String
+        Get
+            Return Me._Username
+        End Get
+        Set
+            Me.OnUsernameChanging(value)
+            Me.ReportPropertyChanging("Username")
+            Me._Username = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false)
+            Me.ReportPropertyChanged("Username")
+            Me.OnUsernameChanged
+        End Set
+    End Property
+    Private _Username As String
+    Partial Private Sub OnUsernameChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnUsernameChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property Password in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property Password() As String
+        Get
+            Return Me._Password
+        End Get
+        Set
+            Me.OnPasswordChanging(value)
+            Me.ReportPropertyChanging("Password")
+            Me._Password = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false)
+            Me.ReportPropertyChanged("Password")
+            Me.OnPasswordChanged
+        End Set
+    End Property
+    Private _Password As String
+    Partial Private Sub OnPasswordChanging(ByVal value As String)
+        End Sub
+    Partial Private Sub OnPasswordChanged()
+        End Sub
+    '''<summary>
+    '''There are no comments for Property IsAdministrator in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable:=false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property IsAdministrator() As Boolean
+        Get
+            Return Me._IsAdministrator
+        End Get
+        Set
+            Me.OnIsAdministratorChanging(value)
+            Me.ReportPropertyChanging("IsAdministrator")
+            Me._IsAdministrator = Global.System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+            Me.ReportPropertyChanged("IsAdministrator")
+            Me.OnIsAdministratorChanged
+        End Set
+    End Property
+    Private _IsAdministrator As Boolean
+    Partial Private Sub OnIsAdministratorChanging(ByVal value As Boolean)
+        End Sub
+    Partial Private Sub OnIsAdministratorChanged()
+        End Sub
 End Class

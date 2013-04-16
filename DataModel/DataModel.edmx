@@ -13,6 +13,7 @@
           <EntitySet Name="MasterKelas" EntityType="SiakSmanModel.Store.MasterKelas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MasterMataPelajaran" EntityType="SiakSmanModel.Store.MasterMataPelajaran" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MasterSiswa" EntityType="SiakSmanModel.Store.MasterSiswa" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterUser" EntityType="SiakSmanModel.Store.MasterUser" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Penjurusan" EntityType="SiakSmanModel.Store.Penjurusan" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_JadwalDetail_JadwalParent" Association="SiakSmanModel.Store.FK_JadwalDetail_JadwalParent">
             <End Role="JadwalParent" EntitySet="JadwalParent" />
@@ -106,7 +107,7 @@
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TahunAjaran" Type="int" Nullable="false" />
           <Property Name="Tingkat" Type="int" Nullable="false" />
-          <Property Name="NamaKelas" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="NamaKelas" Type="varchar" Nullable="false" MaxLength="12" />
           <Property Name="Keterangan" Type="varchar" MaxLength="64" />
         </EntityType>
         <EntityType Name="MasterMataPelajaran">
@@ -146,6 +147,15 @@
           <Property Name="NoTelephoneOrangTua" Type="varchar" MaxLength="16" />
           <Property Name="NoHPOrangTua" Type="varchar" MaxLength="16" />
         </EntityType>
+        <EntityType Name="MasterUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="IsAdministrator" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Penjurusan">
           <Key>
             <PropertyRef Name="ID" />
@@ -165,7 +175,7 @@
           <Property Name="NilaiRataRata" Type="decimal" Nullable="false" Precision="5" Scale="2" />
           <Property Name="TanggalPenilaian" Type="datetime" Nullable="false" />
           <Property Name="Jurusan" Type="varchar" Nullable="false" MaxLength="16" />
-          <Property Name="KelasID" Type="int" Nullable="false" />
+          <Property Name="KelasID" Type="int" />
         </EntityType>
         <Association Name="FK_JadwalDetail_JadwalParent">
           <End Role="JadwalParent" Type="SiakSmanModel.Store.JadwalParent" Multiplicity="1" />
@@ -216,7 +226,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Penjurusan_MasterKelas">
-          <End Role="MasterKelas" Type="SiakSmanModel.Store.MasterKelas" Multiplicity="1" />
+          <End Role="MasterKelas" Type="SiakSmanModel.Store.MasterKelas" Multiplicity="0..1" />
           <End Role="Penjurusan" Type="SiakSmanModel.Store.Penjurusan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MasterKelas">
@@ -269,7 +279,8 @@
             <End Role="Penjurusan" EntitySet="Penjurusan" /></AssociationSet>
           <AssociationSet Name="FK_Penjurusan_MasterKelas" Association="SiakSmanModel.FK_Penjurusan_MasterKelas">
             <End Role="MasterKelas" EntitySet="MasterKelas" />
-            <End Role="Penjurusan" EntitySet="Penjurusan" /></AssociationSet></EntityContainer>
+            <End Role="Penjurusan" EntitySet="Penjurusan" /></AssociationSet>
+          <EntitySet Name="MasterUser" EntityType="SiakSmanModel.MasterUser" /></EntityContainer>
         <EntityType Name="MasterGuru">
           <Key>
             <PropertyRef Name="ID" />
@@ -408,8 +419,16 @@
           <End Type="SiakSmanModel.MasterSiswa" Role="MasterSiswa" Multiplicity="1" />
           <End Type="SiakSmanModel.Penjurusan" Role="Penjurusan" Multiplicity="*" /></Association>
         <Association Name="FK_Penjurusan_MasterKelas">
-          <End Type="SiakSmanModel.MasterKelas" Role="MasterKelas" Multiplicity="1" />
-          <End Type="SiakSmanModel.Penjurusan" Role="Penjurusan" Multiplicity="*" /></Association></Schema>
+          <End Type="SiakSmanModel.MasterKelas" Role="MasterKelas" Multiplicity="0..1" />
+          <End Type="SiakSmanModel.Penjurusan" Role="Penjurusan" Multiplicity="*" /></Association>
+        <EntityType Name="MasterUser">
+          <Key>
+            <PropertyRef Name="ID" />
+            </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="IsAdministrator" Type="Boolean" Nullable="false" /></EntityType></Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -559,7 +578,15 @@
             <EndProperty Name="Penjurusan">
               <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
             <EndProperty Name="MasterKelas">
-              <ScalarProperty Name="ID" ColumnName="KelasID" /></EndProperty></AssociationSetMapping></EntityContainerMapping>
+              <ScalarProperty Name="ID" ColumnName="KelasID" /></EndProperty>
+            <Condition ColumnName="KelasID" IsNull="false" /></AssociationSetMapping>
+          <EntitySetMapping Name="MasterUser">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterUser)">
+              <MappingFragment StoreEntitySet="MasterUser">
+                <ScalarProperty Name="IsAdministrator" ColumnName="IsAdministrator" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping></EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -604,6 +631,7 @@
         <AssociationConnector Association="SiakSmanModel.FK_Penjurusan_MasterSiswa" >
           <ConnectorPoint PointX="6.5" PointY="5.5045068359375" />
           <ConnectorPoint PointX="7.25" PointY="5.5045068359375" /></AssociationConnector>
-        <AssociationConnector Association="SiakSmanModel.FK_Penjurusan_MasterKelas" /></Diagram></edmx:Diagrams>
+        <AssociationConnector Association="SiakSmanModel.FK_Penjurusan_MasterKelas" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterUser" Width="1.5" PointX="0.75" PointY="5.75" Height="1.7879850260416674" /></Diagram></edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

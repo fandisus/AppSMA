@@ -3,8 +3,22 @@
 Public Class ListJadwalMataPelajaran
 
     Dim currentid As Integer
+    Private _isadmin As Boolean
+
+    Public Property IsAdministrator() As Boolean
+        Get
+            Return _isadmin
+        End Get
+        Set(ByVal value As Boolean)
+            _isadmin = value
+        End Set
+    End Property
+
     Private Sub ListJadwalMataPelajaranLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         LoadData()
+        ButtonDelete.Enabled = IsAdministrator
+        ButtonEdit.Enabled = IsAdministrator
+        ButtonInput.Enabled = IsAdministrator
     End Sub
 
     Friend Sub LoadData()

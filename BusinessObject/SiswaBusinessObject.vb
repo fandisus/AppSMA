@@ -17,6 +17,27 @@ Namespace BusinessObject
             End Using
         End Function
 
+        Public Shared Function GetSiswaByTahunAngkatan(ByVal tahun As String) As List(Of MasterSiswa)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterSiswa Where data.NIS.StartsWith(tahun)
+                Return query.ToList()
+            End Using
+        End Function
+
+        Public Shared Function GetSiswaByJurusan(ByVal tahun As String, ByVal jurusan As String, ByVal tahunajaran As Integer) As List(Of MasterSiswa)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.Penjurusan.Include("MasterSiswa") Where data.MasterSiswa.NIS.StartsWith(tahun) And data.TahunAjaran = tahunajaran And data.Jurusan.Equals(jurusan)
+                Return (From penjurusan In query Select penjurusan.MasterSiswa).ToList()
+            End Using
+        End Function
+
+        Public Shared Function GetSiswa(ByVal nis As String) As MasterSiswa
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterSiswa Where data.NIS = nis
+                Return query.ToList().FirstOrDefault()
+            End Using
+        End Function
+
         Public Shared Sub InsertSiswa(ByVal siswa As MasterSiswa)
             ValidasiObject(siswa)
             Using entity As New SiakSmanEntities()

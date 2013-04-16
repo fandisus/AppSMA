@@ -2,6 +2,7 @@
 
 Namespace BusinessObject
     Public Class KelasBusinessObject
+
         Public Shared Function GetList() As List(Of MasterKelas)
             Using entity As New SiakSmanEntities()
                 Dim query = From data In entity.MasterKelas Order By data.TahunAjaran Descending, data.Tingkat Ascending, data.NamaKelas Ascending
@@ -9,7 +10,7 @@ Namespace BusinessObject
             End Using
         End Function
 
-        Public Shared Function GetListByTahunAjaran(ByVal tahunAjaran As Integer) As List(Of MasterKelas)
+        Public Shared Function GetKelasByTahunAjaran(ByVal tahunAjaran As Integer) As List(Of MasterKelas)
             Using entity As New SiakSmanEntities()
                 Dim query = From data In entity.MasterKelas Where data.TahunAjaran = tahunAjaran Order By data.TahunAjaran Descending, data.Tingkat Ascending, data.NamaKelas Ascending
                 Return query.ToList()
@@ -22,6 +23,21 @@ Namespace BusinessObject
                 Return query.ToList().FirstOrDefault()
             End Using
         End Function
+
+        Public Shared Function GetKelasByTahunAjaran(ByVal tahunAjaran As Integer, ByVal tingkat As Integer) As List(Of MasterKelas)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterKelas Where data.TahunAjaran = tahunAjaran And data.Tingkat = tingkat Order By data.TahunAjaran Descending, data.Tingkat Ascending, data.NamaKelas Ascending
+                Return query.ToList()
+            End Using
+        End Function
+
+        Public Shared Function GetKelasByTahunAjaran(ByVal tahunAjaran As Integer, ByVal tingkat As Integer, ByVal jurusan As String) As List(Of MasterKelas)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterKelas Where data.TahunAjaran = tahunAjaran And data.Tingkat = tingkat Order By data.TahunAjaran Descending, data.Tingkat Ascending, data.NamaKelas Ascending
+                Return query.ToList()
+            End Using
+        End Function
+
         Public Shared Sub InsertKelas(ByVal kelas As MasterKelas)
             Validasi(kelas)
             Using entity As New SiakSmanEntities()
