@@ -120,7 +120,7 @@ Public Class ListGuru
             GuruBusinessObject.InsertGuru(mguru)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
@@ -153,7 +153,6 @@ Public Class ListGuru
                 mguru.Photo = imgByteArray
             End Using
         End If
-
         mguru.TanggalLahir = DateTimePickerLahir.Value.Date
         mguru.TempatLahir = TextBoxTempatLahir.Text
     End Sub

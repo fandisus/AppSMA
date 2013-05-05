@@ -11,16 +11,18 @@
 Option Strict Off
 Option Explicit On
 
-<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("a53fa309-bcc5-4983-8831-7f3d212a84d1"),  _
+<Assembly: Global.System.Data.Objects.DataClasses.EdmSchemaAttribute("a07e209a-edc2-40c6-a7d7-2b8eaa4e3356"),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_JadwalParent", "JadwalParent", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(JadwalParent), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterGuru", "MasterGuru", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterGuru), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterMataPelajaran", "MasterMataPelajaran", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterMataPelajaran), "JadwalDetail", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalParent_MasterKelas", "MasterKelas", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterKelas), "JadwalParent", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalParent)),  _
  Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_Penjurusan_MasterSiswa", "MasterSiswa", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterSiswa), "Penjurusan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Penjurusan)),  _
- Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_Penjurusan_MasterKelas", "MasterKelas", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(MasterKelas), "Penjurusan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Penjurusan))> 
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_Penjurusan_MasterKelas", "MasterKelas", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(MasterKelas), "Penjurusan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Penjurusan)),  _
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_MasterUser_MasterGuru", "MasterGuru", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(MasterGuru), "MasterUser", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(MasterUser)),  _
+ Assembly: Global.System.Data.Objects.DataClasses.EdmRelationshipAttribute("SiakSmanModel", "FK_MasterUser_MasterKaryawan", "MasterKaryawan", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(MasterKaryawan), "MasterUser", Global.System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(MasterUser))> 
 
 'Original file name:
-'Generation date: 4/16/2013 10:18:29 PM
+'Generation date: 5/5/2013 9:26:52 PM
 '''<summary>
 '''There are no comments for SiakSmanEntities in the schema.
 '''</summary>
@@ -589,6 +591,23 @@ Partial Public Class MasterGuru
             End If
         End Set
     End Property
+    '''<summary>
+    '''There are no comments for MasterUser in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_MasterUser_MasterGuru", "MasterUser"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterUser() As Global.System.Data.Objects.DataClasses.EntityCollection(Of MasterUser)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of MasterUser)("SiakSmanModel.FK_MasterUser_MasterGuru", "MasterUser")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of MasterUser)("SiakSmanModel.FK_MasterUser_MasterGuru", "MasterUser", value)
+            End If
+        End Set
+    End Property
 End Class
 '''<summary>
 '''There are no comments for SiakSmanModel.MasterKaryawan in the schema.
@@ -950,6 +969,23 @@ Partial Public Class MasterKaryawan
         End Sub
     Partial Private Sub OnPhotoChanged()
         End Sub
+    '''<summary>
+    '''There are no comments for MasterUser in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_MasterUser_MasterKaryawan", "MasterUser"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterUser() As Global.System.Data.Objects.DataClasses.EntityCollection(Of MasterUser)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of MasterUser)("SiakSmanModel.FK_MasterUser_MasterKaryawan", "MasterUser")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of MasterUser)("SiakSmanModel.FK_MasterUser_MasterKaryawan", "MasterUser", value)
+            End If
+        End Set
+    End Property
 End Class
 '''<summary>
 '''There are no comments for SiakSmanModel.MasterSiswa in the schema.
@@ -2656,4 +2692,64 @@ Partial Public Class MasterUser
         End Sub
     Partial Private Sub OnIsAdministratorChanged()
         End Sub
+    '''<summary>
+    '''There are no comments for MasterGuru in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_MasterUser_MasterGuru", "MasterGuru"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterGuru() As MasterGuru
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterGuru)("SiakSmanModel.FK_MasterUser_MasterGuru", "MasterGuru").Value
+        End Get
+        Set
+            CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterGuru)("SiakSmanModel.FK_MasterUser_MasterGuru", "MasterGuru").Value = value
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterGuru in the schema.
+    '''</summary>
+    <Global.System.ComponentModel.BrowsableAttribute(false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterGuruReference() As Global.System.Data.Objects.DataClasses.EntityReference(Of MasterGuru)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterGuru)("SiakSmanModel.FK_MasterUser_MasterGuru", "MasterGuru")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of MasterGuru)("SiakSmanModel.FK_MasterUser_MasterGuru", "MasterGuru", value)
+            End If
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterKaryawan in the schema.
+    '''</summary>
+    <Global.System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SiakSmanModel", "FK_MasterUser_MasterKaryawan", "MasterKaryawan"),  _
+     Global.System.Xml.Serialization.XmlIgnoreAttribute(),  _
+     Global.System.Xml.Serialization.SoapIgnoreAttribute(),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterKaryawan() As MasterKaryawan
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterKaryawan)("SiakSmanModel.FK_MasterUser_MasterKaryawan", "MasterKaryawan").Value
+        End Get
+        Set
+            CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterKaryawan)("SiakSmanModel.FK_MasterUser_MasterKaryawan", "MasterKaryawan").Value = value
+        End Set
+    End Property
+    '''<summary>
+    '''There are no comments for MasterKaryawan in the schema.
+    '''</summary>
+    <Global.System.ComponentModel.BrowsableAttribute(false),  _
+     Global.System.Runtime.Serialization.DataMemberAttribute()>  _
+    Public Property MasterKaryawanReference() As Global.System.Data.Objects.DataClasses.EntityReference(Of MasterKaryawan)
+        Get
+            Return CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of MasterKaryawan)("SiakSmanModel.FK_MasterUser_MasterKaryawan", "MasterKaryawan")
+        End Get
+        Set
+            If (Not (value) Is Nothing) Then
+                CType(Me,Global.System.Data.Objects.DataClasses.IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of MasterKaryawan)("SiakSmanModel.FK_MasterUser_MasterKaryawan", "MasterKaryawan", value)
+            End If
+        End Set
+    End Property
 End Class

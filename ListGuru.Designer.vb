@@ -71,6 +71,7 @@ Partial Class ListGuru
         Me.Label2 = New System.Windows.Forms.Label
         Me.TextBoxNIP = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
+        Me.Button1 = New System.Windows.Forms.Button
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -214,6 +215,7 @@ Partial Class ListGuru
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.AutoScroll = True
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonSimpan)
@@ -257,7 +259,7 @@ Partial Class ListGuru
         '
         'ButtonRefresh
         '
-        Me.ButtonRefresh.Location = New System.Drawing.Point(351, 226)
+        Me.ButtonRefresh.Location = New System.Drawing.Point(342, 234)
         Me.ButtonRefresh.Name = "ButtonRefresh"
         Me.ButtonRefresh.Size = New System.Drawing.Size(75, 23)
         Me.ButtonRefresh.TabIndex = 32
@@ -266,7 +268,7 @@ Partial Class ListGuru
         '
         'ButtonHapus
         '
-        Me.ButtonHapus.Location = New System.Drawing.Point(267, 226)
+        Me.ButtonHapus.Location = New System.Drawing.Point(258, 234)
         Me.ButtonHapus.Name = "ButtonHapus"
         Me.ButtonHapus.Size = New System.Drawing.Size(75, 23)
         Me.ButtonHapus.TabIndex = 31
@@ -275,7 +277,7 @@ Partial Class ListGuru
         '
         'ButtonSimpan
         '
-        Me.ButtonSimpan.Location = New System.Drawing.Point(183, 226)
+        Me.ButtonSimpan.Location = New System.Drawing.Point(174, 234)
         Me.ButtonSimpan.Name = "ButtonSimpan"
         Me.ButtonSimpan.Size = New System.Drawing.Size(75, 23)
         Me.ButtonSimpan.TabIndex = 30
@@ -284,7 +286,7 @@ Partial Class ListGuru
         '
         'ButtonUbah
         '
-        Me.ButtonUbah.Location = New System.Drawing.Point(102, 226)
+        Me.ButtonUbah.Location = New System.Drawing.Point(93, 234)
         Me.ButtonUbah.Name = "ButtonUbah"
         Me.ButtonUbah.Size = New System.Drawing.Size(75, 23)
         Me.ButtonUbah.TabIndex = 29
@@ -293,7 +295,7 @@ Partial Class ListGuru
         '
         'ButtonTambah
         '
-        Me.ButtonTambah.Location = New System.Drawing.Point(21, 226)
+        Me.ButtonTambah.Location = New System.Drawing.Point(12, 234)
         Me.ButtonTambah.Name = "ButtonTambah"
         Me.ButtonTambah.Size = New System.Drawing.Size(75, 23)
         Me.ButtonTambah.TabIndex = 28
@@ -302,7 +304,7 @@ Partial Class ListGuru
         '
         'ButtonPhoto
         '
-        Me.ButtonPhoto.Location = New System.Drawing.Point(659, 226)
+        Me.ButtonPhoto.Location = New System.Drawing.Point(694, 234)
         Me.ButtonPhoto.Name = "ButtonPhoto"
         Me.ButtonPhoto.Size = New System.Drawing.Size(27, 23)
         Me.ButtonPhoto.TabIndex = 27
@@ -311,7 +313,7 @@ Partial Class ListGuru
         '
         'PictureBoxPhoto
         '
-        Me.PictureBoxPhoto.Location = New System.Drawing.Point(532, 120)
+        Me.PictureBoxPhoto.Location = New System.Drawing.Point(567, 128)
         Me.PictureBoxPhoto.Name = "PictureBoxPhoto"
         Me.PictureBoxPhoto.Size = New System.Drawing.Size(121, 129)
         Me.PictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -549,6 +551,15 @@ Partial Class ListGuru
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "NIP"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(423, 234)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(114, 23)
+        Me.Button1.TabIndex = 33
+        Me.Button1.Text = "Set &Mata Pelajaran"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'ListGuru
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -619,4 +630,5 @@ Partial Class ListGuru
     Friend WithEvents NoTelephone As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NoHP As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ButtonRefresh As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

@@ -31,6 +31,14 @@
             <End Role="MasterKelas" EntitySet="MasterKelas" />
             <End Role="JadwalParent" EntitySet="JadwalParent" />
           </AssociationSet>
+          <AssociationSet Name="FK_MasterUser_MasterGuru" Association="SiakSmanModel.Store.FK_MasterUser_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="MasterUser" EntitySet="MasterUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MasterUser_MasterKaryawan" Association="SiakSmanModel.Store.FK_MasterUser_MasterKaryawan">
+            <End Role="MasterKaryawan" EntitySet="MasterKaryawan" />
+            <End Role="MasterUser" EntitySet="MasterUser" />
+          </AssociationSet>
           <AssociationSet Name="FK_Penjurusan_MasterKelas" Association="SiakSmanModel.Store.FK_Penjurusan_MasterKelas">
             <End Role="MasterKelas" EntitySet="MasterKelas" />
             <End Role="Penjurusan" EntitySet="Penjurusan" />
@@ -152,6 +160,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MasterGuruID" Type="int" />
+          <Property Name="MasterKaryawanID" Type="int" />
           <Property Name="Username" Type="varchar" Nullable="false" MaxLength="24" />
           <Property Name="Password" Type="varchar" Nullable="false" MaxLength="24" />
           <Property Name="IsAdministrator" Type="bit" Nullable="false" />
@@ -225,6 +235,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MasterUser_MasterGuru">
+          <End Role="MasterGuru" Type="SiakSmanModel.Store.MasterGuru" Multiplicity="0..1" />
+          <End Role="MasterUser" Type="SiakSmanModel.Store.MasterUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterGuru">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MasterUser">
+              <PropertyRef Name="MasterGuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MasterUser_MasterKaryawan">
+          <End Role="MasterKaryawan" Type="SiakSmanModel.Store.MasterKaryawan" Multiplicity="0..1" />
+          <End Role="MasterUser" Type="SiakSmanModel.Store.MasterUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterKaryawan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MasterUser">
+              <PropertyRef Name="MasterKaryawanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Penjurusan_MasterKelas">
           <End Role="MasterKelas" Type="SiakSmanModel.Store.MasterKelas" Multiplicity="0..1" />
           <End Role="Penjurusan" Type="SiakSmanModel.Store.Penjurusan" Multiplicity="*" />
@@ -280,7 +314,13 @@
           <AssociationSet Name="FK_Penjurusan_MasterKelas" Association="SiakSmanModel.FK_Penjurusan_MasterKelas">
             <End Role="MasterKelas" EntitySet="MasterKelas" />
             <End Role="Penjurusan" EntitySet="Penjurusan" /></AssociationSet>
-          <EntitySet Name="MasterUser" EntityType="SiakSmanModel.MasterUser" /></EntityContainer>
+          <EntitySet Name="MasterUser" EntityType="SiakSmanModel.MasterUser" />
+          <AssociationSet Name="FK_MasterUser_MasterGuru" Association="SiakSmanModel.FK_MasterUser_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="MasterUser" EntitySet="MasterUser" /></AssociationSet>
+          <AssociationSet Name="FK_MasterUser_MasterKaryawan" Association="SiakSmanModel.FK_MasterUser_MasterKaryawan">
+            <End Role="MasterKaryawan" EntitySet="MasterKaryawan" />
+            <End Role="MasterUser" EntitySet="MasterUser" /></AssociationSet></EntityContainer>
         <EntityType Name="MasterGuru">
           <Key>
             <PropertyRef Name="ID" />
@@ -300,7 +340,8 @@
           <Property Name="NoTelephone" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
           <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_MasterGuru" FromRole="MasterGuru" ToRole="JadwalDetail" /></EntityType>
+          <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_MasterGuru" FromRole="MasterGuru" ToRole="JadwalDetail" />
+          <NavigationProperty Name="MasterUser" Relationship="SiakSmanModel.FK_MasterUser_MasterGuru" FromRole="MasterGuru" ToRole="MasterUser" /></EntityType>
         <EntityType Name="MasterKaryawan">
           <Key>
             <PropertyRef Name="ID" />
@@ -320,7 +361,7 @@
           <Property Name="NoTelephone" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
           <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
+          <NavigationProperty Name="MasterUser" Relationship="SiakSmanModel.FK_MasterUser_MasterKaryawan" FromRole="MasterKaryawan" ToRole="MasterUser" /></EntityType>
         <EntityType Name="MasterSiswa">
           <Key>
             <PropertyRef Name="ID" />
@@ -383,7 +424,8 @@
           <Property Name="TahunAjaran" Type="Int32" Nullable="false" />
           <Property Name="MataPelajaran" Type="String" Nullable="false" />
           <Property Name="Silabus" Type="String" Nullable="false" />
-          <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" FromRole="MasterMataPelajaran" ToRole="JadwalDetail" /></EntityType>
+          <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" FromRole="MasterMataPelajaran" ToRole="JadwalDetail" />
+          </EntityType>
         <EntityType Name="Penjurusan">
           <Key>
             <PropertyRef Name="ID" /></Key>
@@ -428,7 +470,15 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Username" Type="String" Nullable="false" />
           <Property Name="Password" Type="String" Nullable="false" />
-          <Property Name="IsAdministrator" Type="Boolean" Nullable="false" /></EntityType></Schema>
+          <Property Name="IsAdministrator" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MasterGuru" Relationship="SiakSmanModel.FK_MasterUser_MasterGuru" FromRole="MasterUser" ToRole="MasterGuru" />
+          <NavigationProperty Name="MasterKaryawan" Relationship="SiakSmanModel.FK_MasterUser_MasterKaryawan" FromRole="MasterUser" ToRole="MasterKaryawan" /></EntityType>
+        <Association Name="FK_MasterUser_MasterGuru">
+          <End Type="SiakSmanModel.MasterGuru" Role="MasterGuru" Multiplicity="0..1" />
+          <End Type="SiakSmanModel.MasterUser" Role="MasterUser" Multiplicity="*" /></Association>
+        <Association Name="FK_MasterUser_MasterKaryawan">
+          <End Type="SiakSmanModel.MasterKaryawan" Role="MasterKaryawan" Multiplicity="0..1" />
+          <End Type="SiakSmanModel.MasterUser" Role="MasterUser" Multiplicity="*" /></Association></Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -586,7 +636,19 @@
                 <ScalarProperty Name="IsAdministrator" ColumnName="IsAdministrator" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping></EntityContainerMapping>
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_MasterUser_MasterGuru" TypeName="SiakSmanModel.FK_MasterUser_MasterGuru" StoreEntitySet="MasterUser">
+            <EndProperty Name="MasterUser">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterGuru">
+              <ScalarProperty Name="ID" ColumnName="MasterGuruID" /></EndProperty>
+            <Condition ColumnName="MasterGuruID" IsNull="false" /></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_MasterUser_MasterKaryawan" TypeName="SiakSmanModel.FK_MasterUser_MasterKaryawan" StoreEntitySet="MasterUser">
+            <EndProperty Name="MasterUser">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterKaryawan">
+              <ScalarProperty Name="ID" ColumnName="MasterKaryawanID" /></EndProperty>
+            <Condition ColumnName="MasterKaryawanID" IsNull="false" /></AssociationSetMapping></EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -605,7 +667,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="DataModel">
-        <EntityTypeShape EntityType="SiakSmanModel.MasterGuru" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterGuru" Width="1.5" PointX="4.875" PointY="7" Height="4.480205078125" IsExpanded="true" />
         <EntityTypeShape EntityType="SiakSmanModel.MasterKaryawan" Width="1.5" PointX="2.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
         <EntityTypeShape EntityType="SiakSmanModel.MasterSiswa" Width="1.75" PointX="4.75" PointY="0.75" Height="5.4417122395833326" IsExpanded="true" />
         <EntityTypeShape EntityType="SiakSmanModel.JadwalDetail" Width="1.5" PointX="11.875" PointY="1.875" Height="1.7879850260416672" />
@@ -617,14 +679,16 @@
           <ConnectorPoint PointX="11.125" PointY="2.4612939453125" />
           <ConnectorPoint PointX="11.875" PointY="2.4612939453125" /></AssociationConnector>
         <AssociationConnector Association="SiakSmanModel.FK_JadwalDetail_MasterGuru" >
-          <ConnectorPoint PointX="1.5" PointY="0.75" />
-          <ConnectorPoint PointX="1.5" PointY="0.375" />
-          <ConnectorPoint PointX="12.625" PointY="0.375" />
-          <ConnectorPoint PointX="12.625" PointY="1.875" /></AssociationConnector>
+          <ConnectorPoint PointX="6.375" PointY="10.131653645833332" />
+          <ConnectorPoint PointX="12.2187475" PointY="10.131653645833332" />
+          <ConnectorPoint PointX="12.2187475" PointY="3.8552864583333331" />
+          </AssociationConnector>
         <AssociationConnector Association="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" >
-          <ConnectorPoint PointX="11.125" PointY="6.7401432291666667" />
-          <ConnectorPoint PointX="12.625" PointY="6.7401432291666667" />
-          <ConnectorPoint PointX="12.625" PointY="3.6629850260416674" /></AssociationConnector>
+          <ConnectorPoint PointX="11.125" PointY="6.8362939453125" />
+          <ConnectorPoint PointX="12.135414166666665" PointY="6.8362939453124989" />
+          <ConnectorPoint PointX="12.302080833333333" PointY="6.8362939453125" />
+          <ConnectorPoint PointX="12.625" PointY="6.8362939453125" />
+          <ConnectorPoint PointX="12.625" PointY="3.8552864583333331" /></AssociationConnector>
         <AssociationConnector Association="SiakSmanModel.FK_JadwalParent_MasterKelas" >
           <ConnectorPoint PointX="8.875" PointY="1.9612939453124998" />
           <ConnectorPoint PointX="9.625" PointY="1.9612939453124998" /></AssociationConnector>
@@ -632,6 +696,14 @@
           <ConnectorPoint PointX="6.5" PointY="5.5045068359375" />
           <ConnectorPoint PointX="7.25" PointY="5.5045068359375" /></AssociationConnector>
         <AssociationConnector Association="SiakSmanModel.FK_Penjurusan_MasterKelas" />
-        <EntityTypeShape EntityType="SiakSmanModel.MasterUser" Width="1.5" PointX="0.75" PointY="5.75" Height="1.7879850260416674" /></Diagram></edmx:Diagrams>
+        <EntityTypeShape EntityType="SiakSmanModel.MasterUser" Width="1.5" PointX="0.75" PointY="5.75" Height="1.7879850260416674" />
+        <AssociationConnector Association="SiakSmanModel.FK_MasterUser_MasterGuru" >
+          <ConnectorPoint PointX="4.875" PointY="7.4612939453125" />
+          <ConnectorPoint PointX="2.25" PointY="7.4612939453125" />
+          </AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_MasterUser_MasterKaryawan" >
+          <ConnectorPoint PointX="3.5" PointY="4.8456022135416656" />
+          <ConnectorPoint PointX="3.5" PointY="6.8362939453125" />
+          <ConnectorPoint PointX="2.25" PointY="6.8362939453125" /></AssociationConnector></Diagram></edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
