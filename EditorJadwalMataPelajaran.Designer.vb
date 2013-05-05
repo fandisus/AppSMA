@@ -23,6 +23,9 @@ Partial Class EditorJadwalMataPelajaran
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.Label31 = New System.Windows.Forms.Label
+        Me.Label30 = New System.Windows.Forms.Label
+        Me.Label29 = New System.Windows.Forms.Label
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
         Me.ComboBoxGuru10 = New System.Windows.Forms.ComboBox
         Me.ComboBoxMatPel10 = New System.Windows.Forms.ComboBox
@@ -78,9 +81,6 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label1 = New System.Windows.Forms.Label
         Me.ButtonKeluar = New System.Windows.Forms.Button
         Me.ButtonSimpan = New System.Windows.Forms.Button
-        Me.Label29 = New System.Windows.Forms.Label
-        Me.Label30 = New System.Windows.Forms.Label
-        Me.Label31 = New System.Windows.Forms.Label
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -97,6 +97,7 @@ Partial Class EditorJadwalMataPelajaran
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.AutoScroll = True
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label31)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label30)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label29)
@@ -162,6 +163,33 @@ Partial Class EditorJadwalMataPelajaran
         Me.SplitContainer1.SplitterDistance = 644
         Me.SplitContainer1.TabIndex = 0
         '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(956, 142)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(40, 13)
+        Me.Label31.TabIndex = 59
+        Me.Label31.Text = "Silabus"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(529, 142)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(30, 13)
+        Me.Label30.TabIndex = 58
+        Me.Label30.Text = "Guru"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(293, 142)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(79, 13)
+        Me.Label29.TabIndex = 57
+        Me.Label29.Text = "Mata Pelajaran"
+        '
         'RichTextBox1
         '
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -195,7 +223,7 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(75, 13)
         Me.Label27.TabIndex = 53
-        Me.Label27.Text = "(10.45-11.30)"
+        Me.Label27.Text = "(14.15-15.00)"
         '
         'Label28
         '
@@ -229,7 +257,7 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(75, 13)
         Me.Label25.TabIndex = 49
-        Me.Label25.Text = "(10.45-11.30)"
+        Me.Label25.Text = "(13.30-14.15)"
         '
         'Label26
         '
@@ -263,7 +291,7 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(75, 13)
         Me.Label23.TabIndex = 45
-        Me.Label23.Text = "(10.45-11.30)"
+        Me.Label23.Text = "(12.45-13.30)"
         '
         'Label24
         '
@@ -297,7 +325,7 @@ Partial Class EditorJadwalMataPelajaran
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(75, 13)
         Me.Label21.TabIndex = 41
-        Me.Label21.Text = "(10.45-11.30)"
+        Me.Label21.Text = "(12.00-12.45)"
         '
         'Label22
         '
@@ -635,37 +663,11 @@ Partial Class EditorJadwalMataPelajaran
         Me.ButtonSimpan.Text = "&Simpan"
         Me.ButtonSimpan.UseVisualStyleBackColor = True
         '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(293, 142)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(79, 13)
-        Me.Label29.TabIndex = 57
-        Me.Label29.Text = "Mata Pelajaran"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(529, 142)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(30, 13)
-        Me.Label30.TabIndex = 58
-        Me.Label30.Text = "Guru"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(956, 142)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(40, 13)
-        Me.Label31.TabIndex = 59
-        Me.Label31.Text = "Silabus"
-        '
         'EditorJadwalMataPelajaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 704)
         Me.Controls.Add(Me.SplitContainer1)

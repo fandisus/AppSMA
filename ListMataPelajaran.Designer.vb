@@ -56,6 +56,7 @@ Partial Class ListMataPelajaran
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.AutoScroll = True
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonSimpan)
@@ -131,6 +132,7 @@ Partial Class ListMataPelajaran
         '
         'TextBoxSilabus
         '
+        Me.TextBoxSilabus.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxSilabus.Location = New System.Drawing.Point(108, 70)
         Me.TextBoxSilabus.Multiline = True
         Me.TextBoxSilabus.Name = "TextBoxSilabus"
@@ -148,6 +150,7 @@ Partial Class ListMataPelajaran
         '
         'TextBoxMataPelajaran
         '
+        Me.TextBoxMataPelajaran.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxMataPelajaran.Location = New System.Drawing.Point(108, 43)
         Me.TextBoxMataPelajaran.Name = "TextBoxMataPelajaran"
         Me.TextBoxMataPelajaran.Size = New System.Drawing.Size(240, 21)
@@ -155,6 +158,7 @@ Partial Class ListMataPelajaran
         '
         'TextBoxTahunAjaran
         '
+        Me.TextBoxTahunAjaran.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxTahunAjaran.Location = New System.Drawing.Point(108, 16)
         Me.TextBoxTahunAjaran.Name = "TextBoxTahunAjaran"
         Me.TextBoxTahunAjaran.Size = New System.Drawing.Size(100, 21)

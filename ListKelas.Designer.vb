@@ -59,6 +59,7 @@ Partial Class ListKelas
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.AutoScroll = True
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonSimpan)
@@ -136,6 +137,7 @@ Partial Class ListKelas
         '
         'TextBoxKeterangan
         '
+        Me.TextBoxKeterangan.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxKeterangan.Location = New System.Drawing.Point(108, 97)
         Me.TextBoxKeterangan.Name = "TextBoxKeterangan"
         Me.TextBoxKeterangan.Size = New System.Drawing.Size(380, 21)
@@ -152,6 +154,7 @@ Partial Class ListKelas
         '
         'TextBoxKelas
         '
+        Me.TextBoxKelas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxKelas.Location = New System.Drawing.Point(108, 70)
         Me.TextBoxKelas.Name = "TextBoxKelas"
         Me.TextBoxKelas.Size = New System.Drawing.Size(100, 21)
@@ -168,6 +171,7 @@ Partial Class ListKelas
         '
         'TextBoxTingkat
         '
+        Me.TextBoxTingkat.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxTingkat.Location = New System.Drawing.Point(108, 43)
         Me.TextBoxTingkat.Name = "TextBoxTingkat"
         Me.TextBoxTingkat.Size = New System.Drawing.Size(100, 21)
@@ -175,6 +179,7 @@ Partial Class ListKelas
         '
         'TextBoxTahunAjaran
         '
+        Me.TextBoxTahunAjaran.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxTahunAjaran.Location = New System.Drawing.Point(108, 16)
         Me.TextBoxTahunAjaran.Name = "TextBoxTahunAjaran"
         Me.TextBoxTahunAjaran.Size = New System.Drawing.Size(100, 21)
@@ -245,6 +250,7 @@ Partial Class ListKelas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(897, 581)
         Me.Controls.Add(Me.SplitContainer1)

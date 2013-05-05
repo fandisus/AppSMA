@@ -115,12 +115,6 @@
     <Compile Include="EditorJadwalMataPelajaran.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormGeneratePembagianKelas.Designer.vb">
       <DependentUpon>FormGeneratePembagianKelas.vb</DependentUpon>
     </Compile>
@@ -233,9 +227,6 @@
   <ItemGroup>
     <EmbeddedResource Include="EditorJadwalMataPelajaran.resx">
       <DependentUpon>EditorJadwalMataPelajaran.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGeneratePembagianKelas.resx">
       <DependentUpon>FormGeneratePembagianKelas.vb</DependentUpon>

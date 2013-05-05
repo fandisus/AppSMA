@@ -23,6 +23,7 @@ Partial Class ListJadwalMataPelajaran
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.ButtonPrintJadwal = New System.Windows.Forms.Button
         Me.ButtonRefresh = New System.Windows.Forms.Button
         Me.ButtonDelete = New System.Windows.Forms.Button
         Me.ButtonEdit = New System.Windows.Forms.Button
@@ -34,7 +35,6 @@ Partial Class ListJadwalMataPelajaran
         Me.NamaKelas = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Jurusan = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Hari = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ButtonPrintJadwal = New System.Windows.Forms.Button
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -51,6 +51,7 @@ Partial Class ListJadwalMataPelajaran
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.AutoScroll = True
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonPrintJadwal)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonDelete)
@@ -63,6 +64,15 @@ Partial Class ListJadwalMataPelajaran
         Me.SplitContainer1.Size = New System.Drawing.Size(903, 468)
         Me.SplitContainer1.SplitterDistance = 47
         Me.SplitContainer1.TabIndex = 2
+        '
+        'ButtonPrintJadwal
+        '
+        Me.ButtonPrintJadwal.Location = New System.Drawing.Point(336, 12)
+        Me.ButtonPrintJadwal.Name = "ButtonPrintJadwal"
+        Me.ButtonPrintJadwal.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonPrintJadwal.TabIndex = 4
+        Me.ButtonPrintJadwal.Text = "Print Jadwal"
+        Me.ButtonPrintJadwal.UseVisualStyleBackColor = True
         '
         'ButtonRefresh
         '
@@ -159,19 +169,11 @@ Partial Class ListJadwalMataPelajaran
         Me.Hari.Name = "Hari"
         Me.Hari.ReadOnly = True
         '
-        'ButtonPrintJadwal
-        '
-        Me.ButtonPrintJadwal.Location = New System.Drawing.Point(336, 12)
-        Me.ButtonPrintJadwal.Name = "ButtonPrintJadwal"
-        Me.ButtonPrintJadwal.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonPrintJadwal.TabIndex = 4
-        Me.ButtonPrintJadwal.Text = "Print Jadwal"
-        Me.ButtonPrintJadwal.UseVisualStyleBackColor = True
-        '
         'ListJadwalMataPelajaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(903, 468)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

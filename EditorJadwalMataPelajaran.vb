@@ -40,6 +40,9 @@ Public Class EditorJadwalMataPelajaran
     Private Sub MataPelajaranSelectedValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim source = CType(sender, ComboBox)
         Dim a = MataPelajaraBusinessObject.GetMataPelajaran(Convert.ToInt32(source.SelectedValue))
+        If a Is Nothing Then
+            Return
+        End If
         RichTextBox1.Text = a.Silabus
     End Sub
 
@@ -60,7 +63,7 @@ Public Class EditorJadwalMataPelajaran
     Private Sub LoadKelas()
         ComboBoxKelas.DisplayMember = "NamaKelas"
         ComboBoxKelas.ValueMember = "ID"
-        ComboBoxKelas.DataSource = KelasBusinessObject.GetList().ToList()
+        ComboBoxKelas.DataSource = KelasBusinessObject.GetKelasByTahunAjaran(Convert.ToInt32(TextBoxTahunAjaran.Text)).ToList()
     End Sub
 
     Private Sub SaveJadwalMatapelajaran(ByVal sender As System.Object, ByVal e As EventArgs)
@@ -211,5 +214,12 @@ Public Class EditorJadwalMataPelajaran
 
     Private Sub ButtonKeluarClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonKeluar.Click
         Close()
+    End Sub
+
+    Private Sub TextBoxTahunAjaran_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBoxTahunAjaran.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            LoadKelas()
+            LoadMataPelajaran(Convert.ToInt32(TextBoxTahunAjaran.Text))
+        End If
     End Sub
 End Class

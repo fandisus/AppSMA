@@ -22,9 +22,8 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DataMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DataSiswaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DataGuruToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -40,12 +39,13 @@ Partial Class MainForm
         Me.TileHorizontalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.TileVerticalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ArrangeIconsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.KeluarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.DataMasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.WindowToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataMasterToolStripMenuItem, Me.TransaksiToolStripMenuItem, Me.WindowToolStripMenuItem, Me.KeluarToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(7, 2, 0, 2)
@@ -53,117 +53,112 @@ Partial Class MainForm
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'FileToolStripMenuItem
-        '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem})
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "&File"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(92, 22)
-        Me.ExitToolStripMenuItem.Text = "&Exit"
-        '
         'DataMasterToolStripMenuItem
         '
         Me.DataMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataSiswaToolStripMenuItem, Me.DataGuruToolStripMenuItem, Me.DataKaryawanToolStripMenuItem, Me.DataKelasToolStripMenuItem, Me.DataMataPelajaranToolStripMenuItem, Me.DataUserToolStripMenuItem})
         Me.DataMasterToolStripMenuItem.Name = "DataMasterToolStripMenuItem"
-        Me.DataMasterToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
+        Me.DataMasterToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
         Me.DataMasterToolStripMenuItem.Text = "&Data Master"
         '
         'DataSiswaToolStripMenuItem
         '
         Me.DataSiswaToolStripMenuItem.Name = "DataSiswaToolStripMenuItem"
-        Me.DataSiswaToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataSiswaToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.DataSiswaToolStripMenuItem.Text = "Data &Siswa"
         '
         'DataGuruToolStripMenuItem
         '
         Me.DataGuruToolStripMenuItem.Name = "DataGuruToolStripMenuItem"
-        Me.DataGuruToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataGuruToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.DataGuruToolStripMenuItem.Text = "Data &Guru"
         '
         'DataKaryawanToolStripMenuItem
         '
         Me.DataKaryawanToolStripMenuItem.Name = "DataKaryawanToolStripMenuItem"
-        Me.DataKaryawanToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataKaryawanToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.DataKaryawanToolStripMenuItem.Text = "Data &Karyawan"
         '
         'DataKelasToolStripMenuItem
         '
         Me.DataKelasToolStripMenuItem.Name = "DataKelasToolStripMenuItem"
-        Me.DataKelasToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataKelasToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.DataKelasToolStripMenuItem.Text = "Data Ke&las"
         '
         'DataMataPelajaranToolStripMenuItem
         '
         Me.DataMataPelajaranToolStripMenuItem.Name = "DataMataPelajaranToolStripMenuItem"
-        Me.DataMataPelajaranToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataMataPelajaranToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.DataMataPelajaranToolStripMenuItem.Text = "Data &Mata Pelajaran"
         '
         'DataUserToolStripMenuItem
         '
         Me.DataUserToolStripMenuItem.Name = "DataUserToolStripMenuItem"
-        Me.DataUserToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.DataUserToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.DataUserToolStripMenuItem.Text = "Data &User"
         '
         'TransaksiToolStripMenuItem
         '
         Me.TransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.JadwalMataPelajaranToolStripMenuItem, Me.PenjurusanToolStripMenuItem})
         Me.TransaksiToolStripMenuItem.Name = "TransaksiToolStripMenuItem"
-        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.TransaksiToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
         Me.TransaksiToolStripMenuItem.Text = "&Transaksi"
         '
         'JadwalMataPelajaranToolStripMenuItem
         '
         Me.JadwalMataPelajaranToolStripMenuItem.Name = "JadwalMataPelajaranToolStripMenuItem"
-        Me.JadwalMataPelajaranToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.JadwalMataPelajaranToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.JadwalMataPelajaranToolStripMenuItem.Text = "&Jadwal Mata Pelajaran"
         '
         'PenjurusanToolStripMenuItem
         '
         Me.PenjurusanToolStripMenuItem.Name = "PenjurusanToolStripMenuItem"
-        Me.PenjurusanToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.PenjurusanToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.PenjurusanToolStripMenuItem.Text = "&Penjurusan"
         '
         'WindowToolStripMenuItem
         '
         Me.WindowToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CascadeToolStripMenuItem, Me.TileHorizontalToolStripMenuItem, Me.TileVerticalToolStripMenuItem, Me.ArrangeIconsToolStripMenuItem})
         Me.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem"
-        Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
+        Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
         Me.WindowToolStripMenuItem.Text = "&Window"
         '
         'CascadeToolStripMenuItem
         '
         Me.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem"
-        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.CascadeToolStripMenuItem.Text = "&Cascade"
         '
         'TileHorizontalToolStripMenuItem
         '
         Me.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem"
-        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.TileHorizontalToolStripMenuItem.Text = "Tile &Horizontal"
         '
         'TileVerticalToolStripMenuItem
         '
         Me.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem"
-        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.TileVerticalToolStripMenuItem.Text = "Tile &Vertical"
         '
         'ArrangeIconsToolStripMenuItem
         '
         Me.ArrangeIconsToolStripMenuItem.Name = "ArrangeIconsToolStripMenuItem"
-        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ArrangeIconsToolStripMenuItem.Text = "&Arrange Icons"
+        '
+        'KeluarToolStripMenuItem
+        '
+        Me.KeluarToolStripMenuItem.Name = "KeluarToolStripMenuItem"
+        Me.KeluarToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.KeluarToolStripMenuItem.Text = "&Keluar"
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(856, 457)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -179,8 +174,6 @@ Partial Class MainForm
 
     End Sub
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DataMasterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DataSiswaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DataGuruToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -196,5 +189,6 @@ Partial Class MainForm
     Friend WithEvents DataKelasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DataMataPelajaranToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DataUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents KeluarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

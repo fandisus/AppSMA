@@ -33,7 +33,7 @@ Namespace BusinessObject
 
         Public Shared Function GetKelasByTahunAjaran(ByVal tahunAjaran As Integer, ByVal tingkat As Integer, ByVal jurusan As String) As List(Of MasterKelas)
             Using entity As New SiakSmanEntities()
-                Dim query = From data In entity.MasterKelas Where data.TahunAjaran = tahunAjaran And data.Tingkat = tingkat Order By data.TahunAjaran Descending, data.Tingkat Ascending, data.NamaKelas Ascending
+                Dim query = From data In entity.MasterKelas Where data.TahunAjaran = tahunAjaran And data.Tingkat = tingkat And data.NamaKelas.Contains(jurusan) Order By data.TahunAjaran Descending, data.Tingkat Ascending, data.NamaKelas Ascending
                 Return query.ToList()
             End Using
         End Function

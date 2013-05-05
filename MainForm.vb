@@ -121,4 +121,8 @@
     End Sub
 
 
+    Private Sub KeluarToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles KeluarToolStripMenuItem.Click
+        Me.Close()
+
+    End Sub
 End Class

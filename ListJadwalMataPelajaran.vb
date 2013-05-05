@@ -26,17 +26,17 @@ Public Class ListJadwalMataPelajaran
     End Sub
 
     Private Sub ButtonInputClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonInput.Click
-        Dim formPenerimaanBarang As New EditorJadwalMataPelajaran
-        formPenerimaanBarang.MdiParent = MainForm
-        formPenerimaanBarang.ListForm = Me
-        formPenerimaanBarang.Input()
+        Dim fform As New EditorJadwalMataPelajaran
+        fform.MdiParent = MainForm
+        fform.ListForm = Me
+        fform.Input()
     End Sub
 
     Private Sub ButtonEditClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonEdit.Click
-        Dim formPenerimaanBarang As New EditorJadwalMataPelajaran
-        formPenerimaanBarang.MdiParent = MainForm
-        formPenerimaanBarang.ListForm = Me
-        formPenerimaanBarang.Edit(currentid)
+        Dim fform As New EditorJadwalMataPelajaran
+        fform.MdiParent = MainForm
+        fform.ListForm = Me
+        fform.Edit(currentid)
     End Sub
 
     Private Sub ButtonDeleteClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonDelete.Click

@@ -115,6 +115,7 @@ Partial Class FormGeneratePembagianKelas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(464, 256)
         Me.Controls.Add(Me.ComboBoxTingkat)
         Me.Controls.Add(Me.ButtonGenerate)

@@ -213,6 +213,7 @@ Partial Class ListGuru
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.AutoScroll = True
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonSimpan)
@@ -370,6 +371,7 @@ Partial Class ListGuru
         '
         'TextBoxKota
         '
+        Me.TextBoxKota.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxKota.Location = New System.Drawing.Point(532, 66)
         Me.TextBoxKota.Name = "TextBoxKota"
         Me.TextBoxKota.Size = New System.Drawing.Size(133, 21)
@@ -387,6 +389,7 @@ Partial Class ListGuru
         '
         'TextBoxAlamat
         '
+        Me.TextBoxAlamat.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxAlamat.Location = New System.Drawing.Point(532, 12)
         Me.TextBoxAlamat.Multiline = True
         Me.TextBoxAlamat.Name = "TextBoxAlamat"
@@ -441,9 +444,11 @@ Partial Class ListGuru
         '
         'DateTimePickerLahir
         '
+        Me.DateTimePickerLahir.CustomFormat = "dd MMMM yyyy"
+        Me.DateTimePickerLahir.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePickerLahir.Location = New System.Drawing.Point(105, 120)
         Me.DateTimePickerLahir.Name = "DateTimePickerLahir"
-        Me.DateTimePickerLahir.Size = New System.Drawing.Size(200, 21)
+        Me.DateTimePickerLahir.Size = New System.Drawing.Size(133, 21)
         Me.DateTimePickerLahir.TabIndex = 11
         '
         'Label6
@@ -458,6 +463,7 @@ Partial Class ListGuru
         '
         'TextBoxTempatLahir
         '
+        Me.TextBoxTempatLahir.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxTempatLahir.Location = New System.Drawing.Point(105, 93)
         Me.TextBoxTempatLahir.Name = "TextBoxTempatLahir"
         Me.TextBoxTempatLahir.Size = New System.Drawing.Size(133, 21)
@@ -494,6 +500,7 @@ Partial Class ListGuru
         '
         'TextBoxNama
         '
+        Me.TextBoxNama.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNama.Location = New System.Drawing.Point(105, 39)
         Me.TextBoxNama.Name = "TextBoxNama"
         Me.TextBoxNama.Size = New System.Drawing.Size(321, 21)
@@ -546,6 +553,7 @@ Partial Class ListGuru
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(876, 592)
         Me.Controls.Add(Me.SplitContainer1)

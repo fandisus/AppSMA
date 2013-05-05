@@ -21,7 +21,7 @@ Public Class KelasDialog
             ComboBox1.ValueMember = "ID"
             ComboBox1.DataSource = KelasBusinessObject.GetKelasByTahunAjaran(i)
             ComboBox1.SelectedText = ""
-            ComboBox1.SelectedValue = Nothing
+            'ComboBox1.SelectedValue = Nothing
         End If
     End Sub
 

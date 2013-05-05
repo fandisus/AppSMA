@@ -113,6 +113,7 @@ Partial Class ListSiswa
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.AutoScroll = True
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxHpOrtu)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label21)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxTelpOrtu)
@@ -223,6 +224,7 @@ Partial Class ListSiswa
         '
         'TextBoxKotaOrtu
         '
+        Me.TextBoxKotaOrtu.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxKotaOrtu.Location = New System.Drawing.Point(532, 147)
         Me.TextBoxKotaOrtu.Name = "TextBoxKotaOrtu"
         Me.TextBoxKotaOrtu.Size = New System.Drawing.Size(133, 21)
@@ -240,6 +242,7 @@ Partial Class ListSiswa
         '
         'TextBoxAlamatOrtu
         '
+        Me.TextBoxAlamatOrtu.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxAlamatOrtu.Location = New System.Drawing.Point(532, 120)
         Me.TextBoxAlamatOrtu.Name = "TextBoxAlamatOrtu"
         Me.TextBoxAlamatOrtu.Size = New System.Drawing.Size(321, 21)
@@ -257,6 +260,7 @@ Partial Class ListSiswa
         '
         'TextBoxNamaIbu
         '
+        Me.TextBoxNamaIbu.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNamaIbu.Location = New System.Drawing.Point(532, 93)
         Me.TextBoxNamaIbu.Name = "TextBoxNamaIbu"
         Me.TextBoxNamaIbu.Size = New System.Drawing.Size(321, 21)
@@ -274,6 +278,7 @@ Partial Class ListSiswa
         '
         'TextBoxNamaAyah
         '
+        Me.TextBoxNamaAyah.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNamaAyah.Location = New System.Drawing.Point(532, 66)
         Me.TextBoxNamaAyah.Name = "TextBoxNamaAyah"
         Me.TextBoxNamaAyah.Size = New System.Drawing.Size(321, 21)
@@ -291,9 +296,11 @@ Partial Class ListSiswa
         '
         'DateTimePickerMasuk
         '
+        Me.DateTimePickerMasuk.CustomFormat = "dd MMMM yyyy"
+        Me.DateTimePickerMasuk.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePickerMasuk.Location = New System.Drawing.Point(532, 39)
         Me.DateTimePickerMasuk.Name = "DateTimePickerMasuk"
-        Me.DateTimePickerMasuk.Size = New System.Drawing.Size(200, 21)
+        Me.DateTimePickerMasuk.Size = New System.Drawing.Size(133, 21)
         Me.DateTimePickerMasuk.TabIndex = 14
         '
         'Label16
@@ -308,6 +315,7 @@ Partial Class ListSiswa
         '
         'TextBoxNamaSmpAsal
         '
+        Me.TextBoxNamaSmpAsal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNamaSmpAsal.Location = New System.Drawing.Point(532, 12)
         Me.TextBoxNamaSmpAsal.Name = "TextBoxNamaSmpAsal"
         Me.TextBoxNamaSmpAsal.Size = New System.Drawing.Size(321, 21)
@@ -439,6 +447,7 @@ Partial Class ListSiswa
         '
         'TextBoxKota
         '
+        Me.TextBoxKota.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxKota.Location = New System.Drawing.Point(105, 228)
         Me.TextBoxKota.Name = "TextBoxKota"
         Me.TextBoxKota.Size = New System.Drawing.Size(133, 21)
@@ -456,6 +465,7 @@ Partial Class ListSiswa
         '
         'TextBoxAlamat
         '
+        Me.TextBoxAlamat.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxAlamat.Location = New System.Drawing.Point(105, 201)
         Me.TextBoxAlamat.Name = "TextBoxAlamat"
         Me.TextBoxAlamat.Size = New System.Drawing.Size(321, 21)
@@ -509,9 +519,11 @@ Partial Class ListSiswa
         '
         'DateTimePickerLahir
         '
+        Me.DateTimePickerLahir.CustomFormat = "dd MMMM yyyy"
+        Me.DateTimePickerLahir.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePickerLahir.Location = New System.Drawing.Point(105, 120)
         Me.DateTimePickerLahir.Name = "DateTimePickerLahir"
-        Me.DateTimePickerLahir.Size = New System.Drawing.Size(200, 21)
+        Me.DateTimePickerLahir.Size = New System.Drawing.Size(133, 21)
         Me.DateTimePickerLahir.TabIndex = 5
         '
         'Label6
@@ -526,6 +538,7 @@ Partial Class ListSiswa
         '
         'TextBoxTempatLahir
         '
+        Me.TextBoxTempatLahir.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxTempatLahir.Location = New System.Drawing.Point(105, 93)
         Me.TextBoxTempatLahir.Name = "TextBoxTempatLahir"
         Me.TextBoxTempatLahir.Size = New System.Drawing.Size(133, 21)
@@ -562,6 +575,7 @@ Partial Class ListSiswa
         '
         'TextBoxNama
         '
+        Me.TextBoxNama.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNama.Location = New System.Drawing.Point(105, 39)
         Me.TextBoxNama.Name = "TextBoxNama"
         Me.TextBoxNama.Size = New System.Drawing.Size(321, 21)
@@ -592,7 +606,7 @@ Partial Class ListSiswa
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.Label1.Size = New System.Drawing.Size(24, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "NIP"
+        Me.Label1.Text = "NIS"
         '
         'DataGridView1
         '

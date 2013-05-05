@@ -73,6 +73,7 @@ Public Class FormGeneratePembagianKelas
                 End If
             Next
         Next
+        MessageBox.Show(Me, "Pembagian Kelas Berhasil" + TextBoxTahunAjaran.Text, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 
@@ -135,6 +136,8 @@ Public Class FormGeneratePembagianKelas
                 End If
             Next
         Next
+        MessageBox.Show(Me, "Pembagian Kelas Berhasil " + TextBoxTahunAjaran.Text, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
     End Sub
 
     Private Sub ButtonCloseClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonClose.Click

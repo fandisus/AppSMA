@@ -22,7 +22,17 @@ Partial Class ListPenjurusan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.ButtonLaporan = New System.Windows.Forms.Button
         Me.ButtonGeneratePembagianKelas = New System.Windows.Forms.Button
         Me.TextBoxTahunAjaran = New System.Windows.Forms.TextBox
         Me.Label14 = New System.Windows.Forms.Label
@@ -59,10 +69,12 @@ Partial Class ListPenjurusan
         Me.Label1 = New System.Windows.Forms.Label
         Me.DataGridView1 = New System.Windows.Forms.DataGridView
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.TahunAjaran = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.NIS = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Nama = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.NilaiRataRata = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Jurusan = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.NamaKelas = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.TahunAjaran = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.BahasaIndonesia = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.BahasaInggris = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Matematika = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -72,11 +84,8 @@ Partial Class ListPenjurusan
         Me.Ekonomi = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Geografi = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Sosiologi = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.NilaiRataRata = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.TanggalPenilaian = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.Jurusan = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.KelasID = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ButtonLaporan = New System.Windows.Forms.Button
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -93,6 +102,7 @@ Partial Class ListPenjurusan
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.AutoScroll = True
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonLaporan)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonGeneratePembagianKelas)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxTahunAjaran)
@@ -136,6 +146,15 @@ Partial Class ListPenjurusan
         Me.SplitContainer1.SplitterDistance = 258
         Me.SplitContainer1.TabIndex = 2
         '
+        'ButtonLaporan
+        '
+        Me.ButtonLaporan.Location = New System.Drawing.Point(596, 219)
+        Me.ButtonLaporan.Name = "ButtonLaporan"
+        Me.ButtonLaporan.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonLaporan.TabIndex = 57
+        Me.ButtonLaporan.Text = "Laporan"
+        Me.ButtonLaporan.UseVisualStyleBackColor = True
+        '
         'ButtonGeneratePembagianKelas
         '
         Me.ButtonGeneratePembagianKelas.Location = New System.Drawing.Point(438, 219)
@@ -147,6 +166,7 @@ Partial Class ListPenjurusan
         '
         'TextBoxTahunAjaran
         '
+        Me.TextBoxTahunAjaran.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxTahunAjaran.Location = New System.Drawing.Point(108, 12)
         Me.TextBoxTahunAjaran.Name = "TextBoxTahunAjaran"
         Me.TextBoxTahunAjaran.Size = New System.Drawing.Size(100, 21)
@@ -426,7 +446,7 @@ Partial Class ListPenjurusan
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.NIS, Me.Nama, Me.NamaKelas, Me.TahunAjaran, Me.BahasaIndonesia, Me.BahasaInggris, Me.Matematika, Me.Fisika, Me.Kimia, Me.Biologi, Me.Ekonomi, Me.Geografi, Me.Sosiologi, Me.NilaiRataRata, Me.TanggalPenilaian, Me.Jurusan, Me.KelasID})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.TahunAjaran, Me.NIS, Me.Nama, Me.NilaiRataRata, Me.Jurusan, Me.NamaKelas, Me.BahasaIndonesia, Me.BahasaInggris, Me.Matematika, Me.Fisika, Me.Kimia, Me.Biologi, Me.Ekonomi, Me.Geografi, Me.Sosiologi, Me.TanggalPenilaian, Me.KelasID})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
@@ -443,6 +463,13 @@ Partial Class ListPenjurusan
         Me.ID.ReadOnly = True
         Me.ID.Visible = False
         '
+        'TahunAjaran
+        '
+        Me.TahunAjaran.DataPropertyName = "TahunAjaran"
+        Me.TahunAjaran.HeaderText = "TahunAjaran"
+        Me.TahunAjaran.Name = "TahunAjaran"
+        Me.TahunAjaran.ReadOnly = True
+        '
         'NIS
         '
         Me.NIS.DataPropertyName = "NIS"
@@ -457,96 +484,12 @@ Partial Class ListPenjurusan
         Me.Nama.Name = "Nama"
         Me.Nama.ReadOnly = True
         '
-        'NamaKelas
-        '
-        Me.NamaKelas.DataPropertyName = "NamaKelas"
-        Me.NamaKelas.HeaderText = "NamaKelas"
-        Me.NamaKelas.Name = "NamaKelas"
-        Me.NamaKelas.ReadOnly = True
-        '
-        'TahunAjaran
-        '
-        Me.TahunAjaran.DataPropertyName = "TahunAjaran"
-        Me.TahunAjaran.HeaderText = "TahunAjaran"
-        Me.TahunAjaran.Name = "TahunAjaran"
-        Me.TahunAjaran.ReadOnly = True
-        '
-        'BahasaIndonesia
-        '
-        Me.BahasaIndonesia.DataPropertyName = "BahasaIndonesia"
-        Me.BahasaIndonesia.HeaderText = "BahasaIndonesia"
-        Me.BahasaIndonesia.Name = "BahasaIndonesia"
-        Me.BahasaIndonesia.ReadOnly = True
-        '
-        'BahasaInggris
-        '
-        Me.BahasaInggris.DataPropertyName = "BahasaInggris"
-        Me.BahasaInggris.HeaderText = "BahasaInggris"
-        Me.BahasaInggris.Name = "BahasaInggris"
-        Me.BahasaInggris.ReadOnly = True
-        '
-        'Matematika
-        '
-        Me.Matematika.DataPropertyName = "Matematika"
-        Me.Matematika.HeaderText = "Matematika"
-        Me.Matematika.Name = "Matematika"
-        Me.Matematika.ReadOnly = True
-        '
-        'Fisika
-        '
-        Me.Fisika.DataPropertyName = "Fisika"
-        Me.Fisika.HeaderText = "Fisika"
-        Me.Fisika.Name = "Fisika"
-        Me.Fisika.ReadOnly = True
-        '
-        'Kimia
-        '
-        Me.Kimia.DataPropertyName = "Kimia"
-        Me.Kimia.HeaderText = "Kimia"
-        Me.Kimia.Name = "Kimia"
-        Me.Kimia.ReadOnly = True
-        '
-        'Biologi
-        '
-        Me.Biologi.DataPropertyName = "Biologi"
-        Me.Biologi.HeaderText = "Biologi"
-        Me.Biologi.Name = "Biologi"
-        Me.Biologi.ReadOnly = True
-        '
-        'Ekonomi
-        '
-        Me.Ekonomi.DataPropertyName = "Ekonomi"
-        Me.Ekonomi.HeaderText = "Ekonomi"
-        Me.Ekonomi.Name = "Ekonomi"
-        Me.Ekonomi.ReadOnly = True
-        '
-        'Geografi
-        '
-        Me.Geografi.DataPropertyName = "Geografi"
-        Me.Geografi.HeaderText = "Geografi"
-        Me.Geografi.Name = "Geografi"
-        Me.Geografi.ReadOnly = True
-        '
-        'Sosiologi
-        '
-        Me.Sosiologi.DataPropertyName = "Sosiologi"
-        Me.Sosiologi.HeaderText = "Sosiologi"
-        Me.Sosiologi.Name = "Sosiologi"
-        Me.Sosiologi.ReadOnly = True
-        '
         'NilaiRataRata
         '
         Me.NilaiRataRata.DataPropertyName = "NilaiRataRata"
         Me.NilaiRataRata.HeaderText = "NilaiRataRata"
         Me.NilaiRataRata.Name = "NilaiRataRata"
         Me.NilaiRataRata.ReadOnly = True
-        '
-        'TanggalPenilaian
-        '
-        Me.TanggalPenilaian.DataPropertyName = "TanggalPenilaian"
-        Me.TanggalPenilaian.HeaderText = "TanggalPenilaian"
-        Me.TanggalPenilaian.Name = "TanggalPenilaian"
-        Me.TanggalPenilaian.ReadOnly = True
         '
         'Jurusan
         '
@@ -555,6 +498,104 @@ Partial Class ListPenjurusan
         Me.Jurusan.Name = "Jurusan"
         Me.Jurusan.ReadOnly = True
         '
+        'NamaKelas
+        '
+        Me.NamaKelas.DataPropertyName = "NamaKelas"
+        Me.NamaKelas.HeaderText = "NamaKelas"
+        Me.NamaKelas.Name = "NamaKelas"
+        Me.NamaKelas.ReadOnly = True
+        '
+        'BahasaIndonesia
+        '
+        Me.BahasaIndonesia.DataPropertyName = "BahasaIndonesia"
+        DataGridViewCellStyle1.Format = "N0"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.BahasaIndonesia.DefaultCellStyle = DataGridViewCellStyle1
+        Me.BahasaIndonesia.HeaderText = "BahasaIndonesia"
+        Me.BahasaIndonesia.Name = "BahasaIndonesia"
+        Me.BahasaIndonesia.ReadOnly = True
+        '
+        'BahasaInggris
+        '
+        Me.BahasaInggris.DataPropertyName = "BahasaInggris"
+        DataGridViewCellStyle2.Format = "N0"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.BahasaInggris.DefaultCellStyle = DataGridViewCellStyle2
+        Me.BahasaInggris.HeaderText = "BahasaInggris"
+        Me.BahasaInggris.Name = "BahasaInggris"
+        Me.BahasaInggris.ReadOnly = True
+        '
+        'Matematika
+        '
+        Me.Matematika.DataPropertyName = "Matematika"
+        DataGridViewCellStyle3.Format = "N0"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.Matematika.DefaultCellStyle = DataGridViewCellStyle3
+        Me.Matematika.HeaderText = "Matematika"
+        Me.Matematika.Name = "Matematika"
+        Me.Matematika.ReadOnly = True
+        '
+        'Fisika
+        '
+        Me.Fisika.DataPropertyName = "Fisika"
+        DataGridViewCellStyle4.Format = "N0"
+        Me.Fisika.DefaultCellStyle = DataGridViewCellStyle4
+        Me.Fisika.HeaderText = "Fisika"
+        Me.Fisika.Name = "Fisika"
+        Me.Fisika.ReadOnly = True
+        '
+        'Kimia
+        '
+        Me.Kimia.DataPropertyName = "Kimia"
+        DataGridViewCellStyle5.Format = "N0"
+        Me.Kimia.DefaultCellStyle = DataGridViewCellStyle5
+        Me.Kimia.HeaderText = "Kimia"
+        Me.Kimia.Name = "Kimia"
+        Me.Kimia.ReadOnly = True
+        '
+        'Biologi
+        '
+        Me.Biologi.DataPropertyName = "Biologi"
+        DataGridViewCellStyle6.Format = "N0"
+        Me.Biologi.DefaultCellStyle = DataGridViewCellStyle6
+        Me.Biologi.HeaderText = "Biologi"
+        Me.Biologi.Name = "Biologi"
+        Me.Biologi.ReadOnly = True
+        '
+        'Ekonomi
+        '
+        Me.Ekonomi.DataPropertyName = "Ekonomi"
+        DataGridViewCellStyle7.Format = "N0"
+        Me.Ekonomi.DefaultCellStyle = DataGridViewCellStyle7
+        Me.Ekonomi.HeaderText = "Ekonomi"
+        Me.Ekonomi.Name = "Ekonomi"
+        Me.Ekonomi.ReadOnly = True
+        '
+        'Geografi
+        '
+        Me.Geografi.DataPropertyName = "Geografi"
+        DataGridViewCellStyle8.Format = "N0"
+        Me.Geografi.DefaultCellStyle = DataGridViewCellStyle8
+        Me.Geografi.HeaderText = "Geografi"
+        Me.Geografi.Name = "Geografi"
+        Me.Geografi.ReadOnly = True
+        '
+        'Sosiologi
+        '
+        Me.Sosiologi.DataPropertyName = "Sosiologi"
+        DataGridViewCellStyle9.Format = "N0"
+        Me.Sosiologi.DefaultCellStyle = DataGridViewCellStyle9
+        Me.Sosiologi.HeaderText = "Sosiologi"
+        Me.Sosiologi.Name = "Sosiologi"
+        Me.Sosiologi.ReadOnly = True
+        '
+        'TanggalPenilaian
+        '
+        Me.TanggalPenilaian.DataPropertyName = "TanggalPenilaian"
+        Me.TanggalPenilaian.HeaderText = "TanggalPenilaian"
+        Me.TanggalPenilaian.Name = "TanggalPenilaian"
+        Me.TanggalPenilaian.ReadOnly = True
+        '
         'KelasID
         '
         Me.KelasID.DataPropertyName = "KelasID"
@@ -562,15 +603,6 @@ Partial Class ListPenjurusan
         Me.KelasID.Name = "KelasID"
         Me.KelasID.ReadOnly = True
         Me.KelasID.Visible = False
-        '
-        'ButtonLaporan
-        '
-        Me.ButtonLaporan.Location = New System.Drawing.Point(596, 219)
-        Me.ButtonLaporan.Name = "ButtonLaporan"
-        Me.ButtonLaporan.Size = New System.Drawing.Size(106, 23)
-        Me.ButtonLaporan.TabIndex = 57
-        Me.ButtonLaporan.Text = "Laporan"
-        Me.ButtonLaporan.UseVisualStyleBackColor = True
         '
         'ListPenjurusan
         '
@@ -622,11 +654,17 @@ Partial Class ListPenjurusan
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents TextBoxRatarata As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents TextBoxTahunAjaran As System.Windows.Forms.TextBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents ButtonGeneratePembagianKelas As System.Windows.Forms.Button
+    Friend WithEvents ButtonLaporan As System.Windows.Forms.Button
     Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TahunAjaran As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NIS As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Nama As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NilaiRataRata As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Jurusan As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NamaKelas As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TahunAjaran As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents BahasaIndonesia As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents BahasaInggris As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Matematika As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -636,12 +674,6 @@ Partial Class ListPenjurusan
     Friend WithEvents Ekonomi As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Geografi As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Sosiologi As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NilaiRataRata As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TanggalPenilaian As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Jurusan As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents KelasID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TextBoxTahunAjaran As System.Windows.Forms.TextBox
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents ButtonGeneratePembagianKelas As System.Windows.Forms.Button
-    Friend WithEvents ButtonLaporan As System.Windows.Forms.Button
 End Class

@@ -89,6 +89,7 @@ Partial Class ListKaryawan
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.AutoScroll = True
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonSimpan)
@@ -246,6 +247,7 @@ Partial Class ListKaryawan
         '
         'TextBoxKota
         '
+        Me.TextBoxKota.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxKota.Location = New System.Drawing.Point(532, 66)
         Me.TextBoxKota.Name = "TextBoxKota"
         Me.TextBoxKota.Size = New System.Drawing.Size(133, 21)
@@ -317,9 +319,11 @@ Partial Class ListKaryawan
         '
         'DateTimePickerLahir
         '
+        Me.DateTimePickerLahir.CustomFormat = "dd MMMM yyyy"
+        Me.DateTimePickerLahir.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePickerLahir.Location = New System.Drawing.Point(105, 120)
         Me.DateTimePickerLahir.Name = "DateTimePickerLahir"
-        Me.DateTimePickerLahir.Size = New System.Drawing.Size(200, 21)
+        Me.DateTimePickerLahir.Size = New System.Drawing.Size(133, 21)
         Me.DateTimePickerLahir.TabIndex = 11
         '
         'Label6
@@ -370,6 +374,7 @@ Partial Class ListKaryawan
         '
         'TextBoxNama
         '
+        Me.TextBoxNama.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNama.Location = New System.Drawing.Point(105, 39)
         Me.TextBoxNama.Name = "TextBoxNama"
         Me.TextBoxNama.Size = New System.Drawing.Size(321, 21)
@@ -416,7 +421,7 @@ Partial Class ListKaryawan
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.Label1.Size = New System.Drawing.Size(24, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "NIP"
+        Me.Label1.Text = "NIK"
         '
         'DataGridView1
         '
@@ -546,6 +551,7 @@ Partial Class ListKaryawan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(958, 637)
         Me.Controls.Add(Me.SplitContainer1)
