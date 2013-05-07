@@ -1,4 +1,5 @@
 ﻿Imports System.Net.Mail
+Imports SistemAkademikSman.BusinessModel
 
 Namespace BusinessObject
 
@@ -92,5 +93,49 @@ Namespace BusinessObject
                 entity.SaveChanges()
             End Using
         End Sub
+
+        Public Shared Sub SubmitGuruMataPelajaran(ByVal mguru As List(Of GuruMataPelajaranModel))
+            If mguru.Count() = 0 Then
+                Throw New Exception("Tidak ada list Mata Pelajaran untuk Guru")
+            End If
+            
+            Using entity As New SiakSmanEntities()
+                If entity.Connection.State <> ConnectionState.Open Then
+                    entity.Connection.Open()
+                End If
+                Using transaction = entity.Connection.BeginTransaction
+                    For Each model As GuruMataPelajaranModel In mguru
+                        If model.Crud = 1 Then
+                            Dim item = New GuruMataPelajaran
+                            item.MasterGuru = (From data In entity.MasterGuru Where data.ID = model.GuruId).FirstOrDefault()
+                            item.MasterMataPelajaran = (From data In entity.MasterMataPelajaran Where data.ID = model.MataPelajaranId).FirstOrDefault()
+                            entity.AddToGuruMataPelajaran(item)
+                            entity.SaveChanges()
+                        ElseIf model.Crud = 2 Then
+                            Dim item = (From data In entity.GuruMataPelajaran Where data.ID = model.Id).FirstOrDefault()
+                            item.MasterGuru = (From data In entity.MasterGuru Where data.ID = model.GuruId).FirstOrDefault()
+                            item.MasterMataPelajaran = (From data In entity.MasterMataPelajaran Where data.ID = model.MataPelajaranId).FirstOrDefault()
+                            entity.SaveChanges()
+                        ElseIf model.Crud = 3 Then
+                            Dim item = (From data In entity.GuruMataPelajaran Where data.ID = model.Id).FirstOrDefault()
+                            entity.DeleteObject(item)
+                            entity.SaveChanges()
+                        End If
+                    Next
+                    transaction.Commit()
+                End Using
+                If entity.Connection.State <> ConnectionState.Closed Then
+                    entity.Connection.Close()
+                End If
+            End Using
+        End Sub
+
+        Public Shared Function GetGuru(ByVal matapelajaranid As Integer, ByVal tahun As Integer) As List(Of MasterGuru)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.GuruMataPelajaran.Include("MasterGuru").Include("MasterMataPelajaran") Where data.MasterMataPelajaran.ID = matapelajaranid And data.MasterMataPelajaran.TahunAjaran = tahun Select data.MasterGuru
+                Return query.ToList()
+            End Using
+        End Function
+
     End Class
 End Namespace

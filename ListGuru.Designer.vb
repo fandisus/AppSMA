@@ -38,6 +38,7 @@ Partial Class ListGuru
         Me.NoTelephone = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.NoHP = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.ButtonMataPelajaran = New System.Windows.Forms.Button
         Me.ButtonRefresh = New System.Windows.Forms.Button
         Me.ButtonHapus = New System.Windows.Forms.Button
         Me.ButtonSimpan = New System.Windows.Forms.Button
@@ -71,7 +72,6 @@ Partial Class ListGuru
         Me.Label2 = New System.Windows.Forms.Label
         Me.TextBoxNIP = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -215,7 +215,7 @@ Partial Class ListGuru
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.AutoScroll = True
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonMataPelajaran)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonSimpan)
@@ -256,6 +256,15 @@ Partial Class ListGuru
         Me.SplitContainer1.Size = New System.Drawing.Size(876, 592)
         Me.SplitContainer1.SplitterDistance = 270
         Me.SplitContainer1.TabIndex = 2
+        '
+        'ButtonMataPelajaran
+        '
+        Me.ButtonMataPelajaran.Location = New System.Drawing.Point(423, 234)
+        Me.ButtonMataPelajaran.Name = "ButtonMataPelajaran"
+        Me.ButtonMataPelajaran.Size = New System.Drawing.Size(114, 23)
+        Me.ButtonMataPelajaran.TabIndex = 33
+        Me.ButtonMataPelajaran.Text = "Set &Mata Pelajaran"
+        Me.ButtonMataPelajaran.UseVisualStyleBackColor = True
         '
         'ButtonRefresh
         '
@@ -551,15 +560,6 @@ Partial Class ListGuru
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "NIP"
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(423, 234)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(114, 23)
-        Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Set &Mata Pelajaran"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'ListGuru
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -630,5 +630,5 @@ Partial Class ListGuru
     Friend WithEvents NoTelephone As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NoHP As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ButtonRefresh As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ButtonMataPelajaran As System.Windows.Forms.Button
 End Class

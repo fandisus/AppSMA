@@ -17,6 +17,7 @@ Public Class ListGuru
         ButtonHapus.Enabled = False
         ButtonUbah.Enabled = False
         ButtonSimpan.Enabled = True
+        ButtonMataPelajaran.Enabled = False
         isAddNew = True
     End Sub
 
@@ -25,6 +26,7 @@ Public Class ListGuru
         ButtonHapus.Enabled = True
         ButtonUbah.Enabled = False
         ButtonSimpan.Enabled = True
+        ButtonMataPelajaran.Enabled = True
         isAddNew = False
     End Sub
 
@@ -33,6 +35,7 @@ Public Class ListGuru
         ButtonHapus.Enabled = False
         ButtonUbah.Enabled = True
         ButtonSimpan.Enabled = False
+        ButtonMataPelajaran.Enabled = True
     End Sub
 
     Private Sub DataGridViewSelectionChanged(ByVal sender As Object, ByVal e As EventArgs)
@@ -168,7 +171,7 @@ Public Class ListGuru
             GuruBusinessObject.UpdateGuru(mguru)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -191,9 +194,15 @@ Public Class ListGuru
             GuruBusinessObject.DeleteGuru(recordId)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
    
+    Private Sub ButtonMataPelajaranClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonMataPelajaran.Click
+        Using dfrom As New ListGuruMataPelajaran
+            dfrom.GuruId = recordId
+            dfrom.ShowDialog(Me)
+        End Using
+    End Sub
 End Class

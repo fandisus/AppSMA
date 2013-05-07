@@ -24,6 +24,13 @@
             End Using
         End Function
 
+        Public Shared Function GetMataPelajaran(ByVal guruid As Integer, ByVal tahun As Integer) As List(Of GuruMataPelajaran)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.GuruMataPelajaran.Include("MasterGuru").Include("MasterMataPelajaran") Where data.MasterGuru.ID = guruid And data.MasterMataPelajaran.TahunAjaran = tahun Select data
+                Return query.ToList()
+            End Using
+        End Function
+
         Public Shared Sub InsertMataPelajaran(ByVal mataPelajaran As MasterMataPelajaran)
             Validasi(mataPelajaran)
             Using entity As New SiakSmanEntities()

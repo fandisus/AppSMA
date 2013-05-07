@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="AppHelpers.vb" />
     <Compile Include="BusinessObject\GuruBusinessObject.vb" />
+    <Compile Include="BusinessModel\GuruMataPelajaranModel.vb" />
     <Compile Include="BusinessObject\JadwalMataPelajaranBusinessObject.vb" />
     <Compile Include="BusinessObject\KaryawanBusinessObject.vb" />
     <Compile Include="BusinessObject\KelasBusinessObject.vb" />
@@ -131,6 +132,12 @@
       <DependentUpon>ListGuru.vb</DependentUpon>
     </Compile>
     <Compile Include="ListGuru.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListGuruMataPelajaran.Designer.vb">
+      <DependentUpon>ListGuruMataPelajaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListGuruMataPelajaran.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListJadwalMataPelajaran.Designer.vb">
@@ -236,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListGuru.resx">
       <DependentUpon>ListGuru.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListGuruMataPelajaran.resx">
+      <DependentUpon>ListGuruMataPelajaran.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListJadwalMataPelajaran.resx">
       <DependentUpon>ListJadwalMataPelajaran.vb</DependentUpon>

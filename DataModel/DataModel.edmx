@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="SiakSmanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="SiakSmanModelStoreContainer">
+          <EntitySet Name="GuruMataPelajaran" EntityType="SiakSmanModel.Store.GuruMataPelajaran" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="JadwalDetail" EntityType="SiakSmanModel.Store.JadwalDetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="JadwalParent" EntityType="SiakSmanModel.Store.JadwalParent" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MasterGuru" EntityType="SiakSmanModel.Store.MasterGuru" store:Type="Tables" Schema="dbo" />
@@ -15,6 +16,14 @@
           <EntitySet Name="MasterSiswa" EntityType="SiakSmanModel.Store.MasterSiswa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MasterUser" EntityType="SiakSmanModel.Store.MasterUser" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Penjurusan" EntityType="SiakSmanModel.Store.Penjurusan" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_GuruMataPelajaran_MasterGuru" Association="SiakSmanModel.Store.FK_GuruMataPelajaran_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GuruMataPelajaran_MasterMataPelajaran" Association="SiakSmanModel.Store.FK_GuruMataPelajaran_MasterMataPelajaran">
+            <End Role="MasterMataPelajaran" EntitySet="MasterMataPelajaran" />
+            <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" />
+          </AssociationSet>
           <AssociationSet Name="FK_JadwalDetail_JadwalParent" Association="SiakSmanModel.Store.FK_JadwalDetail_JadwalParent">
             <End Role="JadwalParent" EntitySet="JadwalParent" />
             <End Role="JadwalDetail" EntitySet="JadwalDetail" />
@@ -48,6 +57,14 @@
             <End Role="Penjurusan" EntitySet="Penjurusan" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="GuruMataPelajaran">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MataPelajaranID" Type="int" Nullable="false" />
+          <Property Name="MasterGuruID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="JadwalDetail">
           <Key>
             <PropertyRef Name="ID" />
@@ -187,6 +204,30 @@
           <Property Name="Jurusan" Type="varchar" Nullable="false" MaxLength="16" />
           <Property Name="KelasID" Type="int" />
         </EntityType>
+        <Association Name="FK_GuruMataPelajaran_MasterGuru">
+          <End Role="MasterGuru" Type="SiakSmanModel.Store.MasterGuru" Multiplicity="1" />
+          <End Role="GuruMataPelajaran" Type="SiakSmanModel.Store.GuruMataPelajaran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterGuru">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GuruMataPelajaran">
+              <PropertyRef Name="MasterGuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GuruMataPelajaran_MasterMataPelajaran">
+          <End Role="MasterMataPelajaran" Type="SiakSmanModel.Store.MasterMataPelajaran" Multiplicity="1" />
+          <End Role="GuruMataPelajaran" Type="SiakSmanModel.Store.GuruMataPelajaran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterMataPelajaran">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GuruMataPelajaran">
+              <PropertyRef Name="MataPelajaranID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_JadwalDetail_JadwalParent">
           <End Role="JadwalParent" Type="SiakSmanModel.Store.JadwalParent" Multiplicity="1" />
           <End Role="JadwalDetail" Type="SiakSmanModel.Store.JadwalDetail" Multiplicity="*" />
@@ -320,7 +361,14 @@
             <End Role="MasterUser" EntitySet="MasterUser" /></AssociationSet>
           <AssociationSet Name="FK_MasterUser_MasterKaryawan" Association="SiakSmanModel.FK_MasterUser_MasterKaryawan">
             <End Role="MasterKaryawan" EntitySet="MasterKaryawan" />
-            <End Role="MasterUser" EntitySet="MasterUser" /></AssociationSet></EntityContainer>
+            <End Role="MasterUser" EntitySet="MasterUser" /></AssociationSet>
+          <EntitySet Name="GuruMataPelajaran" EntityType="SiakSmanModel.GuruMataPelajaran" />
+          <AssociationSet Name="FK_GuruMataPelajaran_MasterGuru" Association="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" /></AssociationSet>
+          <AssociationSet Name="FK_GuruMataPelajaran_MasterMataPelajaran" Association="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran">
+            <End Role="MasterMataPelajaran" EntitySet="MasterMataPelajaran" />
+            <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" /></AssociationSet></EntityContainer>
         <EntityType Name="MasterGuru">
           <Key>
             <PropertyRef Name="ID" />
@@ -341,7 +389,8 @@
           <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_MasterGuru" FromRole="MasterGuru" ToRole="JadwalDetail" />
-          <NavigationProperty Name="MasterUser" Relationship="SiakSmanModel.FK_MasterUser_MasterGuru" FromRole="MasterGuru" ToRole="MasterUser" /></EntityType>
+          <NavigationProperty Name="MasterUser" Relationship="SiakSmanModel.FK_MasterUser_MasterGuru" FromRole="MasterGuru" ToRole="MasterUser" />
+          <NavigationProperty Name="GuruMataPelajaran" Relationship="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru" FromRole="MasterGuru" ToRole="GuruMataPelajaran" /></EntityType>
         <EntityType Name="MasterKaryawan">
           <Key>
             <PropertyRef Name="ID" />
@@ -425,7 +474,7 @@
           <Property Name="MataPelajaran" Type="String" Nullable="false" />
           <Property Name="Silabus" Type="String" Nullable="false" />
           <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" FromRole="MasterMataPelajaran" ToRole="JadwalDetail" />
-          </EntityType>
+          <NavigationProperty Name="GuruMataPelajaran" Relationship="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran" FromRole="MasterMataPelajaran" ToRole="GuruMataPelajaran" /></EntityType>
         <EntityType Name="Penjurusan">
           <Key>
             <PropertyRef Name="ID" /></Key>
@@ -478,7 +527,19 @@
           <End Type="SiakSmanModel.MasterUser" Role="MasterUser" Multiplicity="*" /></Association>
         <Association Name="FK_MasterUser_MasterKaryawan">
           <End Type="SiakSmanModel.MasterKaryawan" Role="MasterKaryawan" Multiplicity="0..1" />
-          <End Type="SiakSmanModel.MasterUser" Role="MasterUser" Multiplicity="*" /></Association></Schema>
+          <End Type="SiakSmanModel.MasterUser" Role="MasterUser" Multiplicity="*" /></Association>
+        <EntityType Name="GuruMataPelajaran">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MasterGuru" Relationship="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru" FromRole="GuruMataPelajaran" ToRole="MasterGuru" />
+          <NavigationProperty Name="MasterMataPelajaran" Relationship="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran" FromRole="GuruMataPelajaran" ToRole="MasterMataPelajaran" /></EntityType>
+        <Association Name="FK_GuruMataPelajaran_MasterGuru">
+          <End Type="SiakSmanModel.MasterGuru" Role="MasterGuru" Multiplicity="1" />
+          <End Type="SiakSmanModel.GuruMataPelajaran" Role="GuruMataPelajaran" Multiplicity="*" /></Association>
+        <Association Name="FK_GuruMataPelajaran_MasterMataPelajaran">
+          <End Type="SiakSmanModel.MasterMataPelajaran" Role="MasterMataPelajaran" Multiplicity="1" />
+          <End Type="SiakSmanModel.GuruMataPelajaran" Role="GuruMataPelajaran" Multiplicity="*" /></Association></Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -648,7 +709,21 @@
               <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
             <EndProperty Name="MasterKaryawan">
               <ScalarProperty Name="ID" ColumnName="MasterKaryawanID" /></EndProperty>
-            <Condition ColumnName="MasterKaryawanID" IsNull="false" /></AssociationSetMapping></EntityContainerMapping>
+            <Condition ColumnName="MasterKaryawanID" IsNull="false" /></AssociationSetMapping>
+          <EntitySetMapping Name="GuruMataPelajaran">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.GuruMataPelajaran)">
+              <MappingFragment StoreEntitySet="GuruMataPelajaran">
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_GuruMataPelajaran_MasterGuru" TypeName="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru" StoreEntitySet="GuruMataPelajaran">
+            <EndProperty Name="GuruMataPelajaran">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterGuru">
+              <ScalarProperty Name="ID" ColumnName="MasterGuruID" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_GuruMataPelajaran_MasterMataPelajaran" TypeName="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran" StoreEntitySet="GuruMataPelajaran">
+            <EndProperty Name="GuruMataPelajaran">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterMataPelajaran">
+              <ScalarProperty Name="ID" ColumnName="MataPelajaranID" /></EndProperty></AssociationSetMapping></EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -679,16 +754,17 @@
           <ConnectorPoint PointX="11.125" PointY="2.4612939453125" />
           <ConnectorPoint PointX="11.875" PointY="2.4612939453125" /></AssociationConnector>
         <AssociationConnector Association="SiakSmanModel.FK_JadwalDetail_MasterGuru" >
-          <ConnectorPoint PointX="6.375" PointY="10.131653645833332" />
-          <ConnectorPoint PointX="12.2187475" PointY="10.131653645833332" />
-          <ConnectorPoint PointX="12.2187475" PointY="3.8552864583333331" />
-          </AssociationConnector>
+          <ConnectorPoint PointX="6.375" PointY="10.131653145833333" />
+          <ConnectorPoint PointX="11.625" PointY="10.131653145833333" />
+          <ConnectorPoint PointX="11.625" PointY="7.625" />
+          <ConnectorPoint PointX="12.320311125" PointY="7.625" />
+          <ConnectorPoint PointX="12.320311125" PointY="3.8552864583333331" /></AssociationConnector>
         <AssociationConnector Association="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" >
           <ConnectorPoint PointX="11.125" PointY="6.8362939453125" />
-          <ConnectorPoint PointX="12.135414166666665" PointY="6.8362939453124989" />
-          <ConnectorPoint PointX="12.302080833333333" PointY="6.8362939453125" />
-          <ConnectorPoint PointX="12.625" PointY="6.8362939453125" />
-          <ConnectorPoint PointX="12.625" PointY="3.8552864583333331" /></AssociationConnector>
+          <ConnectorPoint PointX="11.5" PointY="6.8362939453125" />
+          <ConnectorPoint PointX="11.5" PointY="3.1895422018229165" />
+          <ConnectorPoint PointX="11.875" PointY="3.1895422018229165" />
+          </AssociationConnector>
         <AssociationConnector Association="SiakSmanModel.FK_JadwalParent_MasterKelas" >
           <ConnectorPoint PointX="8.875" PointY="1.9612939453124998" />
           <ConnectorPoint PointX="9.625" PointY="1.9612939453124998" /></AssociationConnector>
@@ -704,6 +780,20 @@
         <AssociationConnector Association="SiakSmanModel.FK_MasterUser_MasterKaryawan" >
           <ConnectorPoint PointX="3.5" PointY="4.8456022135416656" />
           <ConnectorPoint PointX="3.5" PointY="6.8362939453125" />
-          <ConnectorPoint PointX="2.25" PointY="6.8362939453125" /></AssociationConnector></Diagram></edmx:Diagrams>
+          <ConnectorPoint PointX="2.25" PointY="6.8362939453125" /></AssociationConnector>
+        <EntityTypeShape EntityType="SiakSmanModel.GuruMataPelajaran" Width="1.5" PointX="11.875" PointY="7.875" Height="1.5956835937499996" />
+        <AssociationConnector Association="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru" >
+          <ConnectorPoint PointX="6.375" PointY="9.1268929036458317" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="9.1268929036458317" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="9.1268929036458317" />
+          <ConnectorPoint PointX="11.875" PointY="9.1268929036458317" /></AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran" >
+          <ConnectorPoint PointX="11.125" PointY="6.26189447265625" />
+          <ConnectorPoint PointX="11.416666666666666" PointY="6.2618944726562491" />
+          <ConnectorPoint PointX="11.583333333333334" PointY="6.26189447265625" />
+          <ConnectorPoint PointX="12.236977791666666" PointY="6.2618944726562491" />
+          <ConnectorPoint PointX="12.403644458333334" PointY="6.26189447265625" />
+          <ConnectorPoint PointX="12.8476555625" PointY="6.26189447265625" />
+          <ConnectorPoint PointX="12.8476555625" PointY="7.875" /></AssociationConnector></Diagram></edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

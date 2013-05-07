@@ -33,17 +33,28 @@ Public Class EditorJadwalMataPelajaran
             comboBox.ValueMember = "ID"
             comboBox.DataSource = sourceGuru.ToArray().Clone()
             comboBox.SelectedValue = String.Empty
-
         Next
     End Sub
 
     Private Sub MataPelajaranSelectedValueChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim source = CType(sender, ComboBox)
-        Dim a = MataPelajaraBusinessObject.GetMataPelajaran(Convert.ToInt32(source.SelectedValue))
-        If a Is Nothing Then
+        Dim data = MataPelajaraBusinessObject.GetMataPelajaran(Convert.ToInt32(source.SelectedValue))
+        If data Is Nothing Then
             Return
         End If
-        RichTextBox1.Text = a.Silabus
+        RichTextBox1.Text = data.Silabus
+        Dim matapelcombo = CType(sender, ComboBox)
+        Dim index = matapelcombo.Name.Replace("ComboBoxMatPel", "")
+        For Each comboBox In From a As Control In SplitContainer1.Panel1.Controls _
+                             Let comboBox1 = TryCast(a, ComboBox) _
+                             Where (comboBox1 IsNot Nothing) _
+                             Where a.Name.Contains("ComboBoxGuru" & index) Select comboBox1
+            Dim sourceGuru = GuruBusinessObject.GetGuru(Convert.ToInt32(matapelcombo.SelectedValue), Convert.ToInt32(TextBoxTahunAjaran.Text))
+            comboBox.DisplayMember = "Nama"
+            comboBox.ValueMember = "ID"
+            comboBox.DataSource = sourceGuru.ToArray().Clone()
+            comboBox.SelectedValue = String.Empty
+        Next
     End Sub
 
     Private Sub LoadMataPelajaran(ByVal tahunAjaran As Integer)
@@ -114,6 +125,7 @@ Public Class EditorJadwalMataPelajaran
         currentId = cid
         Text = "Edit Jadwal Mata Pelajaran"
         pjadwal = JadwalMataPelajaranBusinessObject.GetJadwalMataPelajaran(cid)
+        TextBoxTahunAjaran.Text = pjadwal.TahunAjaran
         LoadKelas()
         LoadMataPelajaran(pjadwal.TahunAjaran)
         LoadGuru()
@@ -164,51 +176,50 @@ Public Class EditorJadwalMataPelajaran
         Return jdetails
     End Function
 
-
     Private Sub LoadJadwal(ByVal jadwal As JadwalParent)
         TextBoxTahunAjaran.Text = jadwal.TahunAjaran
         ComboBoxKelas.SelectedValue = jadwal.MasterKelas.ID
         ComboBoxJurusan.Text = jadwal.Jurusan
         ComboBoxHari.Text = jadwal.Hari
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 1
-            ComboBoxGuru1.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel1.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru1.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 2
-            ComboBoxGuru2.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel2.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru2.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 3
-            ComboBoxGuru3.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel3.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru3.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 4
-            ComboBoxGuru4.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel4.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru4.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 5
-            ComboBoxGuru5.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel5.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru5.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 6
-            ComboBoxGuru6.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel6.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru6.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 7
-            ComboBoxGuru7.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel7.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru7.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 8
-            ComboBoxGuru8.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel8.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru8.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 9
-            ComboBoxGuru9.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel9.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru9.SelectedValue = item.MasterGuru.ID
         Next
         For Each item As JadwalDetail In From item1 In jadwal.JadwalDetail Where item1.JamIndex = 10
-            ComboBoxGuru10.SelectedValue = item.MasterGuru.ID
             ComboBoxMatPel10.SelectedValue = item.MasterMataPelajaran.ID
+            ComboBoxGuru10.SelectedValue = item.MasterGuru.ID
         Next
     End Sub
 
