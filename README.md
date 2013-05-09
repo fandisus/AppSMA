@@ -4,7 +4,7 @@ AppSMA
 Sample Windows Apps Sekolah Menengah Atas untuk TA.<br/>
 Fitur utama yaitu Manajemen Penjadwalan Mata Pelajaran dan Penjurusan Siswa.<br/>
 
-System Requirment
+System Requirement
 =================
 
 .NET Framework 3.5 SP1<br/>
