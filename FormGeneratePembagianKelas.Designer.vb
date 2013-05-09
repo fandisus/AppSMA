@@ -95,11 +95,11 @@ Partial Class FormGeneratePembagianKelas
         '
         'ButtonGenerate
         '
-        Me.ButtonGenerate.Location = New System.Drawing.Point(296, 221)
+        Me.ButtonGenerate.Location = New System.Drawing.Point(272, 221)
         Me.ButtonGenerate.Name = "ButtonGenerate"
-        Me.ButtonGenerate.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonGenerate.Size = New System.Drawing.Size(99, 23)
         Me.ButtonGenerate.TabIndex = 8
-        Me.ButtonGenerate.Text = "Generate"
+        Me.ButtonGenerate.Text = "Pembagian Kelas"
         Me.ButtonGenerate.UseVisualStyleBackColor = True
         '
         'ComboBoxTingkat
@@ -129,7 +129,7 @@ Partial Class FormGeneratePembagianKelas
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "FormGeneratePembagianKelas"
         Me.ShowInTaskbar = False
-        Me.Text = "Form Generate Pembagian Kelas"
+        Me.Text = "Pembagian Kelas"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

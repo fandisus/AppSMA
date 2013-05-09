@@ -24,26 +24,48 @@
 
     Public Shared Sub InsertPenjurusan(ByVal mPenjurusan As Penjurusan)
         Validasi(mPenjurusan)
+
         Using entity As New SiakSmanEntities()
-            Dim jPenjurusan = New Penjurusan
-            With jPenjurusan
-                .BahasaIndonesia = mPenjurusan.BahasaIndonesia
-                .BahasaInggris = mPenjurusan.BahasaInggris
-                .Biologi = mPenjurusan.Biologi
-                .Ekonomi = mPenjurusan.Ekonomi
-                .Fisika = mPenjurusan.Fisika
-                .Geografi = mPenjurusan.Geografi
-                .Jurusan = mPenjurusan.Jurusan
-                .Kimia = mPenjurusan.Kimia
-                .MasterKelas = Nothing
-                .MasterSiswa = (From data In entity.MasterSiswa Where data.ID = mPenjurusan.MasterSiswa.ID Select data).FirstOrDefault()
-                .Matematika = mPenjurusan.Matematika
-                .NilaiRataRata = mPenjurusan.NilaiRataRata
-                .Sosiologi = mPenjurusan.Sosiologi
-                .TahunAjaran = mPenjurusan.TahunAjaran
-                .TanggalPenilaian = DateTime.Now
-            End With
-            entity.AddToPenjurusan(jPenjurusan)
+            Dim query = (From data In entity.Penjurusan.Include("MasterSiswa") Where data.MasterSiswa.ID = mPenjurusan.MasterSiswa.ID And data.TahunAjaran = mPenjurusan.TahunAjaran Select data).FirstOrDefault()
+            If query Is Nothing Then
+                Dim jPenjurusan = New Penjurusan
+                With jPenjurusan
+                    .BahasaIndonesia = mPenjurusan.BahasaIndonesia
+                    .BahasaInggris = mPenjurusan.BahasaInggris
+                    .Biologi = mPenjurusan.Biologi
+                    .Ekonomi = mPenjurusan.Ekonomi
+                    .Fisika = mPenjurusan.Fisika
+                    .Geografi = mPenjurusan.Geografi
+                    .Jurusan = mPenjurusan.Jurusan
+                    .Kimia = mPenjurusan.Kimia
+                    .MasterKelas = Nothing
+                    .MasterSiswa = (From data In entity.MasterSiswa Where data.ID = mPenjurusan.MasterSiswa.ID Select data).FirstOrDefault()
+                    .Matematika = mPenjurusan.Matematika
+                    .NilaiRataRata = mPenjurusan.NilaiRataRata
+                    .Sosiologi = mPenjurusan.Sosiologi
+                    .TahunAjaran = mPenjurusan.TahunAjaran
+                    .TanggalPenilaian = DateTime.Now
+                End With
+                entity.AddToPenjurusan(jPenjurusan)
+            Else
+                With query
+                    .BahasaIndonesia = mPenjurusan.BahasaIndonesia
+                    .BahasaInggris = mPenjurusan.BahasaInggris
+                    .Biologi = mPenjurusan.Biologi
+                    .Ekonomi = mPenjurusan.Ekonomi
+                    .Fisika = mPenjurusan.Fisika
+                    .Geografi = mPenjurusan.Geografi
+                    .Jurusan = mPenjurusan.Jurusan
+                    .Kimia = mPenjurusan.Kimia
+                    .MasterKelas = Nothing
+                    .Matematika = mPenjurusan.Matematika
+                    .NilaiRataRata = mPenjurusan.NilaiRataRata
+                    .Sosiologi = mPenjurusan.Sosiologi
+                    .TahunAjaran = mPenjurusan.TahunAjaran
+                    .TanggalPenilaian = DateTime.Now
+                End With
+            End If
+            
             entity.SaveChanges()
         End Using
     End Sub
@@ -89,9 +111,9 @@
 
     Public Shared Sub DeletePenjurusan(ByVal recordId As Integer)
         Using entity As New SiakSmanEntities()
-            Dim query = (From data In entity.MasterKelas Where data.ID = recordId).FirstOrDefault()
+            Dim query = (From data In entity.Penjurusan Where data.ID = recordId).FirstOrDefault()
             If (query Is Nothing) Then
-                Throw New Exception("Delete failed, Data Kelas tidak ditemukan")
+                Throw New Exception("Delete failed, Data Penjurusan tidak ditemukan")
             End If
             entity.DeleteObject(query)
             entity.SaveChanges()

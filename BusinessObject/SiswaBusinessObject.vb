@@ -108,5 +108,20 @@ Namespace BusinessObject
                 entity.SaveChanges()
             End Using
         End Sub
+
+        Public Shared Function GetListByName(ByVal nama As String) As List(Of MasterSiswa)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterSiswa Where data.Nama.Contains(nama) Order By data.ID Descending Select data
+                Return query.ToList()
+            End Using
+        End Function
+
+        Public Shared Function GetListByNis(ByVal nis As String) As List(Of MasterSiswa)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterSiswa Where data.NIS.Contains(nis) Order By data.ID Descending Select data
+                Return query.ToList()
+            End Using
+        End Function
+
     End Class
 End Namespace

@@ -175,12 +175,16 @@ Public Class ListPenjurusan
                 Convert.ToDecimal(TextBoxKimia.Text) + _
                 Convert.ToDecimal(TextBoxFisika.Text) + _
                 Convert.ToDecimal(TextBoxBiologi.Text)) / 6
-            If a < 70 Then
-                TextBoxJurusan.Text = "IPS"
+            If a = 0 Then
+                TextBoxJurusan.Text = ""
             Else
-                TextBoxJurusan.Text = "IPA"
+                If a < 70 Then
+                    TextBoxJurusan.Text = "IPS"
+                Else
+                    TextBoxJurusan.Text = "IPA"
+                End If
+                Return a
             End If
-            Return a
         Catch ex As Exception
             Return 0
         End Try

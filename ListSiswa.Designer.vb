@@ -23,6 +23,9 @@ Partial Class ListSiswa
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.ButtonCariNama = New System.Windows.Forms.Button
+        Me.ButtonCariNis = New System.Windows.Forms.Button
+        Me.ButtonCari = New System.Windows.Forms.Button
         Me.TextBoxHpOrtu = New System.Windows.Forms.TextBox
         Me.Label21 = New System.Windows.Forms.Label
         Me.TextBoxTelpOrtu = New System.Windows.Forms.TextBox
@@ -114,6 +117,9 @@ Partial Class ListSiswa
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.AutoScroll = True
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonCariNama)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonCariNis)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonCari)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxHpOrtu)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label21)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxTelpOrtu)
@@ -170,6 +176,33 @@ Partial Class ListSiswa
         Me.SplitContainer1.Size = New System.Drawing.Size(1153, 707)
         Me.SplitContainer1.SplitterDistance = 356
         Me.SplitContainer1.TabIndex = 4
+        '
+        'ButtonCariNama
+        '
+        Me.ButtonCariNama.Location = New System.Drawing.Point(392, 39)
+        Me.ButtonCariNama.Name = "ButtonCariNama"
+        Me.ButtonCariNama.Size = New System.Drawing.Size(37, 23)
+        Me.ButtonCariNama.TabIndex = 54
+        Me.ButtonCariNama.Text = "&Cari"
+        Me.ButtonCariNama.UseVisualStyleBackColor = True
+        '
+        'ButtonCariNis
+        '
+        Me.ButtonCariNis.Location = New System.Drawing.Point(244, 10)
+        Me.ButtonCariNis.Name = "ButtonCariNis"
+        Me.ButtonCariNis.Size = New System.Drawing.Size(37, 23)
+        Me.ButtonCariNis.TabIndex = 53
+        Me.ButtonCariNis.Text = "&Cari"
+        Me.ButtonCariNis.UseVisualStyleBackColor = True
+        '
+        'ButtonCari
+        '
+        Me.ButtonCari.Location = New System.Drawing.Point(432, 317)
+        Me.ButtonCari.Name = "ButtonCari"
+        Me.ButtonCari.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonCari.TabIndex = 52
+        Me.ButtonCari.Text = "&Cari"
+        Me.ButtonCari.UseVisualStyleBackColor = True
         '
         'TextBoxHpOrtu
         '
@@ -578,7 +611,7 @@ Partial Class ListSiswa
         Me.TextBoxNama.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNama.Location = New System.Drawing.Point(105, 39)
         Me.TextBoxNama.Name = "TextBoxNama"
-        Me.TextBoxNama.Size = New System.Drawing.Size(321, 21)
+        Me.TextBoxNama.Size = New System.Drawing.Size(281, 21)
         Me.TextBoxNama.TabIndex = 2
         '
         'Label3
@@ -886,4 +919,7 @@ Partial Class ListSiswa
     Friend WithEvents KodePosOrangTua As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NoTelephoneOrangTua As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NoHPOrangTua As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ButtonCari As System.Windows.Forms.Button
+    Friend WithEvents ButtonCariNama As System.Windows.Forms.Button
+    Friend WithEvents ButtonCariNis As System.Windows.Forms.Button
 End Class

@@ -137,5 +137,11 @@ Namespace BusinessObject
             End Using
         End Function
 
+        Public Shared Function GetListByName(ByVal text As String) As List(Of MasterGuru)
+            Using entity As New SiakSmanEntities()
+                Dim query = From data In entity.MasterGuru Where data.Nama.Contains(text) Order By data.ID Descending Select data
+                Return query.ToList()
+            End Using
+        End Function
     End Class
 End Namespace

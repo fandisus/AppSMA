@@ -8,15 +8,15 @@ Public Class ReportJadwalViewer
        
     End Sub
 
-    Public Sub ShowReport(ByVal kelasid As Integer, ByVal tahunaajaran As Integer, ByVal jurusan As String)
+    Public Sub ShowReport(ByVal kelasid As Integer, ByVal tahunaajaran As Integer)
         Try
             Dim businessObject As New JadwalMataPelajaranBusinessObject
             Dim list As New List(Of ReportJadwalModel)
-            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Senin", jurusan))
-            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Selasa", jurusan))
-            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Rabu", jurusan))
-            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Kamis", jurusan))
-            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Jumat", jurusan))
+            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Senin"))
+            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Selasa"))
+            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Rabu"))
+            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Kamis"))
+            list.AddRange(businessObject.GetJadwalMataPelajaran(kelasid, tahunaajaran, "Jumat"))
             Dim source As New ReportDataSource
             source.Name = "SistemAkademikSman_ReportJadwalModel"
             source.Value = list

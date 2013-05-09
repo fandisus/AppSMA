@@ -521,14 +521,14 @@ Y1USZrkuUkQBAgh6KXxERP6pZtJev2BUIsfOIytLVOuelSqHoWCx+XPGmVs7TDFooNyBfLE2txzwGeBr
                     <Textbox Name="textbox17">
                       <rd:DefaultName>textbox17</rd:DefaultName>
                       <Style>
-                        <TextAlign>Center</TextAlign>
+                        <TextAlign>Right</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>Jumlah Siswa</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -537,13 +537,14 @@ Y1USZrkuUkQBAgh6KXxERP6pZtJev2BUIsfOIytLVOuelSqHoWCx+XPGmVs7TDFooNyBfLE2txzwGeBr
                     <Textbox Name="textbox18">
                       <rd:DefaultName>textbox18</rd:DefaultName>
                       <Style>
+                        <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=Count(Fields!NamaSiswa.Value, "SistemAkademikSman_ReportKelasModel")</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

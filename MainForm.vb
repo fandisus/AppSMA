@@ -39,6 +39,10 @@
             MessageBox.Show(Me, "Invalid username atau password, cek kembali username & password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+        If Not CurrentUser.Username.Equals(login.TextBoxUserName.Text) Or Not CurrentUser.Password.Equals(login.TextBoxPassword.Text) Then
+            MessageBox.Show(Me, "Invalid username atau password, cek kembali username & password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
         login.Close()
         If Not CurrentUser.IsAdministrator Then
             DataSiswaToolStripMenuItem.Enabled = False

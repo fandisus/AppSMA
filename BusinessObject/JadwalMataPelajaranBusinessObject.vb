@@ -98,9 +98,9 @@
         End Function
 
 
-        Public Function GetJadwalMataPelajaran(ByVal kelasid As Integer, ByVal tahunaajaran As Integer, ByVal hari As String, ByVal jurusan As String)
+        Public Function GetJadwalMataPelajaran(ByVal kelasid As Integer, ByVal tahunaajaran As Integer, ByVal hari As String)
             Using entity As New SiakSmanEntities()
-                Dim query = (From data In entity.JadwalParent.Include("JadwalDetail").Include("MasterKelas") Where data.MasterKelas.ID = kelasid And data.TahunAjaran = tahunaajaran And data.Hari = hari And data.Jurusan = jurusan).ToList().FirstOrDefault()
+                Dim query = (From data In entity.JadwalParent.Include("JadwalDetail").Include("MasterKelas") Where data.MasterKelas.ID = kelasid And data.TahunAjaran = tahunaajaran And data.Hari = hari).ToList().FirstOrDefault()
                 If query Is Nothing Then
                     Throw New Exception("Jadwal Mata Pelajaran Hari " + hari + ", data tidak ditemukan")
                 End If
@@ -119,14 +119,14 @@
                         .TahunAjaran = query.TahunAjaran
                         .WaliKelas = String.Empty
                         .Hari = hari
-                        .Jurusan = jurusan
+                        .Jurusan = ""
                     End With
                     result.Add(a)
                 Next
 
                 ListJadwal = (From data In result Order By data.IndexJadwal Select data).ToList()
-                ListJadwal.Insert(6, New ReportJadwalModel() With {.IndexJadwal = 6, .MataPelajaran = "Istirahat", .Hari = hari, .Jurusan = jurusan})
-                ListJadwal.Insert(4, New ReportJadwalModel() With {.IndexJadwal = 4, .MataPelajaran = "Istirahat", .Hari = hari, .Jurusan = jurusan})
+                ListJadwal.Insert(6, New ReportJadwalModel() With {.IndexJadwal = 6, .MataPelajaran = "Istirahat", .Hari = hari, .Jurusan = ""})
+                ListJadwal.Insert(4, New ReportJadwalModel() With {.IndexJadwal = 4, .MataPelajaran = "Istirahat", .Hari = hari, .Jurusan = ""})
                 Dim i As Integer = 1
                 For Each model As ReportJadwalModel In _ListJadwal
                     model.IndexJadwal = i

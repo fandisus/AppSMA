@@ -38,6 +38,8 @@ Partial Class ListGuru
         Me.NoTelephone = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.NoHP = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.ButtonCari = New System.Windows.Forms.Button
+        Me.ButtonCariNama = New System.Windows.Forms.Button
         Me.ButtonMataPelajaran = New System.Windows.Forms.Button
         Me.ButtonRefresh = New System.Windows.Forms.Button
         Me.ButtonHapus = New System.Windows.Forms.Button
@@ -215,6 +217,8 @@ Partial Class ListGuru
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.AutoScroll = True
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonCari)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonCariNama)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonMataPelajaran)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonHapus)
@@ -256,6 +260,24 @@ Partial Class ListGuru
         Me.SplitContainer1.Size = New System.Drawing.Size(876, 592)
         Me.SplitContainer1.SplitterDistance = 270
         Me.SplitContainer1.TabIndex = 2
+        '
+        'ButtonCari
+        '
+        Me.ButtonCari.Location = New System.Drawing.Point(543, 234)
+        Me.ButtonCari.Name = "ButtonCari"
+        Me.ButtonCari.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonCari.TabIndex = 56
+        Me.ButtonCari.Text = "&Cari"
+        Me.ButtonCari.UseVisualStyleBackColor = True
+        '
+        'ButtonCariNama
+        '
+        Me.ButtonCariNama.Location = New System.Drawing.Point(369, 39)
+        Me.ButtonCariNama.Name = "ButtonCariNama"
+        Me.ButtonCariNama.Size = New System.Drawing.Size(37, 23)
+        Me.ButtonCariNama.TabIndex = 55
+        Me.ButtonCariNama.Text = "&Cari"
+        Me.ButtonCariNama.UseVisualStyleBackColor = True
         '
         'ButtonMataPelajaran
         '
@@ -313,7 +335,7 @@ Partial Class ListGuru
         '
         'ButtonPhoto
         '
-        Me.ButtonPhoto.Location = New System.Drawing.Point(694, 234)
+        Me.ButtonPhoto.Location = New System.Drawing.Point(826, 229)
         Me.ButtonPhoto.Name = "ButtonPhoto"
         Me.ButtonPhoto.Size = New System.Drawing.Size(27, 23)
         Me.ButtonPhoto.TabIndex = 27
@@ -322,7 +344,7 @@ Partial Class ListGuru
         '
         'PictureBoxPhoto
         '
-        Me.PictureBoxPhoto.Location = New System.Drawing.Point(567, 128)
+        Me.PictureBoxPhoto.Location = New System.Drawing.Point(699, 123)
         Me.PictureBoxPhoto.Name = "PictureBoxPhoto"
         Me.PictureBoxPhoto.Size = New System.Drawing.Size(121, 129)
         Me.PictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -514,7 +536,7 @@ Partial Class ListGuru
         Me.TextBoxNama.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNama.Location = New System.Drawing.Point(105, 39)
         Me.TextBoxNama.Name = "TextBoxNama"
-        Me.TextBoxNama.Size = New System.Drawing.Size(321, 21)
+        Me.TextBoxNama.Size = New System.Drawing.Size(258, 21)
         Me.TextBoxNama.TabIndex = 5
         '
         'Label3
@@ -529,7 +551,7 @@ Partial Class ListGuru
         '
         'TextBoxID
         '
-        Me.TextBoxID.Location = New System.Drawing.Point(293, 12)
+        Me.TextBoxID.Location = New System.Drawing.Point(273, 12)
         Me.TextBoxID.Name = "TextBoxID"
         Me.TextBoxID.Size = New System.Drawing.Size(133, 21)
         Me.TextBoxID.TabIndex = 3
@@ -537,7 +559,7 @@ Partial Class ListGuru
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(269, 15)
+        Me.Label2.Location = New System.Drawing.Point(249, 15)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(18, 13)
         Me.Label2.TabIndex = 2
@@ -631,4 +653,6 @@ Partial Class ListGuru
     Friend WithEvents NoHP As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ButtonRefresh As System.Windows.Forms.Button
     Friend WithEvents ButtonMataPelajaran As System.Windows.Forms.Button
+    Friend WithEvents ButtonCari As System.Windows.Forms.Button
+    Friend WithEvents ButtonCariNama As System.Windows.Forms.Button
 End Class

@@ -32,6 +32,6 @@ Public Class KelasDialog
     Private Sub Button2Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button2.Click
         Dim vform As New ReportJadwalViewer
         vform.MdiParent = MainForm
-        vform.ShowReport(Convert.ToInt32(ComboBox1.SelectedValue), Convert.ToInt32(TextBox1.Text), ComboBox2.Text)
+        vform.ShowReport(Convert.ToInt32(ComboBox1.SelectedValue), Convert.ToInt32(TextBox1.Text))
     End Sub
 End Class

@@ -44,15 +44,15 @@ Public Class FormGeneratePembagianKelas
         Dim totalSiswa = listSiswa.Count
         Dim totalKelas = listKelas.Count
         Dim counterDistribution = 0
-        Dim perempuan = listSiswa.Where(Function(nSiswa) nSiswa.JenisKelamin.ToLower().Equals("perempuan")).OrderBy(Function(nSiswa) nSiswa.Nama)
-        Dim lakilaki = listSiswa.Where(Function(nSiswa) nSiswa.JenisKelamin.ToLower().Equals("laki-laki")).OrderBy(Function(nSiswa) nSiswa.Nama)
+        Dim perempuan = listSiswa.Where(Function(nSiswa) nSiswa.JenisKelamin.ToLower().Equals("perempuan")).OrderBy(Function(nSiswa) nSiswa.Nama).ToList()
+        Dim lakilaki = listSiswa.Where(Function(nSiswa) nSiswa.JenisKelamin.ToLower().Equals("laki-laki")).OrderBy(Function(nSiswa) nSiswa.Nama).ToList()
         Const letter As String = "abcdefghijklmnopqrstuvwxyz"
 
         For i As Integer = 0 To letter.Length - 1
             Dim alpha = letter.Substring(i, 1)
-            Dim csiswa = perempuan.Where(Function(a) a.Nama.ToLower().StartsWith(alpha)) '.OrderBy(Function() rnd.Next())
-            For Each j As MasterSiswa In csiswa
-                PenjurusanBusinessObject.SetPenjurusan(j, listKelas(counterDistribution), Convert.ToInt32(TextBoxTahunAjaran.Text))
+            Dim csiswa = perempuan.Where(Function(a) a.Nama.ToLower().StartsWith(alpha)).ToList() '.OrderBy(Function() rnd.Next())
+            For Each siswa As MasterSiswa In csiswa
+                PenjurusanBusinessObject.SetPenjurusan(siswa, listKelas(counterDistribution), Convert.ToInt32(TextBoxTahunAjaran.Text))
                 If counterDistribution >= (totalKelas - 1) Then
                     counterDistribution = 0
                 Else
@@ -63,9 +63,9 @@ Public Class FormGeneratePembagianKelas
 
         For i As Integer = 0 To letter.Length - 1
             Dim alpha = letter.Substring(i, 1)
-            Dim csiswa = lakilaki.Where(Function(a) a.Nama.ToLower().StartsWith(alpha)) '.OrderBy(Function() rnd.Next())
-            For Each j As MasterSiswa In csiswa
-                PenjurusanBusinessObject.SetPenjurusan(j, listKelas(counterDistribution), Convert.ToInt32(TextBoxTahunAjaran.Text))
+            Dim csiswa = lakilaki.Where(Function(a) a.Nama.ToLower().StartsWith(alpha)).ToList() '.OrderBy(Function() rnd.Next())
+            For Each siswa As MasterSiswa In csiswa
+                PenjurusanBusinessObject.SetPenjurusan(siswa, listKelas(counterDistribution), Convert.ToInt32(TextBoxTahunAjaran.Text))
                 If counterDistribution >= (totalKelas - 1) Then
                     counterDistribution = 0
                 Else

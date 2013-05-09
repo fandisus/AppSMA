@@ -6,11 +6,27 @@ Public Class ListSiswa
     Private isAddNew As Boolean
     Private recordId As Integer
 
+    Private Sub SearchState()
+        ButtonTambah.Enabled = False
+        ButtonSimpan.Enabled = False
+        ButtonHapus.Enabled = False
+        ButtonUbah.Enabled = False
+        ClearAllField()
+        SetControl(False)
+        TextBoxNama.Enabled = True
+        TextBoxNIP.Enabled = True
+        ButtonCariNama.Enabled = True
+        ButtonCariNis.Enabled = True
+    End Sub
+
     Private Sub InsertState()
         ButtonTambah.Enabled = False
         ButtonHapus.Enabled = False
         ButtonUbah.Enabled = False
         ButtonSimpan.Enabled = True
+        ButtonCari.Enabled = False
+        ButtonCariNama.Enabled = False
+        ButtonCariNis.Enabled = False
         isAddNew = True
     End Sub
 
@@ -19,6 +35,9 @@ Public Class ListSiswa
         ButtonHapus.Enabled = True
         ButtonUbah.Enabled = False
         ButtonSimpan.Enabled = True
+        ButtonCari.Enabled = False
+        ButtonCariNama.Enabled = False
+        ButtonCariNis.Enabled = False
         isAddNew = False
     End Sub
 
@@ -27,6 +46,9 @@ Public Class ListSiswa
         ButtonHapus.Enabled = False
         ButtonUbah.Enabled = True
         ButtonSimpan.Enabled = False
+        ButtonCari.Enabled = True
+        ButtonCariNama.Enabled = False
+        ButtonCariNis.Enabled = False
     End Sub
 
     Private Sub SetControl(ByVal value As Boolean)
@@ -55,6 +77,11 @@ Public Class ListSiswa
         If siswa Is Nothing Then
             Return
         End If
+        PopulateData(siswa)
+    End Sub
+
+    Private Sub PopulateData(ByVal siswa As MasterSiswa)
+
         TextBoxAlamat.Text = siswa.Alamat
         TextBoxEmail.Text = siswa.Email
         TextBoxHP.Text = siswa.NoHP
@@ -213,5 +240,16 @@ Public Class ListSiswa
         End Using
     End Sub
 
- 
+    Private Sub ButtonCariClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCari.Click
+        SearchState()
+        TextBoxNama.Select()
+    End Sub
+
+    Private Sub ButtonCariNamaClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCariNama.Click
+        DataGridView1.DataSource = SiswaBusinessObject.GetListByName(TextBoxNama.Text)
+    End Sub
+
+    Private Sub ButtonCariNisClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCariNis.Click
+        DataGridView1.DataSource = SiswaBusinessObject.GetListByNis(TextBoxNIP.Text)
+    End Sub
 End Class

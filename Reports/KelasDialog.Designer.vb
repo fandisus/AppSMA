@@ -28,8 +28,6 @@ Partial Class KelasDialog
         Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.Button1 = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox
-        Me.Label3 = New System.Windows.Forms.Label
         Me.SuspendLayout()
         '
         'Label1
@@ -83,32 +81,11 @@ Partial Class KelasDialog
         Me.Button2.Text = "OK"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"IPS", "IPA"})
-        Me.ComboBox2.Location = New System.Drawing.Point(107, 86)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(100, 21)
-        Me.ComboBox2.TabIndex = 7
-        Me.ComboBox2.Text = "IPS"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(56, 89)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(45, 13)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Jurusan"
-        '
         'KelasDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(402, 171)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
@@ -129,6 +106,4 @@ Partial Class KelasDialog
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

@@ -597,7 +597,7 @@ Partial Class EditorJadwalMataPelajaran
         'ComboBoxHari
         '
         Me.ComboBoxHari.FormattingEnabled = True
-        Me.ComboBoxHari.Items.AddRange(New Object() {"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"})
+        Me.ComboBoxHari.Items.AddRange(New Object() {"Senin", "Selasa", "Rabu", "Kamis", "Jumat"})
         Me.ComboBoxHari.Location = New System.Drawing.Point(109, 66)
         Me.ComboBoxHari.Name = "ComboBoxHari"
         Me.ComboBoxHari.Size = New System.Drawing.Size(121, 21)

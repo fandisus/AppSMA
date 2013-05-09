@@ -6,6 +6,17 @@ Public Class ListKaryawan
     Private isAddNew As Boolean
     Private recordId As Integer
 
+    Private Sub SearchState()
+        ButtonTambah.Enabled = False
+        ButtonSimpan.Enabled = False
+        ButtonHapus.Enabled = False
+        ButtonUbah.Enabled = False
+        ClearAllField()
+        SetControl(False)
+        TextBoxNama.Enabled = True
+        ButtonCariNama.Enabled = True
+    End Sub
+
     Private Sub ListKaryawanLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         TextBoxNIP.Focus()
         DataGridView1.AutoGenerateColumns = False
@@ -23,6 +34,7 @@ Public Class ListKaryawan
         ButtonHapus.Enabled = False
         ButtonUbah.Enabled = False
         ButtonSimpan.Enabled = True
+        ButtonCariNama.Enabled = False
         isAddNew = True
     End Sub
 
@@ -31,6 +43,7 @@ Public Class ListKaryawan
         ButtonHapus.Enabled = True
         ButtonUbah.Enabled = False
         ButtonSimpan.Enabled = True
+        ButtonCariNama.Enabled = False
         isAddNew = False
     End Sub
 
@@ -39,6 +52,7 @@ Public Class ListKaryawan
         ButtonHapus.Enabled = False
         ButtonUbah.Enabled = True
         ButtonSimpan.Enabled = False
+        ButtonCariNama.Enabled = False
     End Sub
 
     Private Sub SetControl(ByVal value As Boolean)
@@ -131,7 +145,7 @@ Public Class ListKaryawan
             KaryawanBusinessObject.DeleteKaryawan(recordId)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -145,7 +159,7 @@ Public Class ListKaryawan
             KaryawanBusinessObject.InsertKaryawan(karyawan)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
@@ -194,8 +208,16 @@ Public Class ListKaryawan
             KaryawanBusinessObject.UpdateKaryawan(karyawan)
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
+    Private Sub ButtonCariNamaClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCariNama.Click
+        DataGridView1.DataSource = KaryawanBusinessObject.GetListByName(TextBoxNama.Text)
+    End Sub
+
+    Private Sub ButtonCariClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCari.Click
+        SearchState()
+        TextBoxNama.Select()
+    End Sub
 End Class

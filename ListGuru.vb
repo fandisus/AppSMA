@@ -12,12 +12,24 @@ Public Class ListGuru
         AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
     End Sub
 
+    Private Sub SearchState()
+        ButtonTambah.Enabled = False
+        ButtonSimpan.Enabled = False
+        ButtonHapus.Enabled = False
+        ButtonUbah.Enabled = False
+        ClearAllField()
+        SetControl(False)
+        TextBoxNama.Enabled = True
+        ButtonCariNama.Enabled = True
+    End Sub
+
     Private Sub InsertState()
         ButtonTambah.Enabled = False
         ButtonHapus.Enabled = False
         ButtonUbah.Enabled = False
         ButtonSimpan.Enabled = True
         ButtonMataPelajaran.Enabled = False
+        ButtonCariNama.Enabled = False
         isAddNew = True
     End Sub
 
@@ -27,6 +39,7 @@ Public Class ListGuru
         ButtonUbah.Enabled = False
         ButtonSimpan.Enabled = True
         ButtonMataPelajaran.Enabled = True
+        ButtonCariNama.Enabled = False
         isAddNew = False
     End Sub
 
@@ -36,6 +49,7 @@ Public Class ListGuru
         ButtonUbah.Enabled = True
         ButtonSimpan.Enabled = False
         ButtonMataPelajaran.Enabled = True
+        ButtonCariNama.Enabled = False
     End Sub
 
     Private Sub DataGridViewSelectionChanged(ByVal sender As Object, ByVal e As EventArgs)
@@ -204,5 +218,14 @@ Public Class ListGuru
             dfrom.GuruId = recordId
             dfrom.ShowDialog(Me)
         End Using
+    End Sub
+
+    Private Sub ButtonCariClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCari.Click
+        SearchState()
+        TextBoxNama.Select()
+    End Sub
+
+    Private Sub ButtonCariNamaClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCariNama.Click
+        DataGridView1.DataSource = GuruBusinessObject.GetListByName(TextBoxNama.Text)
     End Sub
 End Class

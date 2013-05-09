@@ -71,6 +71,8 @@ Partial Class ListKaryawan
         Me.KodePos = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.NoTelephone = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.NoHP = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ButtonCariNama = New System.Windows.Forms.Button
+        Me.ButtonCari = New System.Windows.Forms.Button
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -90,6 +92,8 @@ Partial Class ListKaryawan
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.AutoScroll = True
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonCari)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonCariNama)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonRefresh)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ButtonSimpan)
@@ -377,7 +381,7 @@ Partial Class ListKaryawan
         Me.TextBoxNama.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextBoxNama.Location = New System.Drawing.Point(105, 39)
         Me.TextBoxNama.Name = "TextBoxNama"
-        Me.TextBoxNama.Size = New System.Drawing.Size(321, 21)
+        Me.TextBoxNama.Size = New System.Drawing.Size(278, 21)
         Me.TextBoxNama.TabIndex = 5
         '
         'Label3
@@ -547,6 +551,24 @@ Partial Class ListKaryawan
         Me.NoHP.Name = "NoHP"
         Me.NoHP.ReadOnly = True
         '
+        'ButtonCariNama
+        '
+        Me.ButtonCariNama.Location = New System.Drawing.Point(389, 39)
+        Me.ButtonCariNama.Name = "ButtonCariNama"
+        Me.ButtonCariNama.Size = New System.Drawing.Size(37, 23)
+        Me.ButtonCariNama.TabIndex = 56
+        Me.ButtonCariNama.Text = "&Cari"
+        Me.ButtonCariNama.UseVisualStyleBackColor = True
+        '
+        'ButtonCari
+        '
+        Me.ButtonCari.Location = New System.Drawing.Point(432, 226)
+        Me.ButtonCari.Name = "ButtonCari"
+        Me.ButtonCari.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonCari.TabIndex = 57
+        Me.ButtonCari.Text = "&Cari"
+        Me.ButtonCari.UseVisualStyleBackColor = True
+        '
         'ListKaryawan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -616,4 +638,6 @@ Partial Class ListKaryawan
     Friend WithEvents KodePos As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NoTelephone As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NoHP As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ButtonCariNama As System.Windows.Forms.Button
+    Friend WithEvents ButtonCari As System.Windows.Forms.Button
 End Class
