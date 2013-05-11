@@ -1,6 +1,2 @@
-*.dotCover
 bin
 obj
-/*.user
-
-*.db
