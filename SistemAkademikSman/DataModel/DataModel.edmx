@@ -1,0 +1,799 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SiakSmanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="SiakSmanModelStoreContainer">
+          <EntitySet Name="GuruMataPelajaran" EntityType="SiakSmanModel.Store.GuruMataPelajaran" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JadwalDetail" EntityType="SiakSmanModel.Store.JadwalDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JadwalParent" EntityType="SiakSmanModel.Store.JadwalParent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterGuru" EntityType="SiakSmanModel.Store.MasterGuru" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterKaryawan" EntityType="SiakSmanModel.Store.MasterKaryawan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterKelas" EntityType="SiakSmanModel.Store.MasterKelas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterMataPelajaran" EntityType="SiakSmanModel.Store.MasterMataPelajaran" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterSiswa" EntityType="SiakSmanModel.Store.MasterSiswa" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterUser" EntityType="SiakSmanModel.Store.MasterUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Penjurusan" EntityType="SiakSmanModel.Store.Penjurusan" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_GuruMataPelajaran_MasterGuru" Association="SiakSmanModel.Store.FK_GuruMataPelajaran_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GuruMataPelajaran_MasterMataPelajaran" Association="SiakSmanModel.Store.FK_GuruMataPelajaran_MasterMataPelajaran">
+            <End Role="MasterMataPelajaran" EntitySet="MasterMataPelajaran" />
+            <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JadwalDetail_JadwalParent" Association="SiakSmanModel.Store.FK_JadwalDetail_JadwalParent">
+            <End Role="JadwalParent" EntitySet="JadwalParent" />
+            <End Role="JadwalDetail" EntitySet="JadwalDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JadwalDetail_MasterGuru" Association="SiakSmanModel.Store.FK_JadwalDetail_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="JadwalDetail" EntitySet="JadwalDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JadwalDetail_MasterMataPelajaran" Association="SiakSmanModel.Store.FK_JadwalDetail_MasterMataPelajaran">
+            <End Role="MasterMataPelajaran" EntitySet="MasterMataPelajaran" />
+            <End Role="JadwalDetail" EntitySet="JadwalDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JadwalParent_MasterKelas" Association="SiakSmanModel.Store.FK_JadwalParent_MasterKelas">
+            <End Role="MasterKelas" EntitySet="MasterKelas" />
+            <End Role="JadwalParent" EntitySet="JadwalParent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MasterUser_MasterGuru" Association="SiakSmanModel.Store.FK_MasterUser_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="MasterUser" EntitySet="MasterUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MasterUser_MasterKaryawan" Association="SiakSmanModel.Store.FK_MasterUser_MasterKaryawan">
+            <End Role="MasterKaryawan" EntitySet="MasterKaryawan" />
+            <End Role="MasterUser" EntitySet="MasterUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Penjurusan_MasterKelas" Association="SiakSmanModel.Store.FK_Penjurusan_MasterKelas">
+            <End Role="MasterKelas" EntitySet="MasterKelas" />
+            <End Role="Penjurusan" EntitySet="Penjurusan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Penjurusan_MasterSiswa" Association="SiakSmanModel.Store.FK_Penjurusan_MasterSiswa">
+            <End Role="MasterSiswa" EntitySet="MasterSiswa" />
+            <End Role="Penjurusan" EntitySet="Penjurusan" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="GuruMataPelajaran">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MataPelajaranID" Type="int" Nullable="false" />
+          <Property Name="MasterGuruID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JadwalDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
+          <Property Name="MataPelajaranID" Type="int" Nullable="false" />
+          <Property Name="GuruID" Type="int" Nullable="false" />
+          <Property Name="JamIndex" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JadwalParent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TahunAjaran" Type="int" Nullable="false" />
+          <Property Name="KelasID" Type="int" Nullable="false" />
+          <Property Name="Jurusan" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="Hari" Type="varchar" Nullable="false" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="MasterGuru">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NIP" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="GuruID" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="Nama" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="JenisKelamin" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="TempatLahir" Type="varchar" MaxLength="64" />
+          <Property Name="TanggalLahir" Type="datetime" Nullable="false" />
+          <Property Name="Agama" Type="varchar" MaxLength="24" />
+          <Property Name="Email" Type="varchar" MaxLength="72" />
+          <Property Name="Alamat" Type="varchar" MaxLength="128" />
+          <Property Name="Kota" Type="varchar" MaxLength="64" />
+          <Property Name="KodePos" Type="varchar" MaxLength="5" />
+          <Property Name="NoTelephone" Type="varchar" MaxLength="16" />
+          <Property Name="NoHP" Type="varchar" MaxLength="16" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="MasterKaryawan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NIP" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="KaryawanID" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="Nama" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="JenisKelamin" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="TempatLahir" Type="varchar" MaxLength="64" />
+          <Property Name="TanggalLahir" Type="datetime" Nullable="false" />
+          <Property Name="Agama" Type="varchar" MaxLength="24" />
+          <Property Name="Email" Type="varchar" MaxLength="72" />
+          <Property Name="Alamat" Type="varchar" MaxLength="128" />
+          <Property Name="Kota" Type="varchar" MaxLength="64" />
+          <Property Name="KodePos" Type="varchar" MaxLength="5" />
+          <Property Name="NoTelephone" Type="varchar" MaxLength="16" />
+          <Property Name="NoHP" Type="varchar" MaxLength="16" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="MasterKelas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TahunAjaran" Type="int" Nullable="false" />
+          <Property Name="Tingkat" Type="int" Nullable="false" />
+          <Property Name="NamaKelas" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="Keterangan" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="MasterMataPelajaran">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TahunAjaran" Type="int" Nullable="false" />
+          <Property Name="MataPelajaran" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="Silabus" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MasterSiswa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NIS" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="Nama" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="JenisKelamin" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="TempatLahir" Type="varchar" MaxLength="64" />
+          <Property Name="TanggalLahir" Type="datetime" Nullable="false" />
+          <Property Name="Agama" Type="varchar" MaxLength="24" />
+          <Property Name="Email" Type="varchar" MaxLength="72" />
+          <Property Name="Alamat" Type="varchar" MaxLength="128" />
+          <Property Name="Kota" Type="varchar" MaxLength="64" />
+          <Property Name="KodePos" Type="varchar" MaxLength="5" />
+          <Property Name="NoTelephone" Type="varchar" MaxLength="16" />
+          <Property Name="NoHP" Type="varchar" MaxLength="16" />
+          <Property Name="TanggalMasuk" Type="datetime" Nullable="false" />
+          <Property Name="NamaSMPAsal" Type="varchar" MaxLength="128" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="NamaAyah" Type="varchar" MaxLength="64" />
+          <Property Name="NamaIbu" Type="varchar" MaxLength="64" />
+          <Property Name="AlamatOrangTua" Type="varchar" MaxLength="128" />
+          <Property Name="KotaOrangTua" Type="varchar" MaxLength="64" />
+          <Property Name="KodePosOrangTua" Type="varchar" MaxLength="5" />
+          <Property Name="NoTelephoneOrangTua" Type="varchar" MaxLength="16" />
+          <Property Name="NoHPOrangTua" Type="varchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="MasterUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MasterGuruID" Type="int" />
+          <Property Name="MasterKaryawanID" Type="int" />
+          <Property Name="Username" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="24" />
+          <Property Name="IsAdministrator" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Penjurusan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SiswaID" Type="int" Nullable="false" />
+          <Property Name="TahunAjaran" Type="int" Nullable="false" />
+          <Property Name="BahasaIndonesia" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="BahasaInggris" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Matematika" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Fisika" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Kimia" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Biologi" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Ekonomi" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Geografi" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Sosiologi" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="NilaiRataRata" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="TanggalPenilaian" Type="datetime" Nullable="false" />
+          <Property Name="Jurusan" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="KelasID" Type="int" />
+        </EntityType>
+        <Association Name="FK_GuruMataPelajaran_MasterGuru">
+          <End Role="MasterGuru" Type="SiakSmanModel.Store.MasterGuru" Multiplicity="1" />
+          <End Role="GuruMataPelajaran" Type="SiakSmanModel.Store.GuruMataPelajaran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterGuru">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GuruMataPelajaran">
+              <PropertyRef Name="MasterGuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GuruMataPelajaran_MasterMataPelajaran">
+          <End Role="MasterMataPelajaran" Type="SiakSmanModel.Store.MasterMataPelajaran" Multiplicity="1" />
+          <End Role="GuruMataPelajaran" Type="SiakSmanModel.Store.GuruMataPelajaran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterMataPelajaran">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GuruMataPelajaran">
+              <PropertyRef Name="MataPelajaranID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JadwalDetail_JadwalParent">
+          <End Role="JadwalParent" Type="SiakSmanModel.Store.JadwalParent" Multiplicity="1" />
+          <End Role="JadwalDetail" Type="SiakSmanModel.Store.JadwalDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JadwalParent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JadwalDetail">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JadwalDetail_MasterGuru">
+          <End Role="MasterGuru" Type="SiakSmanModel.Store.MasterGuru" Multiplicity="1" />
+          <End Role="JadwalDetail" Type="SiakSmanModel.Store.JadwalDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterGuru">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JadwalDetail">
+              <PropertyRef Name="GuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JadwalDetail_MasterMataPelajaran">
+          <End Role="MasterMataPelajaran" Type="SiakSmanModel.Store.MasterMataPelajaran" Multiplicity="1" />
+          <End Role="JadwalDetail" Type="SiakSmanModel.Store.JadwalDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterMataPelajaran">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JadwalDetail">
+              <PropertyRef Name="MataPelajaranID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JadwalParent_MasterKelas">
+          <End Role="MasterKelas" Type="SiakSmanModel.Store.MasterKelas" Multiplicity="1" />
+          <End Role="JadwalParent" Type="SiakSmanModel.Store.JadwalParent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterKelas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JadwalParent">
+              <PropertyRef Name="KelasID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MasterUser_MasterGuru">
+          <End Role="MasterGuru" Type="SiakSmanModel.Store.MasterGuru" Multiplicity="0..1" />
+          <End Role="MasterUser" Type="SiakSmanModel.Store.MasterUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterGuru">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MasterUser">
+              <PropertyRef Name="MasterGuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MasterUser_MasterKaryawan">
+          <End Role="MasterKaryawan" Type="SiakSmanModel.Store.MasterKaryawan" Multiplicity="0..1" />
+          <End Role="MasterUser" Type="SiakSmanModel.Store.MasterUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterKaryawan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MasterUser">
+              <PropertyRef Name="MasterKaryawanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Penjurusan_MasterKelas">
+          <End Role="MasterKelas" Type="SiakSmanModel.Store.MasterKelas" Multiplicity="0..1" />
+          <End Role="Penjurusan" Type="SiakSmanModel.Store.Penjurusan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterKelas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Penjurusan">
+              <PropertyRef Name="KelasID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Penjurusan_MasterSiswa">
+          <End Role="MasterSiswa" Type="SiakSmanModel.Store.MasterSiswa" Multiplicity="1" />
+          <End Role="Penjurusan" Type="SiakSmanModel.Store.Penjurusan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterSiswa">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Penjurusan">
+              <PropertyRef Name="SiswaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SiakSmanModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="SiakSmanEntities">
+          <EntitySet Name="MasterGuru" EntityType="SiakSmanModel.MasterGuru" />
+          <EntitySet Name="MasterKaryawan" EntityType="SiakSmanModel.MasterKaryawan" />
+          <EntitySet Name="MasterSiswa" EntityType="SiakSmanModel.MasterSiswa" />
+          <EntitySet Name="JadwalDetail" EntityType="SiakSmanModel.JadwalDetail" />
+          <EntitySet Name="JadwalParent" EntityType="SiakSmanModel.JadwalParent" />
+          <EntitySet Name="MasterKelas" EntityType="SiakSmanModel.MasterKelas" />
+          <EntitySet Name="MasterMataPelajaran" EntityType="SiakSmanModel.MasterMataPelajaran" />
+          <EntitySet Name="Penjurusan" EntityType="SiakSmanModel.Penjurusan" />
+          <AssociationSet Name="FK_JadwalDetail_JadwalParent" Association="SiakSmanModel.FK_JadwalDetail_JadwalParent">
+            <End Role="JadwalParent" EntitySet="JadwalParent" />
+            <End Role="JadwalDetail" EntitySet="JadwalDetail" /></AssociationSet>
+          <AssociationSet Name="FK_JadwalDetail_MasterGuru" Association="SiakSmanModel.FK_JadwalDetail_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="JadwalDetail" EntitySet="JadwalDetail" /></AssociationSet>
+          <AssociationSet Name="FK_JadwalDetail_MasterMataPelajaran" Association="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran">
+            <End Role="MasterMataPelajaran" EntitySet="MasterMataPelajaran" />
+            <End Role="JadwalDetail" EntitySet="JadwalDetail" /></AssociationSet>
+          <AssociationSet Name="FK_JadwalParent_MasterKelas" Association="SiakSmanModel.FK_JadwalParent_MasterKelas">
+            <End Role="MasterKelas" EntitySet="MasterKelas" />
+            <End Role="JadwalParent" EntitySet="JadwalParent" /></AssociationSet>
+          <AssociationSet Name="FK_Penjurusan_MasterSiswa" Association="SiakSmanModel.FK_Penjurusan_MasterSiswa">
+            <End Role="MasterSiswa" EntitySet="MasterSiswa" />
+            <End Role="Penjurusan" EntitySet="Penjurusan" /></AssociationSet>
+          <AssociationSet Name="FK_Penjurusan_MasterKelas" Association="SiakSmanModel.FK_Penjurusan_MasterKelas">
+            <End Role="MasterKelas" EntitySet="MasterKelas" />
+            <End Role="Penjurusan" EntitySet="Penjurusan" /></AssociationSet>
+          <EntitySet Name="MasterUser" EntityType="SiakSmanModel.MasterUser" />
+          <AssociationSet Name="FK_MasterUser_MasterGuru" Association="SiakSmanModel.FK_MasterUser_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="MasterUser" EntitySet="MasterUser" /></AssociationSet>
+          <AssociationSet Name="FK_MasterUser_MasterKaryawan" Association="SiakSmanModel.FK_MasterUser_MasterKaryawan">
+            <End Role="MasterKaryawan" EntitySet="MasterKaryawan" />
+            <End Role="MasterUser" EntitySet="MasterUser" /></AssociationSet>
+          <EntitySet Name="GuruMataPelajaran" EntityType="SiakSmanModel.GuruMataPelajaran" />
+          <AssociationSet Name="FK_GuruMataPelajaran_MasterGuru" Association="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru">
+            <End Role="MasterGuru" EntitySet="MasterGuru" />
+            <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" /></AssociationSet>
+          <AssociationSet Name="FK_GuruMataPelajaran_MasterMataPelajaran" Association="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran">
+            <End Role="MasterMataPelajaran" EntitySet="MasterMataPelajaran" />
+            <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" /></AssociationSet></EntityContainer>
+        <EntityType Name="MasterGuru">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NIP" Type="String" Nullable="false" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="GuruID" Type="String" Nullable="false" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="Nama" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="JenisKelamin" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="TempatLahir" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="TanggalLahir" Type="DateTime" Nullable="false" />
+          <Property Name="Agama" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="72" Unicode="false" FixedLength="false" />
+          <Property Name="Alamat" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Kota" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="KodePos" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelephone" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_MasterGuru" FromRole="MasterGuru" ToRole="JadwalDetail" />
+          <NavigationProperty Name="MasterUser" Relationship="SiakSmanModel.FK_MasterUser_MasterGuru" FromRole="MasterGuru" ToRole="MasterUser" />
+          <NavigationProperty Name="GuruMataPelajaran" Relationship="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru" FromRole="MasterGuru" ToRole="GuruMataPelajaran" /></EntityType>
+        <EntityType Name="MasterKaryawan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NIP" Type="String" Nullable="false" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="KaryawanID" Type="String" Nullable="false" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="Nama" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="JenisKelamin" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="TempatLahir" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="TanggalLahir" Type="DateTime" Nullable="false" />
+          <Property Name="Agama" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="72" Unicode="false" FixedLength="false" />
+          <Property Name="Alamat" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Kota" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="KodePos" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelephone" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="MasterUser" Relationship="SiakSmanModel.FK_MasterUser_MasterKaryawan" FromRole="MasterKaryawan" ToRole="MasterUser" /></EntityType>
+        <EntityType Name="MasterSiswa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NIS" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="Nama" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="JenisKelamin" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="TempatLahir" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="TanggalLahir" Type="DateTime" Nullable="false" />
+          <Property Name="Agama" Type="String" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="72" Unicode="false" FixedLength="false" />
+          <Property Name="Alamat" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Kota" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="KodePos" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelephone" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="NoHP" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="TanggalMasuk" Type="DateTime" Nullable="false" />
+          <Property Name="NamaSMPAsal" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NamaAyah" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="NamaIbu" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="AlamatOrangTua" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="KotaOrangTua" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="KodePosOrangTua" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelephoneOrangTua" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="NoHPOrangTua" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Penjurusan" Relationship="SiakSmanModel.FK_Penjurusan_MasterSiswa" FromRole="MasterSiswa" ToRole="Penjurusan" /></EntityType>
+        <EntityType Name="JadwalDetail">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="JadwalParent" Relationship="SiakSmanModel.FK_JadwalDetail_JadwalParent" FromRole="JadwalDetail" ToRole="JadwalParent" />
+          <NavigationProperty Name="MasterGuru" Relationship="SiakSmanModel.FK_JadwalDetail_MasterGuru" FromRole="JadwalDetail" ToRole="MasterGuru" />
+          <NavigationProperty Name="MasterMataPelajaran" Relationship="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" FromRole="JadwalDetail" ToRole="MasterMataPelajaran" />
+          <Property Name="JamIndex" Type="Int32" Nullable="false" /></EntityType>
+        <EntityType Name="JadwalParent">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TahunAjaran" Type="Int32" Nullable="false" />
+          <Property Name="Jurusan" Type="String" Nullable="false" />
+          <Property Name="Hari" Type="String" Nullable="false" />
+          <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_JadwalParent" FromRole="JadwalParent" ToRole="JadwalDetail" />
+          <NavigationProperty Name="MasterKelas" Relationship="SiakSmanModel.FK_JadwalParent_MasterKelas" FromRole="JadwalParent" ToRole="MasterKelas" /></EntityType>
+        <EntityType Name="MasterKelas">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TahunAjaran" Type="Int32" Nullable="false" />
+          <Property Name="Tingkat" Type="Int32" Nullable="false" />
+          <Property Name="NamaKelas" Type="String" Nullable="false" />
+          <Property Name="Keterangan" Type="String" Nullable="true" />
+          <NavigationProperty Name="JadwalParent" Relationship="SiakSmanModel.FK_JadwalParent_MasterKelas" FromRole="MasterKelas" ToRole="JadwalParent" />
+          <NavigationProperty Name="Penjurusan" Relationship="SiakSmanModel.FK_Penjurusan_MasterKelas" FromRole="MasterKelas" ToRole="Penjurusan" /></EntityType>
+        <EntityType Name="MasterMataPelajaran">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TahunAjaran" Type="Int32" Nullable="false" />
+          <Property Name="MataPelajaran" Type="String" Nullable="false" />
+          <Property Name="Silabus" Type="String" Nullable="false" />
+          <NavigationProperty Name="JadwalDetail" Relationship="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" FromRole="MasterMataPelajaran" ToRole="JadwalDetail" />
+          <NavigationProperty Name="GuruMataPelajaran" Relationship="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran" FromRole="MasterMataPelajaran" ToRole="GuruMataPelajaran" /></EntityType>
+        <EntityType Name="Penjurusan">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TahunAjaran" Type="Int32" Nullable="false" />
+          <Property Name="BahasaIndonesia" Type="Decimal" Nullable="false" />
+          <Property Name="BahasaInggris" Type="Decimal" Nullable="false" />
+          <Property Name="Matematika" Type="Decimal" Nullable="false" />
+          <Property Name="Fisika" Type="Decimal" Nullable="false" />
+          <Property Name="Kimia" Type="Decimal" Nullable="false" />
+          <Property Name="Biologi" Type="Decimal" Nullable="false" />
+          <Property Name="Ekonomi" Type="Decimal" Nullable="false" />
+          <Property Name="Geografi" Type="Decimal" Nullable="false" />
+          <Property Name="Sosiologi" Type="Decimal" Nullable="false" />
+          <Property Name="NilaiRataRata" Type="Decimal" Nullable="false" />
+          <Property Name="TanggalPenilaian" Type="DateTime" Nullable="false" />
+          <Property Name="Jurusan" Type="String" Nullable="false" />
+          <NavigationProperty Name="MasterSiswa" Relationship="SiakSmanModel.FK_Penjurusan_MasterSiswa" FromRole="Penjurusan" ToRole="MasterSiswa" />
+          <NavigationProperty Name="MasterKelas" Relationship="SiakSmanModel.FK_Penjurusan_MasterKelas" FromRole="Penjurusan" ToRole="MasterKelas" /></EntityType>
+        <Association Name="FK_JadwalDetail_JadwalParent">
+          <End Type="SiakSmanModel.JadwalParent" Role="JadwalParent" Multiplicity="1" />
+          <End Type="SiakSmanModel.JadwalDetail" Role="JadwalDetail" Multiplicity="*" /></Association>
+        <Association Name="FK_JadwalDetail_MasterGuru">
+          <End Type="SiakSmanModel.MasterGuru" Role="MasterGuru" Multiplicity="1" />
+          <End Type="SiakSmanModel.JadwalDetail" Role="JadwalDetail" Multiplicity="*" /></Association>
+        <Association Name="FK_JadwalDetail_MasterMataPelajaran">
+          <End Type="SiakSmanModel.MasterMataPelajaran" Role="MasterMataPelajaran" Multiplicity="1" />
+          <End Type="SiakSmanModel.JadwalDetail" Role="JadwalDetail" Multiplicity="*" /></Association>
+        <Association Name="FK_JadwalParent_MasterKelas">
+          <End Type="SiakSmanModel.MasterKelas" Role="MasterKelas" Multiplicity="1" />
+          <End Type="SiakSmanModel.JadwalParent" Role="JadwalParent" Multiplicity="*" /></Association>
+        <Association Name="FK_Penjurusan_MasterSiswa">
+          <End Type="SiakSmanModel.MasterSiswa" Role="MasterSiswa" Multiplicity="1" />
+          <End Type="SiakSmanModel.Penjurusan" Role="Penjurusan" Multiplicity="*" /></Association>
+        <Association Name="FK_Penjurusan_MasterKelas">
+          <End Type="SiakSmanModel.MasterKelas" Role="MasterKelas" Multiplicity="0..1" />
+          <End Type="SiakSmanModel.Penjurusan" Role="Penjurusan" Multiplicity="*" /></Association>
+        <EntityType Name="MasterUser">
+          <Key>
+            <PropertyRef Name="ID" />
+            </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="IsAdministrator" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MasterGuru" Relationship="SiakSmanModel.FK_MasterUser_MasterGuru" FromRole="MasterUser" ToRole="MasterGuru" />
+          <NavigationProperty Name="MasterKaryawan" Relationship="SiakSmanModel.FK_MasterUser_MasterKaryawan" FromRole="MasterUser" ToRole="MasterKaryawan" /></EntityType>
+        <Association Name="FK_MasterUser_MasterGuru">
+          <End Type="SiakSmanModel.MasterGuru" Role="MasterGuru" Multiplicity="0..1" />
+          <End Type="SiakSmanModel.MasterUser" Role="MasterUser" Multiplicity="*" /></Association>
+        <Association Name="FK_MasterUser_MasterKaryawan">
+          <End Type="SiakSmanModel.MasterKaryawan" Role="MasterKaryawan" Multiplicity="0..1" />
+          <End Type="SiakSmanModel.MasterUser" Role="MasterUser" Multiplicity="*" /></Association>
+        <EntityType Name="GuruMataPelajaran">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MasterGuru" Relationship="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru" FromRole="GuruMataPelajaran" ToRole="MasterGuru" />
+          <NavigationProperty Name="MasterMataPelajaran" Relationship="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran" FromRole="GuruMataPelajaran" ToRole="MasterMataPelajaran" /></EntityType>
+        <Association Name="FK_GuruMataPelajaran_MasterGuru">
+          <End Type="SiakSmanModel.MasterGuru" Role="MasterGuru" Multiplicity="1" />
+          <End Type="SiakSmanModel.GuruMataPelajaran" Role="GuruMataPelajaran" Multiplicity="*" /></Association>
+        <Association Name="FK_GuruMataPelajaran_MasterMataPelajaran">
+          <End Type="SiakSmanModel.MasterMataPelajaran" Role="MasterMataPelajaran" Multiplicity="1" />
+          <End Type="SiakSmanModel.GuruMataPelajaran" Role="GuruMataPelajaran" Multiplicity="*" /></Association></Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="SiakSmanModelStoreContainer" CdmEntityContainer="SiakSmanEntities">
+          <EntitySetMapping Name="MasterGuru">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterGuru)">
+              <MappingFragment StoreEntitySet="MasterGuru">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="GuruID" ColumnName="GuruID" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="JenisKelamin" ColumnName="JenisKelamin" />
+                <ScalarProperty Name="TempatLahir" ColumnName="TempatLahir" />
+                <ScalarProperty Name="TanggalLahir" ColumnName="TanggalLahir" />
+                <ScalarProperty Name="Agama" ColumnName="Agama" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+                <ScalarProperty Name="Kota" ColumnName="Kota" />
+                <ScalarProperty Name="KodePos" ColumnName="KodePos" />
+                <ScalarProperty Name="NoTelephone" ColumnName="NoTelephone" />
+                <ScalarProperty Name="NoHP" ColumnName="NoHP" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasterKaryawan">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterKaryawan)">
+              <MappingFragment StoreEntitySet="MasterKaryawan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="KaryawanID" ColumnName="KaryawanID" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="JenisKelamin" ColumnName="JenisKelamin" />
+                <ScalarProperty Name="TempatLahir" ColumnName="TempatLahir" />
+                <ScalarProperty Name="TanggalLahir" ColumnName="TanggalLahir" />
+                <ScalarProperty Name="Agama" ColumnName="Agama" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+                <ScalarProperty Name="Kota" ColumnName="Kota" />
+                <ScalarProperty Name="KodePos" ColumnName="KodePos" />
+                <ScalarProperty Name="NoTelephone" ColumnName="NoTelephone" />
+                <ScalarProperty Name="NoHP" ColumnName="NoHP" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasterSiswa">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterSiswa)">
+              <MappingFragment StoreEntitySet="MasterSiswa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NIS" ColumnName="NIS" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="JenisKelamin" ColumnName="JenisKelamin" />
+                <ScalarProperty Name="TempatLahir" ColumnName="TempatLahir" />
+                <ScalarProperty Name="TanggalLahir" ColumnName="TanggalLahir" />
+                <ScalarProperty Name="Agama" ColumnName="Agama" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+                <ScalarProperty Name="Kota" ColumnName="Kota" />
+                <ScalarProperty Name="KodePos" ColumnName="KodePos" />
+                <ScalarProperty Name="NoTelephone" ColumnName="NoTelephone" />
+                <ScalarProperty Name="NoHP" ColumnName="NoHP" />
+                <ScalarProperty Name="TanggalMasuk" ColumnName="TanggalMasuk" />
+                <ScalarProperty Name="NamaSMPAsal" ColumnName="NamaSMPAsal" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="NamaAyah" ColumnName="NamaAyah" />
+                <ScalarProperty Name="NamaIbu" ColumnName="NamaIbu" />
+                <ScalarProperty Name="AlamatOrangTua" ColumnName="AlamatOrangTua" />
+                <ScalarProperty Name="KotaOrangTua" ColumnName="KotaOrangTua" />
+                <ScalarProperty Name="KodePosOrangTua" ColumnName="KodePosOrangTua" />
+                <ScalarProperty Name="NoTelephoneOrangTua" ColumnName="NoTelephoneOrangTua" />
+                <ScalarProperty Name="NoHPOrangTua" ColumnName="NoHPOrangTua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JadwalDetail">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.JadwalDetail)">
+              <MappingFragment StoreEntitySet="JadwalDetail">
+                <ScalarProperty Name="JamIndex" ColumnName="JamIndex" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="JadwalParent">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.JadwalParent)">
+              <MappingFragment StoreEntitySet="JadwalParent">
+                <ScalarProperty Name="Hari" ColumnName="Hari" />
+                <ScalarProperty Name="Jurusan" ColumnName="Jurusan" />
+                <ScalarProperty Name="TahunAjaran" ColumnName="TahunAjaran" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MasterKelas">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterKelas)">
+              <MappingFragment StoreEntitySet="MasterKelas">
+                <ScalarProperty Name="Keterangan" ColumnName="Keterangan" />
+                <ScalarProperty Name="NamaKelas" ColumnName="NamaKelas" />
+                <ScalarProperty Name="Tingkat" ColumnName="Tingkat" />
+                <ScalarProperty Name="TahunAjaran" ColumnName="TahunAjaran" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MasterMataPelajaran">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterMataPelajaran)">
+              <MappingFragment StoreEntitySet="MasterMataPelajaran">
+                <ScalarProperty Name="Silabus" ColumnName="Silabus" />
+                <ScalarProperty Name="MataPelajaran" ColumnName="MataPelajaran" />
+                <ScalarProperty Name="TahunAjaran" ColumnName="TahunAjaran" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Penjurusan">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.Penjurusan)">
+              <MappingFragment StoreEntitySet="Penjurusan">
+                <ScalarProperty Name="Jurusan" ColumnName="Jurusan" />
+                <ScalarProperty Name="TanggalPenilaian" ColumnName="TanggalPenilaian" />
+                <ScalarProperty Name="NilaiRataRata" ColumnName="NilaiRataRata" />
+                <ScalarProperty Name="Sosiologi" ColumnName="Sosiologi" />
+                <ScalarProperty Name="Geografi" ColumnName="Geografi" />
+                <ScalarProperty Name="Ekonomi" ColumnName="Ekonomi" />
+                <ScalarProperty Name="Biologi" ColumnName="Biologi" />
+                <ScalarProperty Name="Kimia" ColumnName="Kimia" />
+                <ScalarProperty Name="Fisika" ColumnName="Fisika" />
+                <ScalarProperty Name="Matematika" ColumnName="Matematika" />
+                <ScalarProperty Name="BahasaInggris" ColumnName="BahasaInggris" />
+                <ScalarProperty Name="BahasaIndonesia" ColumnName="BahasaIndonesia" />
+                <ScalarProperty Name="TahunAjaran" ColumnName="TahunAjaran" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_JadwalDetail_JadwalParent" TypeName="SiakSmanModel.FK_JadwalDetail_JadwalParent" StoreEntitySet="JadwalDetail">
+            <EndProperty Name="JadwalDetail">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="JadwalParent">
+              <ScalarProperty Name="ID" ColumnName="ParentID" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_JadwalDetail_MasterGuru" TypeName="SiakSmanModel.FK_JadwalDetail_MasterGuru" StoreEntitySet="JadwalDetail">
+            <EndProperty Name="JadwalDetail">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterGuru">
+              <ScalarProperty Name="ID" ColumnName="GuruID" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_JadwalDetail_MasterMataPelajaran" TypeName="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" StoreEntitySet="JadwalDetail">
+            <EndProperty Name="JadwalDetail">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterMataPelajaran">
+              <ScalarProperty Name="ID" ColumnName="MataPelajaranID" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_JadwalParent_MasterKelas" TypeName="SiakSmanModel.FK_JadwalParent_MasterKelas" StoreEntitySet="JadwalParent">
+            <EndProperty Name="JadwalParent">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterKelas">
+              <ScalarProperty Name="ID" ColumnName="KelasID" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Penjurusan_MasterSiswa" TypeName="SiakSmanModel.FK_Penjurusan_MasterSiswa" StoreEntitySet="Penjurusan">
+            <EndProperty Name="Penjurusan">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterSiswa">
+              <ScalarProperty Name="ID" ColumnName="SiswaID" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Penjurusan_MasterKelas" TypeName="SiakSmanModel.FK_Penjurusan_MasterKelas" StoreEntitySet="Penjurusan">
+            <EndProperty Name="Penjurusan">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterKelas">
+              <ScalarProperty Name="ID" ColumnName="KelasID" /></EndProperty>
+            <Condition ColumnName="KelasID" IsNull="false" /></AssociationSetMapping>
+          <EntitySetMapping Name="MasterUser">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.MasterUser)">
+              <MappingFragment StoreEntitySet="MasterUser">
+                <ScalarProperty Name="IsAdministrator" ColumnName="IsAdministrator" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_MasterUser_MasterGuru" TypeName="SiakSmanModel.FK_MasterUser_MasterGuru" StoreEntitySet="MasterUser">
+            <EndProperty Name="MasterUser">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterGuru">
+              <ScalarProperty Name="ID" ColumnName="MasterGuruID" /></EndProperty>
+            <Condition ColumnName="MasterGuruID" IsNull="false" /></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_MasterUser_MasterKaryawan" TypeName="SiakSmanModel.FK_MasterUser_MasterKaryawan" StoreEntitySet="MasterUser">
+            <EndProperty Name="MasterUser">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterKaryawan">
+              <ScalarProperty Name="ID" ColumnName="MasterKaryawanID" /></EndProperty>
+            <Condition ColumnName="MasterKaryawanID" IsNull="false" /></AssociationSetMapping>
+          <EntitySetMapping Name="GuruMataPelajaran">
+            <EntityTypeMapping TypeName="IsTypeOf(SiakSmanModel.GuruMataPelajaran)">
+              <MappingFragment StoreEntitySet="GuruMataPelajaran">
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_GuruMataPelajaran_MasterGuru" TypeName="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru" StoreEntitySet="GuruMataPelajaran">
+            <EndProperty Name="GuruMataPelajaran">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterGuru">
+              <ScalarProperty Name="ID" ColumnName="MasterGuruID" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_GuruMataPelajaran_MasterMataPelajaran" TypeName="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran" StoreEntitySet="GuruMataPelajaran">
+            <EndProperty Name="GuruMataPelajaran">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="MasterMataPelajaran">
+              <ScalarProperty Name="ID" ColumnName="MataPelajaranID" /></EndProperty></AssociationSetMapping></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="DataModel">
+        <EntityTypeShape EntityType="SiakSmanModel.MasterGuru" Width="1.5" PointX="4.875" PointY="7" Height="4.480205078125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterKaryawan" Width="1.5" PointX="2.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterSiswa" Width="1.75" PointX="4.75" PointY="0.75" Height="5.4417122395833326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SiakSmanModel.JadwalDetail" Width="1.5" PointX="11.875" PointY="1.875" Height="1.7879850260416672" />
+        <EntityTypeShape EntityType="SiakSmanModel.JadwalParent" Width="1.5" PointX="9.625" PointY="0.875" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterKelas" Width="1.5" PointX="7.375" PointY="0.875" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterMataPelajaran" Width="1.5" PointX="9.625" PointY="5.75" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="SiakSmanModel.Penjurusan" Width="1.5" PointX="7.25" PointY="4.625" Height="3.9033007812499996" />
+        <AssociationConnector Association="SiakSmanModel.FK_JadwalDetail_JadwalParent" >
+          <ConnectorPoint PointX="11.125" PointY="2.4612939453125" />
+          <ConnectorPoint PointX="11.875" PointY="2.4612939453125" /></AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_JadwalDetail_MasterGuru" >
+          <ConnectorPoint PointX="6.375" PointY="10.131653145833333" />
+          <ConnectorPoint PointX="11.625" PointY="10.131653145833333" />
+          <ConnectorPoint PointX="11.625" PointY="7.625" />
+          <ConnectorPoint PointX="12.320311125" PointY="7.625" />
+          <ConnectorPoint PointX="12.320311125" PointY="3.8552864583333331" /></AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_JadwalDetail_MasterMataPelajaran" >
+          <ConnectorPoint PointX="11.125" PointY="6.8362939453125" />
+          <ConnectorPoint PointX="11.5" PointY="6.8362939453125" />
+          <ConnectorPoint PointX="11.5" PointY="3.1895422018229165" />
+          <ConnectorPoint PointX="11.875" PointY="3.1895422018229165" />
+          </AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_JadwalParent_MasterKelas" >
+          <ConnectorPoint PointX="8.875" PointY="1.9612939453124998" />
+          <ConnectorPoint PointX="9.625" PointY="1.9612939453124998" /></AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_Penjurusan_MasterSiswa" >
+          <ConnectorPoint PointX="6.5" PointY="5.5045068359375" />
+          <ConnectorPoint PointX="7.25" PointY="5.5045068359375" /></AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_Penjurusan_MasterKelas" />
+        <EntityTypeShape EntityType="SiakSmanModel.MasterUser" Width="1.5" PointX="0.75" PointY="5.75" Height="1.7879850260416674" />
+        <AssociationConnector Association="SiakSmanModel.FK_MasterUser_MasterGuru" >
+          <ConnectorPoint PointX="4.875" PointY="7.4612939453125" />
+          <ConnectorPoint PointX="2.25" PointY="7.4612939453125" />
+          </AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_MasterUser_MasterKaryawan" >
+          <ConnectorPoint PointX="3.5" PointY="4.8456022135416656" />
+          <ConnectorPoint PointX="3.5" PointY="6.8362939453125" />
+          <ConnectorPoint PointX="2.25" PointY="6.8362939453125" /></AssociationConnector>
+        <EntityTypeShape EntityType="SiakSmanModel.GuruMataPelajaran" Width="1.5" PointX="11.875" PointY="7.875" Height="1.5956835937499996" />
+        <AssociationConnector Association="SiakSmanModel.FK_GuruMataPelajaran_MasterGuru" >
+          <ConnectorPoint PointX="6.375" PointY="9.1268929036458317" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="9.1268929036458317" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="9.1268929036458317" />
+          <ConnectorPoint PointX="11.875" PointY="9.1268929036458317" /></AssociationConnector>
+        <AssociationConnector Association="SiakSmanModel.FK_GuruMataPelajaran_MasterMataPelajaran" >
+          <ConnectorPoint PointX="11.125" PointY="6.26189447265625" />
+          <ConnectorPoint PointX="11.416666666666666" PointY="6.2618944726562491" />
+          <ConnectorPoint PointX="11.583333333333334" PointY="6.26189447265625" />
+          <ConnectorPoint PointX="12.236977791666666" PointY="6.2618944726562491" />
+          <ConnectorPoint PointX="12.403644458333334" PointY="6.26189447265625" />
+          <ConnectorPoint PointX="12.8476555625" PointY="6.26189447265625" />
+          <ConnectorPoint PointX="12.8476555625" PointY="7.875" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

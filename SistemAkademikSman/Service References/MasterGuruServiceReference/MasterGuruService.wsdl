@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAllGuru">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllGuruResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllGuruResult" type="tns:ArrayOfMasterGuru" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMasterGuru">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MasterGuru" nillable="true" type="tns:MasterGuru" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MasterGuru">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NIP" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GuruID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nama" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JenisKelamin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TempatLahir" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TanggalLahir" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Agama" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Alamat" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Kota" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KodePos" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NoTelephone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NoHP" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Photo" type="s:base64Binary" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StructuralObject" abstract="true" />
+      <s:complexType name="EntityKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EntitySetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityContainerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityKeyValues" type="tns:ArrayOfEntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGuru">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGuruResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGuruResult" type="tns:MasterGuru" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertGuru">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mguru" type="tns:MasterGuru" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertGuruResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateGuru">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mguru" type="tns:MasterGuru" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGuruResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteGuru">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recordId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGuruResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SubmitGuruMataPelajaran">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mguru" type="tns:ArrayOfGuruMataPelajaranModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGuruMataPelajaranModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GuruMataPelajaranModel" nillable="true" type="tns:GuruMataPelajaranModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GuruMataPelajaranModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MataPelajaranId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GuruId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Crud" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubmitGuruMataPelajaranResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGuruByMataPelajaranTahunAjaran">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="matapelajaranid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tahun" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGuruByMataPelajaranTahunAjaranResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGuruByMataPelajaranTahunAjaranResult" type="tns:ArrayOfMasterGuru" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGuruByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGuruByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGuruByNameResult" type="tns:ArrayOfMasterGuru" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllGuruSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllGuru" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGuruSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllGuruResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGuruSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGuru" />
+  </wsdl:message>
+  <wsdl:message name="GetGuruSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGuruResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertGuruSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertGuru" />
+  </wsdl:message>
+  <wsdl:message name="InsertGuruSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertGuruResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGuruSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateGuru" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGuruSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateGuruResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGuruSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteGuru" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGuruSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteGuruResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitGuruMataPelajaranSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitGuruMataPelajaran" />
+  </wsdl:message>
+  <wsdl:message name="SubmitGuruMataPelajaranSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitGuruMataPelajaranResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGuruByMataPelajaranTahunAjaranSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGuruByMataPelajaranTahunAjaran" />
+  </wsdl:message>
+  <wsdl:message name="GetGuruByMataPelajaranTahunAjaranSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGuruByMataPelajaranTahunAjaranResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGuruByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGuruByName" />
+  </wsdl:message>
+  <wsdl:message name="GetGuruByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGuruByNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MasterGuruServiceSoap">
+    <wsdl:operation name="GetAllGuru">
+      <wsdl:input message="tns:GetAllGuruSoapIn" />
+      <wsdl:output message="tns:GetAllGuruSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGuru">
+      <wsdl:input message="tns:GetGuruSoapIn" />
+      <wsdl:output message="tns:GetGuruSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertGuru">
+      <wsdl:input message="tns:InsertGuruSoapIn" />
+      <wsdl:output message="tns:InsertGuruSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGuru">
+      <wsdl:input message="tns:UpdateGuruSoapIn" />
+      <wsdl:output message="tns:UpdateGuruSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGuru">
+      <wsdl:input message="tns:DeleteGuruSoapIn" />
+      <wsdl:output message="tns:DeleteGuruSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGuruMataPelajaran">
+      <wsdl:input message="tns:SubmitGuruMataPelajaranSoapIn" />
+      <wsdl:output message="tns:SubmitGuruMataPelajaranSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGuruByMataPelajaranTahunAjaran">
+      <wsdl:input message="tns:GetGuruByMataPelajaranTahunAjaranSoapIn" />
+      <wsdl:output message="tns:GetGuruByMataPelajaranTahunAjaranSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGuruByName">
+      <wsdl:input message="tns:GetGuruByNameSoapIn" />
+      <wsdl:output message="tns:GetGuruByNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MasterGuruServiceSoap" type="tns:MasterGuruServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllGuru">
+      <soap:operation soapAction="http://tempuri.org/GetAllGuru" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuru">
+      <soap:operation soapAction="http://tempuri.org/GetGuru" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertGuru">
+      <soap:operation soapAction="http://tempuri.org/InsertGuru" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGuru">
+      <soap:operation soapAction="http://tempuri.org/UpdateGuru" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGuru">
+      <soap:operation soapAction="http://tempuri.org/DeleteGuru" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGuruMataPelajaran">
+      <soap:operation soapAction="http://tempuri.org/SubmitGuruMataPelajaran" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuruByMataPelajaranTahunAjaran">
+      <soap:operation soapAction="http://tempuri.org/GetGuruByMataPelajaranTahunAjaran" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuruByName">
+      <soap:operation soapAction="http://tempuri.org/GetGuruByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MasterGuruServiceSoap12" type="tns:MasterGuruServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllGuru">
+      <soap12:operation soapAction="http://tempuri.org/GetAllGuru" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuru">
+      <soap12:operation soapAction="http://tempuri.org/GetGuru" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertGuru">
+      <soap12:operation soapAction="http://tempuri.org/InsertGuru" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGuru">
+      <soap12:operation soapAction="http://tempuri.org/UpdateGuru" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGuru">
+      <soap12:operation soapAction="http://tempuri.org/DeleteGuru" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGuruMataPelajaran">
+      <soap12:operation soapAction="http://tempuri.org/SubmitGuruMataPelajaran" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuruByMataPelajaranTahunAjaran">
+      <soap12:operation soapAction="http://tempuri.org/GetGuruByMataPelajaranTahunAjaran" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuruByName">
+      <soap12:operation soapAction="http://tempuri.org/GetGuruByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MasterGuruService">
+    <wsdl:port name="MasterGuruServiceSoap" binding="tns:MasterGuruServiceSoap">
+      <soap:address location="http://localhost:10083/MasterGuruService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MasterGuruServiceSoap12" binding="tns:MasterGuruServiceSoap12">
+      <soap12:address location="http://localhost:10083/MasterGuruService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
