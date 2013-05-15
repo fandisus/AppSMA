@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SistemAkademikSman", "SistemAkademikSman\SistemAkademikSman.vbproj", "{1E3A1FE3-98B8-473D-BDE2-FE7AA9F8B61D}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DataAccesLayer", "DataAccesLayer\DataAccesLayer.vbproj", "{92795832-58F0-4E39-BDB0-B9C2FFE07081}"
@@ -8,6 +8,10 @@ EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BusinessModel.Interfaces", "BusinessModel.Interfaces\BusinessModel.Interfaces.vbproj", "{C6595EA5-5516-4A15-B06C-252E9515CDCD}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AppSmaWebService", "WebService\AppSmaWebService.vbproj", "{32FA37BC-3559-4CAB-835F-885BC07C2B8D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Business.Models", "Business.Models\Business.Models.vbproj", "{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Siak.Core", "Siak.Core\Siak.Core.vbproj", "{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,14 @@ Global
 		{32FA37BC-3559-4CAB-835F-885BC07C2B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32FA37BC-3559-4CAB-835F-885BC07C2B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32FA37BC-3559-4CAB-835F-885BC07C2B8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

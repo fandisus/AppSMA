@@ -1,4 +1,4 @@
-﻿Public Class UserBusinessObject
+﻿Public Class UserDataObject
 
     Public Shared Function GetList() As List(Of MasterUser)
         Using entity As New SiakSmanEntities()

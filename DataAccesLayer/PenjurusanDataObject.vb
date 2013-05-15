@@ -1,4 +1,4 @@
-﻿Public Class PenjurusanBusinessObject
+﻿Public Class PenjurusanDataObject
 
     Public Shared Function GetList()
         Using entity As New SiakSmanEntities()
@@ -65,7 +65,7 @@
                     .TanggalPenilaian = DateTime.Now
                 End With
             End If
-            
+
             entity.SaveChanges()
         End Using
     End Sub

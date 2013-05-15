@@ -2,3 +2,6 @@ bin
 obj
 /AppSmaWebService
 *.dotCover
+_UpgradeReport_Files
+
+/UpgradeLog.XML
