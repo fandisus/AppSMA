@@ -15,7 +15,7 @@
     <MyType>Custom</MyType>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
-    <OptionStrict>Off</OptionStrict>
+    <OptionStrict>On</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -31,8 +31,9 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\</OutputPath>
     <DocumentationFile>AppSmaWebService.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,8 +42,9 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DocumentationFile>AppSmaWebService.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -133,9 +135,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccesLayer\DataAccesLayer.vbproj">
-      <Project>{92795832-58F0-4E39-BDB0-B9C2FFE07081}</Project>
-      <Name>DataAccesLayer</Name>
+    <ProjectReference Include="..\Business.Models\Siak.Business.Models.vbproj">
+      <Project>{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}</Project>
+      <Name>Siak.Business.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessModel.Interfaces\Siak.BusinessModel.Interfaces.vbproj">
+      <Project>{C6595EA5-5516-4A15-B06C-252E9515CDCD}</Project>
+      <Name>Siak.BusinessModel.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Siak.Core\Siak.Core.vbproj">
+      <Project>{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}</Project>
+      <Name>Siak.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

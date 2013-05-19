@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports SistemAkademikSman.GuruServiceReference
 Imports SistemAkademikSman.BusinessObject
 
 Public Class ListGuru
@@ -8,8 +9,14 @@ Public Class ListGuru
     Private Sub ListGuruLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         TextBoxNIP.Focus()
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.DataSource = GuruBusinessObject.GetList()
-        AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
+        Try
+            Using d = New GuruServiceReference.MasterGuruServiceSoapClient()
+                DataGridView1.DataSource = d.GetAllGuru().ToList()
+                AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub SearchState()
@@ -62,7 +69,10 @@ Public Class ListGuru
             Return
         End If
         recordId = Convert.ToInt32(DataGridView1.CurrentRow.Cells("ID").Value)
-        Dim mguru = GuruBusinessObject.GetGuru(recordId)
+        Dim mguru As GuruModel
+        Using service = New GuruServiceReference.MasterGuruServiceSoapClient()
+            mguru = service.GetGuru(recordId)
+        End Using
         If mguru Is Nothing Then
             Return
         End If

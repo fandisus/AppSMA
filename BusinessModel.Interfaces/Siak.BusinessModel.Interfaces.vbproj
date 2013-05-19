@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{92795832-58F0-4E39-BDB0-B9C2FFE07081}</ProjectGuid>
+    <ProjectGuid>{C6595EA5-5516-4A15-B06C-252E9515CDCD}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>DataAccesLayer</RootNamespace>
-    <AssemblyName>DataAccesLayer</AssemblyName>
+    <RootNamespace>Siak.BusinessModel.Interfaces</RootNamespace>
+    <AssemblyName>Siak.BusinessModel.Interfaces</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -43,7 +43,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>DataAccesLayer.xml</DocumentationFile>
+    <DocumentationFile>Siak.BusinessModel.Interfaces.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -53,20 +53,13 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>DataAccesLayer.xml</DocumentationFile>
+    <DocumentationFile>Siak.BusinessModel.Interfaces.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -89,23 +82,9 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessModel\GuruMataPelajaranModel.vb" />
-    <Compile Include="BusinessModel\ReportJadwalModel.vb" />
-    <Compile Include="BusinessModel\ReportKelasModel.vb" />
-    <Compile Include="GuruDataObject.vb" />
-    <Compile Include="JadwalMataPelajaranDataObject.vb" />
-    <Compile Include="KaryawanDataObject.vb" />
-    <Compile Include="KelasDataObject.vb" />
-    <Compile Include="MataPelajaraDataObject.vb" />
-    <Compile Include="PenjurusanDataObject.vb" />
-    <Compile Include="SiswaDataObject.vb" />
-    <Compile Include="UserDataObject.vb" />
-    <Compile Include="DataModel\DataModel.Designer.vb">
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ExtensionMethod.vb" />
+    <Compile Include="IGuruMataPelajaranModel.vb" />
+    <Compile Include="IGuruModel.vb" />
+    <Compile Include="IMataPelajaranModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -131,10 +110,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DataModel\DataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModel.Designer.vb</LastGenOutput>
-    </EntityDeploy>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -161,16 +136,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Business.Models\Business.Models.vbproj">
-      <Project>{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}</Project>
-      <Name>Business.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BusinessModel.Interfaces\BusinessModel.Interfaces.vbproj">
-      <Project>{C6595EA5-5516-4A15-B06C-252E9515CDCD}</Project>
-      <Name>BusinessModel.Interfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

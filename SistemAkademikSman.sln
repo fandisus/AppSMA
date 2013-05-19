@@ -2,18 +2,33 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SistemAkademikSman", "SistemAkademikSman\SistemAkademikSman.vbproj", "{1E3A1FE3-98B8-473D-BDE2-FE7AA9F8B61D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{32FA37BC-3559-4CAB-835F-885BC07C2B8D} = {32FA37BC-3559-4CAB-835F-885BC07C2B8D}
+	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DataAccesLayer", "DataAccesLayer\DataAccesLayer.vbproj", "{92795832-58F0-4E39-BDB0-B9C2FFE07081}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Siak.DataAccesLayer", "DataAccesLayer\Siak.DataAccesLayer.vbproj", "{92795832-58F0-4E39-BDB0-B9C2FFE07081}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BusinessModel.Interfaces", "BusinessModel.Interfaces\BusinessModel.Interfaces.vbproj", "{C6595EA5-5516-4A15-B06C-252E9515CDCD}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Siak.BusinessModel.Interfaces", "BusinessModel.Interfaces\Siak.BusinessModel.Interfaces.vbproj", "{C6595EA5-5516-4A15-B06C-252E9515CDCD}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AppSmaWebService", "WebService\AppSmaWebService.vbproj", "{32FA37BC-3559-4CAB-835F-885BC07C2B8D}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Business.Models", "Business.Models\Business.Models.vbproj", "{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Siak.Business.Models", "Business.Models\Siak.Business.Models.vbproj", "{8D8BCC95-F4B0-4365-9A10-1913EE63D5C1}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Siak.Core", "Siak.Core\Siak.Core.vbproj", "{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F81149A0-8F37-41F4-BE8B-F06EE42CAB2B}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		SistemAkademikSman.vsmdi = SistemAkademikSman.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Siak.Core.Test", "Siak.Core.Test\Siak.Core.Test.vbproj", "{CBE5BC08-AE4A-4C11-B919-77FF9DAD6669}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = SistemAkademikSman.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -43,6 +58,10 @@ Global
 		{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FD6EDCE-1853-4847-B97E-C39E04FEA6BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBE5BC08-AE4A-4C11-B919-77FF9DAD6669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE5BC08-AE4A-4C11-B919-77FF9DAD6669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE5BC08-AE4A-4C11-B919-77FF9DAD6669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE5BC08-AE4A-4C11-B919-77FF9DAD6669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

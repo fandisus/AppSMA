@@ -1,4 +1,6 @@
-﻿Imports BusinessModel.Interfaces
+﻿
+Imports Siak.BusinessModel.Interfaces
+
 <Serializable()> _
 Public Class GuruModel
     Implements IGuruModel

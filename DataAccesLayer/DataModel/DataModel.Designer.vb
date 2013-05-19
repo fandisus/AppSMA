@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("959807fc-70e8-473b-9ee5-32294c65cdd5")>
+<Assembly: EdmSchemaAttribute("f2f8bc04-26ee-45bf-b1d1-e5eb600db404")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_JadwalParent", "JadwalParent", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(JadwalParent), "JadwalDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail))>
 <Assembly: EdmRelationshipAttribute("SiakSmanModel", "FK_JadwalDetail_MasterGuru", "MasterGuru", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MasterGuru), "JadwalDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(JadwalDetail))>

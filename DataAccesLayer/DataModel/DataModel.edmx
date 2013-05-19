@@ -4,18 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SiakSmanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SiakSmanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SiakSmanModelStoreContainer">
-          <EntitySet Name="GuruMataPelajaran" EntityType="SiakSmanModel.Store.GuruMataPelajaran" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="JadwalDetail" EntityType="SiakSmanModel.Store.JadwalDetail" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="JadwalParent" EntityType="SiakSmanModel.Store.JadwalParent" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="MasterGuru" EntityType="SiakSmanModel.Store.MasterGuru" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="MasterKaryawan" EntityType="SiakSmanModel.Store.MasterKaryawan" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="MasterKelas" EntityType="SiakSmanModel.Store.MasterKelas" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="MasterMataPelajaran" EntityType="SiakSmanModel.Store.MasterMataPelajaran" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="MasterSiswa" EntityType="SiakSmanModel.Store.MasterSiswa" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="MasterUser" EntityType="SiakSmanModel.Store.MasterUser" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Penjurusan" EntityType="SiakSmanModel.Store.Penjurusan" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="GuruMataPelajaran" EntityType="SiakSmanModel.Store.GuruMataPelajaran" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JadwalDetail" EntityType="SiakSmanModel.Store.JadwalDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JadwalParent" EntityType="SiakSmanModel.Store.JadwalParent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterGuru" EntityType="SiakSmanModel.Store.MasterGuru" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterKaryawan" EntityType="SiakSmanModel.Store.MasterKaryawan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterKelas" EntityType="SiakSmanModel.Store.MasterKelas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterMataPelajaran" EntityType="SiakSmanModel.Store.MasterMataPelajaran" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterSiswa" EntityType="SiakSmanModel.Store.MasterSiswa" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MasterUser" EntityType="SiakSmanModel.Store.MasterUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Penjurusan" EntityType="SiakSmanModel.Store.Penjurusan" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_GuruMataPelajaran_MasterGuru" Association="SiakSmanModel.Store.FK_GuruMataPelajaran_MasterGuru">
             <End Role="MasterGuru" EntitySet="MasterGuru" />
             <End Role="GuruMataPelajaran" EntitySet="GuruMataPelajaran" />
@@ -737,6 +737,8 @@
     <edmx:Options>
       <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

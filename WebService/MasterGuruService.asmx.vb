@@ -1,8 +1,8 @@
 ﻿Imports System.Web.Services
 Imports System.ComponentModel
-Imports DataAccesLayer.BusinessModel
-Imports DataAccesLayer.BusinessObject
-Imports DataAccesLayer
+Imports Siak.BusinessModel.Interfaces
+Imports Siak.Business.Models
+Imports Siak.Core
 Imports System.Collections.ObjectModel
 
 ' To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line.
@@ -14,43 +14,80 @@ Public Class MasterGuruService
     Inherits WebService
 
     <WebMethod()> _
-    Public Function GetAllGuru() As Collection(Of MasterGuru)
-        Return GuruBusinessObject.GetList()
+    Public Function GetAllGuru() As Collection(Of GuruModel)
+        Using core = New GuruCore()
+            Dim data = core.GetListGuru()
+            Dim result = New Collection(Of GuruModel)
+            For Each guruModel In From guru In data Select New GuruModel() With { _
+                .Agama = guru.Agama, _
+                .Alamat = guru.Alamat, _
+                .Email = guru.Email, _
+                .GuruID = guru.GuruID, _
+                .ID = guru.ID, _
+                .JenisKelamin = guru.JenisKelamin, _
+                .KodePos = guru.KodePos, _
+                .Kota = guru.Kota, _
+                .NIP = guru.NIP, _
+                .Nama = guru.Nama, _
+                .NoHP = guru.NoHP, _
+                .NoTelephone = guru.NoTelephone, _
+                .Photo = guru.Photo, _
+                .TanggalLahir = guru.TanggalLahir, _
+                .TempatLahir = guru.TempatLahir _
+                }
+                result.Add(guruModel)
+            Next
+            Return result
+        End Using
     End Function
 
     <WebMethod()> _
-    Public Function GetGuru(ByVal id As Integer) As MasterGuru
-        Return GuruBusinessObject.GetGuru(id)
+    Public Function GetGuru(ByVal id As Integer) As GuruModel
+        Using core = New GuruCore()
+            Return TryCast(core.GetGuru(id), GuruModel)
+        End Using
     End Function
 
     <WebMethod()> _
-    Public Sub InsertGuru(ByVal mguru As MasterGuru)
-        GuruBusinessObject.InsertGuru(mguru)
+    Public Sub SaveGuru(ByVal mguru As GuruModel)
+        Using core = New GuruCore()
+            core.SaveGuru(mguru)
+        End Using
     End Sub
 
     <WebMethod()> _
-    Public Sub UpdateGuru(ByVal mguru As MasterGuru)
-        GuruBusinessObject.UpdateGuru(mguru)
+    Public Sub UpdateGuru(ByVal mguru As GuruModel)
+        Using core = New GuruCore()
+            core.UpdateGuru(mguru)
+        End Using
     End Sub
 
     <WebMethod()> _
     Public Sub DeleteGuru(ByVal recordId As Integer)
-        GuruBusinessObject.DeleteGuru(recordId)
+        Using core = New GuruCore()
+            core.DeleteGuru(recordId)
+        End Using
     End Sub
 
     <WebMethod()> _
     Public Sub SubmitGuruMataPelajaran(ByVal mguru As Collection(Of GuruMataPelajaranModel))
-        GuruBusinessObject.SubmitGuruMataPelajaran(mguru)
+        Using core = New GuruCore()
+            core.SubmitGuruMataPelajaran(mguru)
+        End Using
     End Sub
 
     <WebMethod()> _
-    Public Function GetGuruByMataPelajaranTahunAjaran(ByVal matapelajaranid As Integer, ByVal tahun As Integer) As Collection(Of MasterGuru)
-        Return GuruBusinessObject.GetGuru(matapelajaranid, tahun)
+    Public Function GetGuruByMataPelajaranTahunAjaran(ByVal matapelajaranid As Integer, ByVal tahun As Integer) As Collection(Of GuruModel)
+        Using core = New GuruCore()
+            Return CType(core.GetListGuru(matapelajaranid, tahun), Collection(Of GuruModel))
+        End Using
     End Function
 
     <WebMethod()> _
-    Public Function GetGuruByName(ByVal text As String) As Collection(Of MasterGuru)
-        Return GuruBusinessObject.GetListByName(text)
+    Public Function GetGuruByName(ByVal namaGuru As String) As Collection(Of GuruModel)
+        Using core = New GuruCore()
+            Return CType(core.GetListGuru(namaGuru), Collection(Of GuruModel))
+        End Using
     End Function
 
 End Class

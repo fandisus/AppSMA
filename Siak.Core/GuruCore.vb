@@ -1,18 +1,20 @@
-﻿Imports BusinessModel.Interfaces
-Imports DataAccesLayer
+﻿
 Imports System.Net.Mail
+Imports Siak.Business.Models
+Imports Siak.DataAccesLayer
+Imports Siak.BusinessModel.Interfaces
 
 Public Class GuruCore
+    Implements IDisposable
 
     Public Sub SaveGuru(gurumodel As IGuruModel)
+        ValidateGuruModel(gurumodel)
         Using dataaccess = New GuruDataObject()
-            ValidateGuruModel(gurumodel)
-            dataaccess.InsertGuru(gurumodel)
+            dataaccess.Insert(gurumodel)
         End Using
     End Sub
 
     Private Shared Sub ValidateGuruModel(ByVal gurumodel As IGuruModel)
-
         If gurumodel.Nama.Length = 0 Then
             Throw New Exception("Nama Guru harus diisi")
         End If
@@ -32,19 +34,56 @@ Public Class GuruCore
     End Sub
 
     Public Sub UpdateGuru(gurumodel As IGuruModel)
+        ValidateGuruModel(gurumodel)
         Using dataaccess = New GuruDataObject()
-            ValidateGuruModel(gurumodel)
-            dataaccess.UpdateGuru(gurumodel)
+            dataaccess.Update(gurumodel)
         End Using
     End Sub
 
     Public Sub DeleteGuru(guruId As Integer)
+        'TODO VALIDATION HERE
         Using dataaccess = New GuruDataObject()
-            dataaccess.DeleteGuru(guruId)
+            dataaccess.Delete(guruId)
         End Using
     End Sub
 
+    Public Function GetListGuru() As IEnumerable(Of IGuruModel)
+        'TODO VALIDATION HERE
+        Using dataaccess = New GuruDataObject()
+            Return dataaccess.GetList()
+        End Using
+    End Function
 
+    Public Function GetListGuru(ByVal matapelajaranid As Integer, ByVal tahun As Integer) As IEnumerable(Of IGuruModel)
+        'TODO VALIDATION HERE
+        Using dataaccess = New GuruDataObject()
+            Return dataaccess.GetListGuru(matapelajaranid, tahun)
+        End Using
+    End Function
 
+    Public Function GetGuru(id As Integer) As IGuruModel
+        'TODO VALIDATION HERE
+        Using dataaccess = New GuruDataObject()
+            Return dataaccess.Gets(id)
+        End Using
+    End Function
+
+    Public Function GetListGuru(ByVal namaGuru As String) As IEnumerable(Of IGuruModel)
+        'TODO VALIDATION HERE
+        Using dataaccess = New GuruDataObject()
+            Return dataaccess.GetListByName(namaGuru)
+        End Using
+    End Function
+
+    Public Sub SubmitGuruMataPelajaran(ByVal mguru As IEnumerable(Of GuruMataPelajaranModel))
+        'TODO VALIDATION HERE
+        Using dataaccess = New GuruDataObject()
+            dataaccess.UpdateGuruMataPelajaran(mguru)
+        End Using
+    End Sub
+
+    Public Sub Dispose() Implements IDisposable.Dispose
+
+    End Sub
 
 End Class
