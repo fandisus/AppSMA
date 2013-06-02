@@ -1,7 +1,7 @@
 ﻿
 
 Imports Siak.BusinessModel.Interfaces
-
+<Serializable()> _
 Public Class GuruMataPelajaranModel
     Implements IGuruMataPelajaranModel
 

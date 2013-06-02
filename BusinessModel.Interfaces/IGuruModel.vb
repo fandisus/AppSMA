@@ -15,4 +15,6 @@ Public Interface IGuruModel
     Property NoTelephone() As String
     Property NoHP() As String
     Property Photo() As Byte()
+    Property Crud() As Integer
+    Property MataPelajaranId() As Integer
 End Interface

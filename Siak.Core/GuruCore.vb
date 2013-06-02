@@ -10,7 +10,7 @@ Public Class GuruCore
     Public Sub SaveGuru(gurumodel As IGuruModel)
         ValidateGuruModel(gurumodel)
         Using dataaccess = New GuruDataObject()
-            dataaccess.Insert(gurumodel)
+            dataaccess.Insert(CType(gurumodel, GuruModel))
         End Using
     End Sub
 
@@ -36,7 +36,7 @@ Public Class GuruCore
     Public Sub UpdateGuru(gurumodel As IGuruModel)
         ValidateGuruModel(gurumodel)
         Using dataaccess = New GuruDataObject()
-            dataaccess.Update(gurumodel)
+            dataaccess.Update(CType(gurumodel, GuruModel))
         End Using
     End Sub
 
@@ -47,7 +47,7 @@ Public Class GuruCore
         End Using
     End Sub
 
-    Public Function GetListGuru() As IEnumerable(Of IGuruModel)
+    Public Function GetListGuru() As IList(Of GuruModel)
         'TODO VALIDATION HERE
         Using dataaccess = New GuruDataObject()
             Return dataaccess.GetList()

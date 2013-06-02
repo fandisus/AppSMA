@@ -20,5 +20,6 @@ Public Class GuruModel
     Public Property NoTelephone() As String Implements IGuruModel.NoTelephone
     Public Property NoHP() As String Implements IGuruModel.NoHP
     Public Property Photo() As Byte() Implements IGuruModel.Photo
-
+    Public Property Crud() As Integer Implements IGuruModel.Crud
+    Public Property MataPelajaranId() As Integer Implements IGuruModel.MataPelajaranId
 End Class

@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports SistemAkademikSman.GuruServiceReference
-Imports SistemAkademikSman.BusinessObject
 
 Public Class ListGuru
 
@@ -10,7 +9,7 @@ Public Class ListGuru
         TextBoxNIP.Focus()
         DataGridView1.AutoGenerateColumns = False
         Try
-            Using d = New GuruServiceReference.MasterGuruServiceSoapClient()
+            Using d = New MasterGuruServiceSoapClient()
                 DataGridView1.DataSource = d.GetAllGuru().ToList()
                 AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
             End Using
@@ -70,7 +69,7 @@ Public Class ListGuru
         End If
         recordId = Convert.ToInt32(DataGridView1.CurrentRow.Cells("ID").Value)
         Dim mguru As GuruModel
-        Using service = New GuruServiceReference.MasterGuruServiceSoapClient()
+        Using service = New MasterGuruServiceSoapClient()
             mguru = service.GetGuru(recordId)
         End Using
         If mguru Is Nothing Then
@@ -125,8 +124,9 @@ Public Class ListGuru
     End Sub
 
     Private Sub LoadList()
-
-        DataGridView1.DataSource = GuruBusinessObject.GetList()
+        Using masterGuruServiceSoapClient = New MasterGuruServiceSoapClient()
+            DataGridView1.DataSource = masterGuruServiceSoapClient.GetAllGuru()
+        End Using
     End Sub
 
     Private Sub ButtonSimpanClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonSimpan.Click
@@ -142,9 +142,11 @@ Public Class ListGuru
             Return
         End If
         Try
-            Dim mguru As New MasterGuru
+            Dim mguru As New GuruModel
             PopulateGuru(mguru)
-            GuruBusinessObject.InsertGuru(mguru)
+            Using masterGuruServiceSoapClient = New MasterGuruServiceSoapClient()
+                masterGuruServiceSoapClient.SaveGuru(mguru)
+            End Using
             LoadList()
         Catch ex As Exception
             MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -152,7 +154,7 @@ Public Class ListGuru
 
     End Sub
 
-    Private Sub PopulateGuru(ByVal mguru As MasterGuru)
+    Private Sub PopulateGuru(ByVal mguru As GuruModel)
         mguru.Agama = ComboBoxAgama.Text
         mguru.Alamat = TextBoxAlamat.Text
         mguru.Email = TextBoxEmail.Text
@@ -189,10 +191,13 @@ Public Class ListGuru
             Return
         End If
         Try
-            Dim mguru As New MasterGuru
+            Dim mguru As New GuruModel
             PopulateGuru(mguru)
             mguru.ID = recordId
-            GuruBusinessObject.UpdateGuru(mguru)
+            Using masterGuruServiceSoapClient = New MasterGuruServiceSoapClient()
+                masterGuruServiceSoapClient.UpdateGuru(mguru)
+            End Using
+
             LoadList()
         Catch ex As Exception
             MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -215,7 +220,9 @@ Public Class ListGuru
             Return
         End If
         Try
-            GuruBusinessObject.DeleteGuru(recordId)
+            Using masterGuruServiceSoapClient = New MasterGuruServiceSoapClient()
+                masterGuruServiceSoapClient.DeleteGuru(recordId)
+            End Using
             LoadList()
         Catch ex As Exception
             MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -236,6 +243,8 @@ Public Class ListGuru
     End Sub
 
     Private Sub ButtonCariNamaClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCariNama.Click
-        DataGridView1.DataSource = GuruBusinessObject.GetListByName(TextBoxNama.Text)
+        Using masterGuruServiceSoapClient = New MasterGuruServiceSoapClient()
+            masterGuruServiceSoapClient.GetGuruByName(TextBoxNama.Text)
+        End Using
     End Sub
 End Class

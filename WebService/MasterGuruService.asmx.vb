@@ -17,27 +17,7 @@ Public Class MasterGuruService
     Public Function GetAllGuru() As Collection(Of GuruModel)
         Using core = New GuruCore()
             Dim data = core.GetListGuru()
-            Dim result = New Collection(Of GuruModel)
-            For Each guruModel In From guru In data Select New GuruModel() With { _
-                .Agama = guru.Agama, _
-                .Alamat = guru.Alamat, _
-                .Email = guru.Email, _
-                .GuruID = guru.GuruID, _
-                .ID = guru.ID, _
-                .JenisKelamin = guru.JenisKelamin, _
-                .KodePos = guru.KodePos, _
-                .Kota = guru.Kota, _
-                .NIP = guru.NIP, _
-                .Nama = guru.Nama, _
-                .NoHP = guru.NoHP, _
-                .NoTelephone = guru.NoTelephone, _
-                .Photo = guru.Photo, _
-                .TanggalLahir = guru.TanggalLahir, _
-                .TempatLahir = guru.TempatLahir _
-                }
-                result.Add(guruModel)
-            Next
-            Return result
+            Return New Collection(Of GuruModel)(data)
         End Using
     End Function
 
@@ -70,9 +50,9 @@ Public Class MasterGuruService
     End Sub
 
     <WebMethod()> _
-    Public Sub SubmitGuruMataPelajaran(ByVal mguru As Collection(Of GuruMataPelajaranModel))
+    Public Sub SubmitGuruMataPelajaran(ByVal mguru As GuruMataPelajaranModel())
         Using core = New GuruCore()
-            core.SubmitGuruMataPelajaran(mguru)
+            core.SubmitGuruMataPelajaran(mguru.ToList())
         End Using
     End Sub
 

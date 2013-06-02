@@ -1,4 +1,5 @@
-﻿Imports SistemAkademikSman.BusinessObject
+﻿Imports SistemAkademikSman.GuruServiceReference
+Imports SistemAkademikSman.BusinessObject
 
 Public Class EditorJadwalMataPelajaran
 
@@ -24,16 +25,19 @@ Public Class EditorJadwalMataPelajaran
     End Sub
 
     Private Sub LoadGuru()
-        Dim sourceGuru = GuruBusinessObject.GetList().OrderBy(Function(a) a.Nama).ToList()
-        For Each comboBox In From a As Control In SplitContainer1.Panel1.Controls _
-                             Let comboBox1 = TryCast(a, ComboBox) _
-                             Where (comboBox1 IsNot Nothing) _
-                             Where a.Name.Contains("ComboBoxGuru") Select comboBox1
-            comboBox.DisplayMember = "Nama"
-            comboBox.ValueMember = "ID"
-            comboBox.DataSource = sourceGuru.ToArray().Clone()
-            comboBox.SelectedValue = String.Empty
-        Next
+        Using masterGuruServiceSoapClient = New MasterGuruServiceSoapClient()
+            Dim sourceGuru = masterGuruServiceSoapClient.GetAllGuru().OrderBy(Function(a) a.Nama).ToList()
+            For Each comboBox In From a As Control In SplitContainer1.Panel1.Controls _
+                                 Let comboBox1 = TryCast(a, ComboBox) _
+                                 Where (comboBox1 IsNot Nothing) _
+                                 Where a.Name.Contains("ComboBoxGuru") Select comboBox1
+                comboBox.DisplayMember = "Nama"
+                comboBox.ValueMember = "ID"
+                comboBox.DataSource = sourceGuru.ToArray().Clone()
+                comboBox.SelectedValue = String.Empty
+            Next
+        End Using
+        
     End Sub
 
     Private Sub MataPelajaranSelectedValueChanged(ByVal sender As Object, ByVal e As EventArgs)
@@ -45,16 +49,19 @@ Public Class EditorJadwalMataPelajaran
         RichTextBox1.Text = data.Silabus
         Dim matapelcombo = CType(sender, ComboBox)
         Dim index = matapelcombo.Name.Replace("ComboBoxMatPel", "")
-        For Each comboBox In From a As Control In SplitContainer1.Panel1.Controls _
+        Using masterGuruServiceSoapClient = New MasterGuruServiceSoapClient()
+            For Each comboBox In From a As Control In SplitContainer1.Panel1.Controls _
                              Let comboBox1 = TryCast(a, ComboBox) _
                              Where (comboBox1 IsNot Nothing) _
                              Where a.Name.Contains("ComboBoxGuru" & index) Select comboBox1
-            Dim sourceGuru = GuruBusinessObject.GetGuru(Convert.ToInt32(matapelcombo.SelectedValue), Convert.ToInt32(TextBoxTahunAjaran.Text))
-            comboBox.DisplayMember = "Nama"
-            comboBox.ValueMember = "ID"
-            comboBox.DataSource = sourceGuru.ToArray().Clone()
-            comboBox.SelectedValue = String.Empty
-        Next
+                Dim sourceGuru = masterGuruServiceSoapClient.GetGuruByMataPelajaranTahunAjaran(Convert.ToInt32(matapelcombo.SelectedValue), Convert.ToInt32(TextBoxTahunAjaran.Text))
+                comboBox.DisplayMember = "Nama"
+                comboBox.ValueMember = "ID"
+                comboBox.DataSource = sourceGuru.ToArray().Clone()
+                comboBox.SelectedValue = String.Empty
+            Next
+        End Using
+        
     End Sub
 
     Private Sub LoadMataPelajaran(ByVal tahunAjaran As Integer)
@@ -223,11 +230,11 @@ Public Class EditorJadwalMataPelajaran
         Next
     End Sub
 
-    Private Sub ButtonKeluarClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonKeluar.Click
+    Private Sub ButtonKeluarClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonKeluar.Click
         Close()
     End Sub
 
-    Private Sub TextBoxTahunAjaran_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBoxTahunAjaran.KeyDown
+    Private Sub TextBoxTahunAjaran_KeyDown(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyEventArgs) Handles TextBoxTahunAjaran.KeyDown
         If e.KeyCode = Keys.Enter Then
             LoadKelas()
             LoadMataPelajaran(Convert.ToInt32(TextBoxTahunAjaran.Text))

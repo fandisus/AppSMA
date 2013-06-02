@@ -104,7 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppHelpers.vb" />
-    <Compile Include="BusinessObject\GuruBusinessObject.vb" />
     <Compile Include="BusinessModel\GuruMataPelajaranModel.vb" />
     <Compile Include="BusinessObject\JadwalMataPelajaranBusinessObject.vb" />
     <Compile Include="BusinessObject\KaryawanBusinessObject.vb" />

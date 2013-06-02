@@ -1,28 +1,29 @@
 ﻿
 
+Imports System.Collections.ObjectModel
 Imports Siak.Business.Models
 Imports Siak.BusinessModel.Interfaces
 
 
 Public Class GuruDataObject
-    Inherits DataObjectBase(Of IGuruModel)
+    Inherits DataObjectBase(Of GuruModel)
 
-    Public Overrides Function GetList() As IEnumerable(Of IGuruModel)
+    Public Overrides Function GetList() As IList(Of GuruModel)
         Using entity As New SiakSmanEntities()
             Dim query = From data In entity.MasterGuru Order By data.ID Descending Select data
             Dim masterGurus = query.ToList()
-            Return (From guru In masterGurus Select PopulateGuruToModel(guru)).Cast(Of IGuruModel)().ToList()
+            Return (From guru In masterGurus Select PopulateGuruToModel(guru)).Cast(Of GuruModel)().ToList()
         End Using
     End Function
 
-    Public Overrides Function Gets(ByVal id As Integer) As IGuruModel
+    Public Overrides Function Gets(ByVal id As Integer) As GuruModel
         Using entity As New SiakSmanEntities()
             Dim query = (From data In entity.MasterGuru Where data.ID = id Order By data.Nama Select data).ToList().FirstOrDefault()
             Return PopulateGuruToModel(query)
         End Using
     End Function
 
-    Public Overrides Sub Insert(ByVal model As IGuruModel)
+    Public Overrides Sub Insert(ByVal model As GuruModel)
         Using entity As New SiakSmanEntities()
             entity.AddToMasterGuru(PopulateModelToEntity(model))
             entity.SaveChanges()
@@ -50,7 +51,7 @@ Public Class GuruDataObject
         Return guru
     End Function
 
-    Public Overrides Sub Update(ByVal mguru As IGuruModel)
+    Public Overrides Sub Update(ByVal mguru As GuruModel)
         Using entity As New SiakSmanEntities()
             ' ReSharper disable AccessToDisposedClosure
             Dim query = (From data In entity.MasterGuru Where data.ID = mguru.ID Select data).FirstOrDefault()

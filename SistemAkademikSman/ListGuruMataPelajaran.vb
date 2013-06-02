@@ -1,4 +1,5 @@
-﻿Imports SistemAkademikSman.BusinessModel
+﻿Imports System.Collections.ObjectModel
+Imports SistemAkademikSman.GuruServiceReference
 Imports SistemAkademikSman.BusinessObject
 
 Public Class ListGuruMataPelajaran
@@ -65,7 +66,7 @@ Public Class ListGuruMataPelajaran
         If e.KeyCode = Keys.Enter Then
             LoadComboBarang()
         End If
-        
+
     End Sub
 
     Private mGuruId As Integer
@@ -85,7 +86,7 @@ Public Class ListGuruMataPelajaran
 
     Private Sub ButtonSimpanClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonSimpan.Click
         Try
-            Dim list = New List(Of GuruMataPelajaranModel)
+            Dim list = New Collection(Of GuruMataPelajaranModel)
             For Each row As DataGridViewRow In DataGridView1.Rows
                 If row.IsNewRow Then
                     Continue For
@@ -97,13 +98,16 @@ Public Class ListGuruMataPelajaran
                 item.Id = Convert.ToInt32(row.Cells("ID").Value)
                 list.Add(item)
             Next
-            GuruBusinessObject.SubmitGuruMataPelajaran(list)
+            Using service = New MasterGuruServiceSoapClient()
+                service.SubmitGuruMataPelajaran(list.ToArray())
+            End Using
+
             MessageBox.Show(Me, "Mata pelajaran Guru berhasil Disimpan", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Close()
         Catch ex As Exception
             MessageBox.Show(Me, GetMessage(ex), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-        
+
     End Sub
 
     Private Shared Sub TextBox1_KeyPress(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress

@@ -23,14 +23,14 @@ Partial Class FormLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormLogin))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.TextBoxUserName = New System.Windows.Forms.TextBox
-        Me.TextBoxPassword = New System.Windows.Forms.TextBox
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.ButtonCancel = New System.Windows.Forms.Button
-        Me.ButtonLogin = New System.Windows.Forms.Button
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBoxUserName = New System.Windows.Forms.TextBox()
+        Me.TextBoxPassword = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.ButtonCancel = New System.Windows.Forms.Button()
+        Me.ButtonLogin = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -70,6 +70,7 @@ Partial Class FormLogin
         Me.TextBoxUserName.Name = "TextBoxUserName"
         Me.TextBoxUserName.Size = New System.Drawing.Size(144, 21)
         Me.TextBoxUserName.TabIndex = 0
+        Me.TextBoxUserName.Text = "admin"
         '
         'TextBoxPassword
         '
@@ -78,6 +79,7 @@ Partial Class FormLogin
         Me.TextBoxPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.TextBoxPassword.Size = New System.Drawing.Size(144, 21)
         Me.TextBoxPassword.TabIndex = 1
+        Me.TextBoxPassword.Text = "1"
         '
         'Label3
         '

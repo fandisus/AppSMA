@@ -34,6 +34,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="NoTelephone" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="NoHP" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Photo" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Crud" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MataPelajaranId" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetGuru">
