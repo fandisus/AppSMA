@@ -1,4 +1,4 @@
-﻿Imports SistemAkademikSman.BusinessObject
+﻿
 
 Public Class ListPenjurusan
 
@@ -209,12 +209,14 @@ Public Class ListPenjurusan
 
     Private Sub TextBoxNisKeyDown(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyEventArgs) Handles TextBoxNis.KeyDown
         If e.KeyCode = Keys.Enter Then
-            Dim siswa = SiswaBusinessObject.GetSiswa(TextBoxNis.Text)
-            If siswa Is Nothing Then
-                Throw New Exception("Siswa dengan no NIS " + TextBoxNis.Text + " tidak ditemukan didatabase")
-            End If
-            TextBoxNamaSiswa.Text = siswa.Nama
-            siswaId = siswa.ID
+            Using masterSiswaServiceSoapClient = New SiswaServiceReference.MasterSiswaServiceSoapClient
+                Dim siswa = masterSiswaServiceSoapClient.GetSiswa(TextBoxNis.Text)
+                If siswa Is Nothing Then
+                    Throw New Exception("Siswa dengan no NIS " + TextBoxNis.Text + " tidak ditemukan didatabase")
+                End If
+                TextBoxNamaSiswa.Text = siswa.Nama
+                siswaId = siswa.ID
+            End Using
         End If
     End Sub
 

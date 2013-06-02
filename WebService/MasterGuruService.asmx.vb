@@ -1,6 +1,5 @@
 ﻿Imports System.Web.Services
 Imports System.ComponentModel
-Imports Siak.BusinessModel.Interfaces
 Imports Siak.Business.Models
 Imports Siak.Core
 Imports System.Collections.ObjectModel
@@ -16,8 +15,7 @@ Public Class MasterGuruService
     <WebMethod()> _
     Public Function GetAllGuru() As Collection(Of GuruModel)
         Using core = New GuruCore()
-            Dim data = core.GetListGuru()
-            Return New Collection(Of GuruModel)(data)
+            Return New Collection(Of GuruModel)(core.GetListGuru().ToList().ConvertAll(Function(model) TryCast(model, GuruModel)))
         End Using
     End Function
 
@@ -59,14 +57,14 @@ Public Class MasterGuruService
     <WebMethod()> _
     Public Function GetGuruByMataPelajaranTahunAjaran(ByVal matapelajaranid As Integer, ByVal tahun As Integer) As Collection(Of GuruModel)
         Using core = New GuruCore()
-            Return CType(core.GetListGuru(matapelajaranid, tahun), Collection(Of GuruModel))
+            Return New Collection(Of GuruModel)(core.GetListGuru(matapelajaranid, tahun).ToList().ConvertAll(Function(model) TryCast(model, GuruModel)))
         End Using
     End Function
 
     <WebMethod()> _
     Public Function GetGuruByName(ByVal namaGuru As String) As Collection(Of GuruModel)
         Using core = New GuruCore()
-            Return CType(core.GetListGuru(namaGuru), Collection(Of GuruModel))
+            Return New Collection(Of GuruModel)(core.GetListGuru(namaGuru).ToList().ConvertAll(Function(model) TryCast(model, GuruModel)))
         End Using
     End Function
 

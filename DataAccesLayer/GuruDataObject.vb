@@ -1,14 +1,13 @@
 ﻿
 
-Imports System.Collections.ObjectModel
 Imports Siak.Business.Models
 Imports Siak.BusinessModel.Interfaces
 
 
 Public Class GuruDataObject
-    Inherits DataObjectBase(Of GuruModel)
+    Inherits DataObjectBase(Of IGuruModel)
 
-    Public Overrides Function GetList() As IList(Of GuruModel)
+    Public Overrides Function GetList() As IList(Of IGuruModel)
         Using entity As New SiakSmanEntities()
             Dim query = From data In entity.MasterGuru Order By data.ID Descending Select data
             Dim masterGurus = query.ToList()
@@ -16,14 +15,14 @@ Public Class GuruDataObject
         End Using
     End Function
 
-    Public Overrides Function Gets(ByVal id As Integer) As GuruModel
+    Public Overrides Function Gets(ByVal id As Integer) As IGuruModel
         Using entity As New SiakSmanEntities()
             Dim query = (From data In entity.MasterGuru Where data.ID = id Order By data.Nama Select data).ToList().FirstOrDefault()
             Return PopulateGuruToModel(query)
         End Using
     End Function
 
-    Public Overrides Sub Insert(ByVal model As GuruModel)
+    Public Overrides Sub Insert(ByVal model As IGuruModel)
         Using entity As New SiakSmanEntities()
             entity.AddToMasterGuru(PopulateModelToEntity(model))
             entity.SaveChanges()
@@ -51,11 +50,9 @@ Public Class GuruDataObject
         Return guru
     End Function
 
-    Public Overrides Sub Update(ByVal mguru As GuruModel)
+    Public Overrides Sub Update(ByVal mguru As IGuruModel)
         Using entity As New SiakSmanEntities()
-            ' ReSharper disable AccessToDisposedClosure
             Dim query = (From data In entity.MasterGuru Where data.ID = mguru.ID Select data).FirstOrDefault()
-            ' ReSharper restore AccessToDisposedClosure
             If (query Is Nothing) Then
                 Throw New Exception("Update failed, Data Guru " + mguru.Nama + " tidak ditemukan")
             End If
@@ -90,8 +87,8 @@ Public Class GuruDataObject
         End Using
     End Sub
 
-    Private Shared Function PopulateGuruToModel(ByVal guru As MasterGuru) As GuruModel
-        Dim guruModel = New GuruModel()
+    Private Shared Function PopulateGuruToModel(ByVal guru As MasterGuru) As IGuruModel
+        Dim guruModel As IGuruModel = New GuruModel()
         With guruModel
             .Agama = guru.Agama
             .Alamat = guru.Alamat
@@ -112,7 +109,7 @@ Public Class GuruDataObject
         Return guruModel
     End Function
 
-    Public Sub UpdateGuruMataPelajaran(ByVal mguru As IEnumerable(Of GuruMataPelajaranModel))
+    Public Sub UpdateGuruMataPelajaran(ByVal mguru As IEnumerable(Of IGuruMataPelajaranModel))
         Dim guruMataPelajaranModels = If(TryCast(mguru, List(Of GuruMataPelajaranModel)), mguru.ToList())
         If guruMataPelajaranModels.Count() = 0 Then
             Throw New Exception("Tidak ada list Mata Pelajaran untuk Guru")

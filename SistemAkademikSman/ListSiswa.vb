@@ -1,5 +1,5 @@
 ﻿Imports System.IO
-Imports SistemAkademikSman.BusinessObject
+Imports SistemAkademikSman.SiswaServiceReference
 
 Public Class ListSiswa
 
@@ -58,7 +58,10 @@ Public Class ListSiswa
     End Sub
 
     Private Sub LoadList()
-        DataGridView1.DataSource = SiswaBusinessObject.GetList()
+        Using masterSiswaServiceSoapClient = New MasterSiswaServiceSoapClient
+            DataGridView1.DataSource = masterSiswaServiceSoapClient.GetListSiswa()
+        End Using
+
     End Sub
 
     Private Sub ClearAllField()
@@ -73,14 +76,16 @@ Public Class ListSiswa
             Return
         End If
         recordId = Convert.ToInt32(DataGridView1.CurrentRow.Cells("ID").Value)
-        Dim siswa = SiswaBusinessObject.GetSiswa(recordId)
-        If siswa Is Nothing Then
-            Return
-        End If
-        PopulateData(siswa)
+        Using masterSiswaServiceSoapClient = New MasterSiswaServiceSoapClient
+            Dim siswa = masterSiswaServiceSoapClient.GetSiswa(recordId)
+            If siswa Is Nothing Then
+                Return
+            End If
+            PopulateData(siswa)
+        End Using
     End Sub
 
-    Private Sub PopulateData(ByVal siswa As MasterSiswa)
+    Private Sub PopulateData(ByVal siswa As SiswaModel)
 
         TextBoxAlamat.Text = siswa.Alamat
         TextBoxEmail.Text = siswa.Email
@@ -114,7 +119,9 @@ Public Class ListSiswa
     Private Sub ListSiswaLoad(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         TextBoxNIP.Focus()
         DataGridView1.AutoGenerateColumns = False
-        DataGridView1.DataSource = SiswaBusinessObject.GetList()
+        Using masterSiswaServiceSoapClient = New MasterSiswaServiceSoapClient
+            DataGridView1.DataSource = masterSiswaServiceSoapClient.GetListSiswa()
+        End Using
         AddHandler DataGridView1.SelectionChanged, AddressOf DataGridViewSelectionChanged
     End Sub
 
@@ -143,10 +150,12 @@ Public Class ListSiswa
             Return
         End If
         Try
-            SiswaBusinessObject.DeleteSiswa(recordId)
+            Using masterSiswaServiceSoapClient = New MasterSiswaServiceSoapClient
+                masterSiswaServiceSoapClient.DeleteSiswa(recordId)
+            End Using
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -163,17 +172,20 @@ Public Class ListSiswa
             Return
         End If
         Try
-            Dim siswa As New MasterSiswa
+            Dim siswa As New SiswaModel
             PopulateSiswa(siswa)
-            SiswaBusinessObject.InsertSiswa(siswa)
+            Using masterSiswaServiceSoapClient = New MasterSiswaServiceSoapClient
+                masterSiswaServiceSoapClient.SaveSiswa(siswa)
+            End Using
+
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
 
-    Private Sub PopulateSiswa(ByVal siswa As MasterSiswa)
+    Private Sub PopulateSiswa(ByVal siswa As SiswaModel)
         siswa.Agama = ComboBoxAgama.Text
         siswa.Alamat = TextBoxAlamat.Text
         siswa.Email = TextBoxEmail.Text
@@ -219,13 +231,16 @@ Public Class ListSiswa
             Return
         End If
         Try
-            Dim siswa As New MasterSiswa
-            PopulateSiswa(siswa)
-            siswa.ID = recordId
-            SiswaBusinessObject.UpdateSiswa(siswa)
+            Dim siswa As New SiswaModel
+            Using masterSiswaServiceSoapClient = New MasterSiswaServiceSoapClient
+                PopulateSiswa(siswa)
+                siswa.ID = recordId
+                masterSiswaServiceSoapClient.UpdateSiswa(siswa)
+            End Using
+            
             LoadList()
         Catch ex As Exception
-            MessageBox.Show(Me, AppHelpers.GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Me, GetMessage(ex), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -246,10 +261,14 @@ Public Class ListSiswa
     End Sub
 
     Private Sub ButtonCariNamaClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCariNama.Click
-        DataGridView1.DataSource = SiswaBusinessObject.GetListByName(TextBoxNama.Text)
+        Using masterSiswaServiceSoapClient = New MasterSiswaServiceSoapClient
+            DataGridView1.DataSource = masterSiswaServiceSoapClient.GetListByName(TextBoxNama.Text)
+        End Using
     End Sub
 
     Private Sub ButtonCariNisClick(ByVal sender As System.Object, ByVal e As EventArgs) Handles ButtonCariNis.Click
-        DataGridView1.DataSource = SiswaBusinessObject.GetListByNis(TextBoxNIP.Text)
+        Using masterSiswaServiceSoapClient = New MasterSiswaServiceSoapClient
+            DataGridView1.DataSource = masterSiswaServiceSoapClient.GetListByNis(TextBoxNIP.Text)
+        End Using
     End Sub
 End Class

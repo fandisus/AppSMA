@@ -88,11 +88,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterGuruService.asmx" />
+    <Content Include="MasterKelasService.asmx" />
+    <Content Include="MasterSiswaService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterGuruService.asmx.vb">
       <DependentUpon>MasterGuruService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterKelasService.asmx.vb">
+      <DependentUpon>MasterKelasService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterSiswaService.asmx.vb">
+      <DependentUpon>MasterSiswaService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />

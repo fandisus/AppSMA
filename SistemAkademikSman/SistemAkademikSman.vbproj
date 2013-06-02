@@ -104,13 +104,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppHelpers.vb" />
-    <Compile Include="BusinessModel\GuruMataPelajaranModel.vb" />
     <Compile Include="BusinessObject\JadwalMataPelajaranBusinessObject.vb" />
     <Compile Include="BusinessObject\KaryawanBusinessObject.vb" />
     <Compile Include="BusinessObject\KelasBusinessObject.vb" />
     <Compile Include="BusinessObject\MataPelajaraBusinessObject.vb" />
     <Compile Include="BusinessObject\PenjurusanBusinessObject.vb" />
-    <Compile Include="BusinessObject\SiswaBusinessObject.vb" />
     <Compile Include="BusinessObject\UserBusinessObject.vb" />
     <Compile Include="DataModel\DataModel.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -242,6 +240,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SiswaServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EditorJadwalMataPelajaran.resx">
@@ -325,11 +328,22 @@
     <None Include="Service References\GuruServiceReference\SistemAkademikSman.GuruServiceReference.GuruModel.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SiswaServiceReference\MasterSiswaService.wsdl" />
+    <None Include="Service References\SiswaServiceReference\SistemAkademikSman.SiswaServiceReference.SiswaModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="resume-photo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\SiswaServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\SiswaServiceReference\configuration.svcinfo" />
+    <None Include="Service References\SiswaServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\SiswaServiceReference\MasterSiswaService.disco" />
     <None Include="Service References\GuruServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
@@ -378,6 +392,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\GuruServiceReference\" />
+    <WCFMetadataStorage Include="Service References\SiswaServiceReference\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

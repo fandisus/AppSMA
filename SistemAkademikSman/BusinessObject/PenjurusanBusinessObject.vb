@@ -1,4 +1,6 @@
-﻿Public Class PenjurusanBusinessObject
+﻿Imports SistemAkademikSman.SiswaServiceReference
+
+Public Class PenjurusanBusinessObject
 
     Public Shared Function GetList()
         Using entity As New SiakSmanEntities()
@@ -65,7 +67,7 @@
                     .TanggalPenilaian = DateTime.Now
                 End With
             End If
-            
+
             entity.SaveChanges()
         End Using
     End Sub
@@ -120,7 +122,7 @@
         End Using
     End Sub
 
-    Public Shared Sub SetPenjurusan(ByVal siswa As MasterSiswa, ByVal kelas As MasterKelas, ByVal tahunajaran As Integer)
+    Public Shared Sub SetPenjurusan(ByVal siswa As SiswaModel, ByVal kelas As MasterKelas, ByVal tahunajaran As Integer)
         Using entity As New SiakSmanEntities()
             Dim query = (From data In entity.Penjurusan.Include("MasterKelas").Include("MasterSiswa") Where data.MasterSiswa.ID = siswa.ID And data.TahunAjaran = tahunajaran).FirstOrDefault()
             If (query Is Nothing) Then
