@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SaveSiswa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:SiswaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SiswaModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agama" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alamat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlamatOrangTua" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JenisKelamin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KodePos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KodePosOrangTua" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Kota" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KotaOrangTua" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nama" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NamaAyah" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NamaIbu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NamaSMPAsal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoHP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoHPOrangTua" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoTelephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoTelephoneOrangTua" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Penjurusan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TempatLahir" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Photo" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="TanggalLahir" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TanggalMasuk" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NIS" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveSiswaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateSiswa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:SiswaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSiswaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteSiswa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siswaid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSiswaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListSiswa">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListSiswaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListSiswaResult" type="tns:ArrayOfSiswaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiswaModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiswaModel" nillable="true" type="tns:SiswaModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetListByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nama" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListByNameResult" type="tns:ArrayOfSiswaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListByNis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nis" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListByNisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListByNisResult" type="tns:ArrayOfSiswaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiswa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recordId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiswaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiswaResult" type="tns:SiswaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiswaByJurusan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tahun" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jurusan" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tahunajaran" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiswaByJurusanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiswaByJurusanResult" type="tns:ArrayOfSiswaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiswaByTahunAngkatan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tahun" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiswaByTahunAngkatanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiswaByTahunAngkatanResult" type="tns:ArrayOfSiswaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveSiswaSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveSiswa" />
+  </wsdl:message>
+  <wsdl:message name="SaveSiswaSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveSiswaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSiswaSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSiswa" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSiswaSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSiswaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSiswaSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSiswa" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSiswaSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSiswaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSiswaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListSiswa" />
+  </wsdl:message>
+  <wsdl:message name="GetListSiswaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListSiswaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListByName" />
+  </wsdl:message>
+  <wsdl:message name="GetListByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListByNisSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListByNis" />
+  </wsdl:message>
+  <wsdl:message name="GetListByNisSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListByNisResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiswaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiswa" />
+  </wsdl:message>
+  <wsdl:message name="GetSiswaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiswaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiswaByJurusanSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiswaByJurusan" />
+  </wsdl:message>
+  <wsdl:message name="GetSiswaByJurusanSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiswaByJurusanResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiswaByTahunAngkatanSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiswaByTahunAngkatan" />
+  </wsdl:message>
+  <wsdl:message name="GetSiswaByTahunAngkatanSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiswaByTahunAngkatanResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MasterSiswaServiceSoap">
+    <wsdl:operation name="SaveSiswa">
+      <wsdl:input message="tns:SaveSiswaSoapIn" />
+      <wsdl:output message="tns:SaveSiswaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSiswa">
+      <wsdl:input message="tns:UpdateSiswaSoapIn" />
+      <wsdl:output message="tns:UpdateSiswaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSiswa">
+      <wsdl:input message="tns:DeleteSiswaSoapIn" />
+      <wsdl:output message="tns:DeleteSiswaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiswa">
+      <wsdl:input message="tns:GetListSiswaSoapIn" />
+      <wsdl:output message="tns:GetListSiswaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListByName">
+      <wsdl:input message="tns:GetListByNameSoapIn" />
+      <wsdl:output message="tns:GetListByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListByNis">
+      <wsdl:input message="tns:GetListByNisSoapIn" />
+      <wsdl:output message="tns:GetListByNisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswa">
+      <wsdl:input message="tns:GetSiswaSoapIn" />
+      <wsdl:output message="tns:GetSiswaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswaByJurusan">
+      <wsdl:input message="tns:GetSiswaByJurusanSoapIn" />
+      <wsdl:output message="tns:GetSiswaByJurusanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswaByTahunAngkatan">
+      <wsdl:input message="tns:GetSiswaByTahunAngkatanSoapIn" />
+      <wsdl:output message="tns:GetSiswaByTahunAngkatanSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MasterSiswaServiceSoap" type="tns:MasterSiswaServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveSiswa">
+      <soap:operation soapAction="http://tempuri.org/SaveSiswa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSiswa">
+      <soap:operation soapAction="http://tempuri.org/UpdateSiswa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSiswa">
+      <soap:operation soapAction="http://tempuri.org/DeleteSiswa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiswa">
+      <soap:operation soapAction="http://tempuri.org/GetListSiswa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListByName">
+      <soap:operation soapAction="http://tempuri.org/GetListByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListByNis">
+      <soap:operation soapAction="http://tempuri.org/GetListByNis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswa">
+      <soap:operation soapAction="http://tempuri.org/GetSiswa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswaByJurusan">
+      <soap:operation soapAction="http://tempuri.org/GetSiswaByJurusan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswaByTahunAngkatan">
+      <soap:operation soapAction="http://tempuri.org/GetSiswaByTahunAngkatan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MasterSiswaServiceSoap12" type="tns:MasterSiswaServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveSiswa">
+      <soap12:operation soapAction="http://tempuri.org/SaveSiswa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSiswa">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSiswa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSiswa">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSiswa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiswa">
+      <soap12:operation soapAction="http://tempuri.org/GetListSiswa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListByName">
+      <soap12:operation soapAction="http://tempuri.org/GetListByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListByNis">
+      <soap12:operation soapAction="http://tempuri.org/GetListByNis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswa">
+      <soap12:operation soapAction="http://tempuri.org/GetSiswa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswaByJurusan">
+      <soap12:operation soapAction="http://tempuri.org/GetSiswaByJurusan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiswaByTahunAngkatan">
+      <soap12:operation soapAction="http://tempuri.org/GetSiswaByTahunAngkatan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MasterSiswaService">
+    <wsdl:port name="MasterSiswaServiceSoap" binding="tns:MasterSiswaServiceSoap">
+      <soap:address location="http://localhost:10083/MasterSiswaService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MasterSiswaServiceSoap12" binding="tns:MasterSiswaServiceSoap12">
+      <soap12:address location="http://localhost:10083/MasterSiswaService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
