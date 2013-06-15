@@ -10,6 +10,7 @@ System Requirement
 .NET Framework 3.5 SP1<br/>
 Visual Studio 2008 SP1<br/>
 Microsoft Sql Server 2005 Express Ed.<br/>
+Microsoft Reports (RDLC) <br/>
 
 Lisensi
 =======
